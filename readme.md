@@ -52,6 +52,19 @@ When creating new component tags, we recommend _not_ using `stencil` in the comp
 
 Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
 
+## Making a Stencil Component
+The easiest way of creating a stencil component is using this cli as documentation here: https://www.npmjs.com/package/st-cc
+
+To install: 
+```bash
+yarn global add st-cc
+```
+
+To add a new component
+```bash
+st-cc cc-newcomponent
+```
+
 
 ## Using this component
 
