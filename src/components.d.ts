@@ -12,40 +12,57 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface MyComponent {
+  interface CcdesignFooter {
     'first': string;
     'last': string;
-    'middle': string;
   }
-  interface MyComponentAttributes extends StencilHTMLAttributes {
+  interface CcdesignFooterAttributes extends StencilHTMLAttributes {
     'first'?: string;
     'last'?: string;
-    'middle'?: string;
+  }
+
+  interface CcdesignHeader {
+    'first': string;
+    'last': string;
+  }
+  interface CcdesignHeaderAttributes extends StencilHTMLAttributes {
+    'first'?: string;
+    'last'?: string;
   }
 }
 
 declare global {
   interface StencilElementInterfaces {
-    'MyComponent': Components.MyComponent;
+    'CcdesignFooter': Components.CcdesignFooter;
+    'CcdesignHeader': Components.CcdesignHeader;
   }
 
   interface StencilIntrinsicElements {
-    'my-component': Components.MyComponentAttributes;
+    'ccdesign-footer': Components.CcdesignFooterAttributes;
+    'ccdesign-header': Components.CcdesignHeaderAttributes;
   }
 
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  interface HTMLCcdesignFooterElement extends Components.CcdesignFooter, HTMLStencilElement {}
+  var HTMLCcdesignFooterElement: {
+    prototype: HTMLCcdesignFooterElement;
+    new (): HTMLCcdesignFooterElement;
+  };
+
+  interface HTMLCcdesignHeaderElement extends Components.CcdesignHeader, HTMLStencilElement {}
+  var HTMLCcdesignHeaderElement: {
+    prototype: HTMLCcdesignHeaderElement;
+    new (): HTMLCcdesignHeaderElement;
   };
 
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement
+    'ccdesign-footer': HTMLCcdesignFooterElement
+    'ccdesign-header': HTMLCcdesignHeaderElement
   }
 
   interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'ccdesign-footer': HTMLCcdesignFooterElement;
+    'ccdesign-header': HTMLCcdesignHeaderElement;
   }
 
 
