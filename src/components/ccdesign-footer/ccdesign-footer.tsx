@@ -2,17 +2,16 @@ import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-footer',
-  styleUrl: 'ccdesign-footer.scss'
+  styleUrl: 'ccdesign-footer.scss',
+  shadow: false
 })
 export class CcdesignFooter {
-  @Prop() first: string;
-  @Prop() last: string;
+  @Prop() backgroundColor: string;
+  @Prop() text: string;
 
   render() {
     return (
-      <div>
-        Hello, my name is {this.first} {this.last}
-      </div>
+      <div class="footer" innerHTML={this.text} />
     );
   }
 }
