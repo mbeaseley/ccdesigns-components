@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "git+https://github.com/mbeaseley/ccdesigns-components.git"
   },
   "author": "Ionic Team",
   "license": "MIT",
