@@ -1,0 +1,31 @@
+h1,
+h2 {
+  @extend %heading;
+  font-size: 46px;
+  line-height: 0.9em;
+  font-weight: bolder;
+  color: $cc-grey1;
+
+  @media (max-width: $screen-xs-min) { font-size: 39px; }
+}
+
+h2,
+h3 {
+  color: $cc-white;
+}
+
+p {
+  @extend %base;
+  font-size: 16px;
+  color: $cc-white;
+
+  @media (max-width: $screen-xs-min) { font-size: 14px; }
+}
+
+// li {
+//   @extend %margin-bottom-5;
+//   font-size: 16px;
+//   color: $cc-white;
+
+//   @media (max-width: $screen-xs-min) { font-size: 14px; }
+// }

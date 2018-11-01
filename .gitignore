@@ -24,3 +24,6 @@ UserInterfaceState.xcuserstate
 .env
 
 package-lock.json
+
+src/components.d.ts
+*.d.ts
