@@ -1,8 +1,8 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'ccdesign-footer',
-  styleUrl: 'ccdesign-footer.scss',
+  tag: "ccdesign-footer",
+  styleUrl: "ccdesign-footer.scss",
   shadow: false
 })
 export class CcdesignFooter {
@@ -10,8 +10,6 @@ export class CcdesignFooter {
   @Prop() text: string;
 
   render() {
-    return (
-      <div class="footer" innerHTML={this.text} />
-    );
+    return <div class="footer" innerHTML={this.text} />;
   }
 }

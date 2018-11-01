@@ -13,7 +13,9 @@ export const config: Config = {
     }
   ],
   plugins: [ 
-    sass("src/styles/styles_rules.scss")
+    sass({
+      injectGlobalPaths: ["src/styles/styles_rules.scss"]
+    })
   ],
   globalStyle: "src/global/global.scss"
 };
