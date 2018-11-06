@@ -1,0 +1,79 @@
+ccdesign-cv-template {
+  .page {
+    overflow: hidden;
+    background-color: $cc-black;
+    
+    &__body {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      width: 100vw;
+      height: 97vh;
+
+      &--left::-webkit-scrollbar {
+        display: none;
+      }
+  
+      &--left {
+        padding: 0 0 10px 0;
+        margin-top: 60px;
+        flex: 1 1 50vw;
+        order: 1;
+        min-width: 387px;
+        overflow: auto;
+        overflow-x: hidden;
+  
+        @media screen and (max-width: $screen-xs-max) {
+          margin-top: 0;
+        }
+  
+        .component {
+          text-align: center;
+          margin-left: 100px;
+          margin-right: 50px;
+  
+          @media (max-width: $screen-sm-max ) {
+            margin-left: 20px;
+          }
+  
+          &__container {
+            margin-bottom: 16px;
+            text-align: left;
+  
+            a {
+              color: $cc-light-blue;
+            }
+          }
+        }
+      }
+      &--right {
+        background-color: $cc-grey1;
+        height: 97vh;
+        flex: 2 2 50vw;
+        order: 2;
+        min-width: 387px;
+      }
+  
+      @media screen and (max-width: $screen-xs-max) {
+        position: relative;
+        top: 52px;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        height: 95vh;
+  
+        &--left {
+          order: 2;
+          padding: 0 0 60px 0;
+          flex: 1 1 140vw;
+        }
+        &--right {
+          order: 1;
+          min-height: 35vh;
+          max-height: 35vh;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+}
