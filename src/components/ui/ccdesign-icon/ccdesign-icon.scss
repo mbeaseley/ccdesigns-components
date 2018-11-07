@@ -1,1 +1,22 @@
-ccdesign-icon {}
+$background-colors: (
+  white: $cc-white,
+  light-grey: $cc-grey1,
+  grey: $cc-grey2, 
+  dark-grey: $cc-grey3,
+  black: $cc-black
+) !default;
+
+@mixin addColor($color) {
+  color: $color;
+}
+
+@each $type, $color in $background-colors {
+  .icon--#{$type} {
+    @include addColor($color);
+  }
+}
+ccdesign-icon {
+  .icon {
+    fill: currentColor;
+  }
+}
