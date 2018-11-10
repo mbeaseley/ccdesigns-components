@@ -12,6 +12,14 @@ export class CcdesignIcon {
   @Element() iconEl: HTMLElement;
 
   componentDidLoad() {
+    this.loadSVGIcon();
+  }
+
+  componentWillUpdate() {
+    this.loadSVGIcon();
+  }
+
+  loadSVGIcon() {
     let iconResult = this.iconEl.querySelector("use");
     let ajax = new XMLHttpRequest();
 
@@ -36,9 +44,19 @@ export class CcdesignIcon {
       console.error(`${this.iconColor} is not a defined color. Default color is used.`);
       inputColor = `icon--dark-grey`;
     }
+
+    let inputSize;
+    const sizes = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"];
+    if (sizes.indexOf(this.iconSize) > -1) {
+      inputSize = `icon--${this.iconSize}`;
+    } else {
+      console.error(`${this.iconSize} is not a defined size for an icon. It has been set to default size of xs`);
+      inputSize = "icon--xs";
+    }
+
     return (
-      <svg class={`icon ${inputColor}`}>
-        <use xhreflink={`#${this.iconName}`}/>
+      <svg class={`icon ${inputColor} ${inputSize}`}>
+        <use xlinkHref={`#${this.iconName}`}/>
       </svg>
     );
   }
