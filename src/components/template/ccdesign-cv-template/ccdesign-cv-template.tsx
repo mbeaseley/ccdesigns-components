@@ -23,8 +23,7 @@ export class CcdesignCvTemplate {
         </main>
 
         <ccdesign-footer 
-          background-color="dark-grey" 
-          text="© 2018 Copyright: Michael Beaseley">
+          entry-id="5bhxaC8TyEY80eECO4uQA4">
         </ccdesign-footer>
       </div>
     );
