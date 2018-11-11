@@ -1,10 +1,11 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-cv-template',
   styleUrl: 'ccdesign-cv-template.scss'
 })
 export class CcdesignCvTemplate {
+  @Prop() footerEntry: string;
 
   render() {
     return (
@@ -23,7 +24,7 @@ export class CcdesignCvTemplate {
         </main>
 
         <ccdesign-footer 
-          entry-id="5bhxaC8TyEY80eECO4uQA4">
+          entry-id={`${this.footerEntry}`}>
         </ccdesign-footer>
       </div>
     );
