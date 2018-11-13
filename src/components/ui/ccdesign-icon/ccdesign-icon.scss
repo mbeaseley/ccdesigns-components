@@ -28,86 +28,71 @@ ccdesign-icon {
     text-transform: none;
     vertical-align: middle;
     fill: currentColor;
-  }
 
-  &--xxs {
-    width: 25px;
-    height: 25px;
-    font-size: 25px;
-  }
-
-  &--xs {
-    width: 30px;
-    height: 30px;
-    font-size: 30px;
-  }
-  &--sm {
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-  }
-  &--md {
-    width: 48px;
-    height: 48px;
-    font-size: 48px;
-
-    @media (min-width: $screen-lg-min) {
+    &--xxs {
+      width: 25px;
+      height: 25px;
+    }
+  
+    &--xs {
+      width: 30px;
+      height: 30px;
+    }
+    &--sm {
+      width: 40px;
+      height: 40px;
+    }
+    &--md {
+      width: 48px;
+      height: 48px;
+  
+      @media (min-width: $screen-lg-min) {
+        width: 60px;
+        height: 60px;
+      }
+      @media (min-width: $screen-md-min) {
+        width: 52px;
+        height: 52px;
+      }
+    }
+    &--lg {
       width: 60px;
       height: 60px;
-      font-size: 60px;
+  
+      @media (min-width: $screen-lg-min) {
+        width: 80px;
+        height: 80px;
+      }
+      @media (min-width: $screen-md-min) {
+        width: 68px;
+        height: 68px;
+      }
     }
-    @media (min-width: $screen-md-min) {
-      width: 52px;
-      height: 52px;
-      font-size: 52px;
-    }
-  }
-  &--lg {
-    width: 60px;
-    height: 60px;
-    font-size: 60px;
-
-    @media (min-width: $screen-lg-min) {
+    &--xl {
       width: 80px;
       height: 80px;
-      font-size: 80px;
+  
+      @media (min-width: $screen-lg-min) {
+        width: 112px;
+        height: 112px;
+      }
+      @media (min-width: $screen-md-min) {
+        width: 96px;
+        height: 96px;
+      }
     }
-    @media (min-width: $screen-md-min) {
-      width: 68px;
-      height: 68px;
-      font-size: 68px;
-    }
-  }
-  &--xl {
-    width: 80px;
-    height: 80px;
-    font-size: 80px;
-
-    @media (min-width: $screen-lg-min) {
-      width: 112px;
-      height: 112px;
-      font-size: 112px;
-    }
-    @media (min-width: $screen-md-min) {
-      width: 96px;
-      height: 96px;
-      font-size: 96px;
-    }
-  }
-  &--xxl {
-    width: 100px;
-    height: 100px;
-    font-size: 100px;
-
-    @media (min-width: $screen-lg-min) {
-      width: 144px;
-      height: 144px;
-      font-size: 144px;
-    }
-    @media (min-width: $screen-md-min) {
-      width: 112px;
-      height: 112px;
-      font-size: 112px;
+    &--xxl {
+      width: 100px;
+      height: 100px;
+  
+      @media (min-width: $screen-lg-min) {
+        width: 144px;
+        height: 144px;
+      }
+      @media (min-width: $screen-md-min) {
+        width: 112px;
+        height: 112px;
+      }
     }
   }
 }
