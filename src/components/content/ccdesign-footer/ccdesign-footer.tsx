@@ -23,15 +23,13 @@ export class CcdesignFooter {
     contentfulDataFetch(opts)
     .then(parseData)
     .then(results => {
-      this.backgroundColor = results.backgroundColor;
-      this.text = results.text;
+      this.backgroundColor = results[0].fields.backgroundColor;
+      this.text = results[0].fields.text;
     })
   }
 
   componentWillLoad() {
-    if(!this.entryId) {
-      return false
-    }
+    if(!this.entryId) return false;
 
     this.loadContent();
   }
