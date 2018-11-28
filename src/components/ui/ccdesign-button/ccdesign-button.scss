@@ -1,1 +1,25 @@
-ccdesign-button {}
+ccdesign-button {
+  position: relative;
+  display: block;
+
+  .btn {
+    display: inline-block;
+    height: 45px;
+    padding: 0 10px;
+    text-align: center;
+    border: 2px solid;
+    text-decoration: none;
+    cursor: pointer;
+    
+    &.btn--text {
+      background-color: transparent;
+      border-color: transparent;
+      color: $cc-grey1;
+      // @include addColours();
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
