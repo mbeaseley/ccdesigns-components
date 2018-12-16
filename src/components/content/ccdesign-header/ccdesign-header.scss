@@ -1,161 +1,44 @@
 ccdesign-header {
-  .header {
+  header {
     position: fixed;
-    display: flex;
     width: 50vw;
-    z-index: 100;
-    padding: 8.8px 4px 8.8px 100px;
+    z-index: 1;
 
-    @media screen and (max-width: $screen-xs-max) {
-      width: 100vw;
-      background-color: $cc-black;
-      padding: 0 0 8.8px 0;
-      min-height: 54px;
-    }
-
-    &__logo {
-      display: flex;
-      align-items: center;
-      margin-right: 1rem;
-      font-size: 1.25rem;
-      line-height: inherit;
-      white-space: nowrap;
-
-      @media screen and (max-width: $screen-xs-max) {
-        margin-left: 12px;
-      }
-
-      &--container {
-        vertical-align: middle;
-        border-style: none;
-      }
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      
-      @media screen and (min-width: $screen-xs-max) {
-        flex-flow: row nowrap;
-        justify-content: center;
-      }
+    .navbar {
+      position: relative;
+      padding: 12px 4px 5px 0;
+      margin-left: 100px;
+      box-shadow: none;
 
       &__list {
         display: flex;
-        flex-direction: row;
-        padding-left: 0;
-        margin-bottom: 0;
+        align-items: center;
         list-style: none;
+        padding: 0;
+        margin: 0;
+
+        img {
+          margin-right: 16px;
+        }
+      }
+
+      &__item {
+        display: inline-block;
       }
 
       &__link {
         color: $cc-grey1;
         padding: 1px 7px;
+        text-decoration: none;
 
-        &:active {
+        &--active {
           color: $cc-light-blue;
         }
 
         &:hover {
           color: $cc-white;
-          text-decoration: none;
         }
       }
     }
   }
-
-  // header {
-  //   position: fixed;
-  //   width: 50vw;
-  //   z-index: 100;
-
-  //   @media screen and (max-width: $screen-xs-max) {
-  //     width: 100vw;
-  //     background-color: $cc-black;
-  //   }
-  //   .navbar {
-  //     min-height: 63px;
-  //     margin-bottom: 0px;
-  //   }
-  // }
-
-  // .page {
-  //   overflow: hidden;
-  
-  //   &__header {
-  //     position: fixed;
-  //     width: 50vw;
-  //     z-index: 1;
-  
-  //     @media screen and (max-width: $screen-xs-max) {
-  //       width: 100vw;
-  //       background-color: $cc-black;
-  //     }
-      
-  //     .navbar {
-  //       position: relative;
-  //       padding: 4.8px 4px 4.8px 0;
-  //       margin-left: 100px;
-  //       box-shadow: none;
-  
-  //       @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  //         .navbar-brand {
-  //           margin-left: 18px;
-  //         }
-  //       }
-  
-  //       &--hidden {
-  //         display: none !important;
-  //       }
-  
-  //       button {
-  //         cursor: pointer;
-  //       }
-  
-  //       &__back {
-  //         position: absolute;
-  //         margin-right: 10px;
-  //         right: 0;
-  //         background: transparent;
-  //         color: $cc-grey-color;
-  //         border-color: $cc-grey-border;
-  
-  //         .icon-size {
-  //           margin-top: 3px;
-  //           font-size: 20px;
-  //         }
-  
-  //         @media screen and (max-width: $screen-xs-max) { 
-  //           position: relative;
-  //           margin-right: 10px;
-  //           left: 0;
-  //         }
-  //       }
-  
-  //       @media screen and (max-width: $screen-sm-max) { margin-left: 0; }
-  
-  //       @media screen and (max-width: $screen-xs-max) {
-  //         z-index: 1;
-  //         text-align: center;
-  
-  //         img {
-  //           margin-left: 12px;
-  //         }
-  //       }
-  
-  //       .nav-link {
-  //         color: $cc-grey1;
-  //         padding: 1px 7px;
-  //       }
-  
-  //       .nav-link:hover {
-  //         color: $cc-white;
-  //       }
-  
-  //       .active {
-  //         color: $cc-light-blue;
-  //       }
-  //     }
-  //   }
-  // }
 }

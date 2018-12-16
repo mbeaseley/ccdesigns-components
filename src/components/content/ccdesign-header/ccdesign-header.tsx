@@ -1,98 +1,84 @@
-import { Component, Prop, State } from '@stencil/core';
-// import { contentfulDataFetch, parseData } from '../../../services/contentful';
+import { Component, Prop, State, Element } from "@stencil/core";
+import data from "./nav-data-content";
 
 import { NavDataItem } from './nav-data-item';
-import data from './nav-data-content';
- 
+
 @Component({
-  tag: 'ccdesign-header',
-  styleUrl: 'ccdesign-header.scss'
+  tag: "ccdesign-header",
+  styleUrl: "ccdesign-header.scss"
 })
-export class CcdesignHeader {
-  @Prop() entryId: string;
-  @Prop({ mutable: true }) urlNameObject: any = [];
+export class TalkHeader {
+  @Prop() section: string = "home";
   @Prop({ context: 'isClient' }) private isClient: boolean;
-  
+
+  @State() initialized: boolean = false;
   @State() isMobileLayout: boolean;
 
-  constructor() {
-    this.headerLayout = this.headerLayout.bind(this);
-  }
+  @Element() el: HTMLElement;
 
-  handleLoad() {
-    if(this.isClient) {
-      const layoutQuery: MediaQueryList = window.matchMedia("(min-width: 768px)");
-      this.headerLayout(layoutQuery);
-      layoutQuery.addListener(this.headerLayout);
+  handleLoad() { // wait for window to load so window object can be used
+    if (this.isClient) {
+      const desktopLayoutQuery: MediaQueryList = window.matchMedia("(min-width: 768px)")
+      this.determinHeaderLayout(desktopLayoutQuery);
+      desktopLayoutQuery.addListener(this.determinHeaderLayout);
     }
-  }
-
-  headerLayout(layoutQuery) {
-    this.isMobileLayout = layoutQuery.matches ? false : true;
-  }
-  // loadContent() {
-  //   let opts = {}
-  //   const keyArr = ['space','field', 'entryId'];
-
-  //   keyArr.forEach(key => {
-  //     if(this[key]) opts[key] = this[key];
-  //   })
-
-  //   contentfulDataFetch(opts)
-  //   .then(parseData)
-  //   .then(results => {
-  //     let resultsLength = results.Entry.length;
-  //     let resultsNew;
-  //     for (let i = 0; i < resultsLength; i++) {
-  //       resultsNew = {
-  //         name: `${results.Entry[i].fields.name}`,
-  //         url: `${results.Entry[i].fields.url}`
-  //       }
-  //       this.urlNameObject.push(resultsNew);
-  //     }
-
-  //     console.log(this.urlNameObject);
-  //   })
-  // }
+  } 
 
   componentWillLoad() {
-    // if(!this.entryId) return false;
-
-    // this.loadContent();
     this.handleLoad();
+  }
+
+  componentDidLoad() {
+    let urlPathName = window.location.pathname;
+    urlPathName = urlPathName.replace('/', '');
+    
+    if(urlPathName === '') {
+      urlPathName = 'home';
+    }
+
+    console.log(urlPathName);
+
+    let elResult = this.el.querySelector(`#${urlPathName}`);
+    elResult.classList.add('navbar__link--active')
+
+  }
+
+  constructor() { 
+    this.determinHeaderLayout = this.determinHeaderLayout.bind(this);
+  }
+
+  determinHeaderLayout(desktopLayoutQuery) {
+    this.isMobileLayout = desktopLayoutQuery.matches ? false : true;
   }
 
   getNav(data: NavDataItem[]): JSX.Element {
     return (
-      <ul class="nav__list">
-      {data.map((item: NavDataItem) => (
-        <li class="nav__item">
-          <a class="nav__link" href={item.url}>{item.name}</a>
-        </li>
-      ))}
+      <ul class={`navbar__list`}>
+        <img src="../../../assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
+        {data.map((item: NavDataItem) => (
+          <li
+            class={`navbar__item`}
+          >
+            <a
+              id={item.id}
+              href={item.url}
+              class={`navbar__link`}          
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
       </ul>
     );
   }
 
   render() {
-    const ccdesignLogo = (
-      <div class="header__logo">
-        <a class="header__logo--container">
-          <img src="./assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
-        </a>
-      </div>
-    );
 
-    const mobileNav = (<mobile-nav aria-label="Main Navigation" nav-data={data} />);
-    const desktopNav = (
-      <nav class="nav" aria-label="Main Navigation">
-        {this.getNav(data)}
-      </nav>
-    );
+    const mobileNav = <mobile-nav aria-label="Main Navigation" data={data} />;
+    const desktopNav = <nav class="navbar" aria-label="Main Navigation">{this.getNav(data)}</nav>;
 
     return (
       <header class="header">
-        {ccdesignLogo}
         {this.isMobileLayout ? mobileNav : desktopNav}
       </header>
     );

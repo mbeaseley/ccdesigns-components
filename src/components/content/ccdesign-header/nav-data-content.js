@@ -1,13 +1,16 @@
 const data = [
   {
+    "id" : "home",
     "name" : "Home",
     "url" : "/"
   },
   {
+    "id" : "portfolio",
     "name" : "Portfolio",
-    "url" : "/portfolio",
+    "url" : "/portfolio"
   },
   { 
+    "id" : "contact",
     "name" : "Contact",
     "url" : "/contact"
   }

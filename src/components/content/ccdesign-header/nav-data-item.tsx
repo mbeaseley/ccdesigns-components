@@ -1,6 +1,6 @@
 export interface NavDataItem {
-  // id?: string;
+  id?: string;
   url: string;
   name: string;
-  // children?: NavDataItem[];
+  children?: NavDataItem[];
 }
