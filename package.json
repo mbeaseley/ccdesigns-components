@@ -6,6 +6,12 @@
   "main": "dist/index.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
+  "author": "Ionic Team",
+  "license": "MIT",
+  "homepage": "https://github.com/ionic-team/stencil",
+  "engines": {
+    "node": ">=8.10"
+  },
   "files": [
     "dist/",
     "www/"
@@ -18,22 +24,19 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@stencil/core": "~0.16.0",
-    "@stencil/sass": "^0.1.1",
-    "@stencil/utils": "^0.0.5",
-    "bootstrap-sass": "^3.3.7",
-    "tslint": "^5.11.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mbeaseley/ccdesigns-components.git"
   },
-  "author": "Ionic Team",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ionic-team/stencil"
   },
-  "homepage": "https://github.com/ionic-team/stencil"
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/core": "~0.16.1",
+    "@stencil/sass": "^0.1.1",
+    "@stencil/utils": "^0.0.5",
+    "bootstrap-sass": "^3.4.0",
+    "tslint": "^5.12.0"
+  }
 }
