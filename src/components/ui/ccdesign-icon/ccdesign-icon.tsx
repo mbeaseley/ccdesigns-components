@@ -6,8 +6,8 @@ import { Component, Prop, Element } from '@stencil/core';
 })
 export class CcdesignIcon {
   @Prop() iconName: string;
-  @Prop() iconSize: string = "icon--xs";
-  @Prop() iconColor: string = "icon--white";
+  @Prop() iconSize: string = "xs";
+  @Prop() iconColor: string = "white";
 
   @Element() iconEl: HTMLElement;
 
