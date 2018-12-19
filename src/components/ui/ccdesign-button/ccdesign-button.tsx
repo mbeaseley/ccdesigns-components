@@ -1,4 +1,4 @@
-import { Component, Prop, EventEmitter, Event } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-button',
@@ -11,19 +11,10 @@ export class CcdesignButton {
   @Prop() type: string;
   @Prop() eventName: string;
 
-  @Event() buttonEvent: EventEmitter;
-
-  onClickEvent(clickEvent) {
-    if(this.eventName) {
-      clickEvent.preventDefault();
-      this.buttonEvent.emit({url: this.url, name: this.eventName});
-    }
-  }
-
   render() {
     const TagType = this.url ? 'a' : 'button';
 
-    const attribute = TagType === 'a' ? {href: this.url} : "";
+    const attribute = TagType === 'button' ? {type: this.type} : {href: this.url};
 
     const classList = {
       btn: true,
@@ -33,11 +24,10 @@ export class CcdesignButton {
 
     return (
       <TagType
-      {...attribute}
-      class={ classList }
-      onClick={this.onClickEvent.bind(this)}>
-        <slot name="icon"/>
-        {this.text}
+        {...attribute}
+        class={ classList }>
+          <slot />
+          {this.text}
       </TagType>
     );
   }
