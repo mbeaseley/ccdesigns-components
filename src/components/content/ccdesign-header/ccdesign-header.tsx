@@ -16,7 +16,7 @@ export class TalkHeader {
 
   @Element() el: HTMLElement;
 
-  handleLoad() { // wait for window to load so window object can be used
+  handleLoad() {
     if (this.isClient) {
       const desktopLayoutQuery: MediaQueryList = window.matchMedia('(min-width: 768px)')
       this.determinHeaderLayout(desktopLayoutQuery);

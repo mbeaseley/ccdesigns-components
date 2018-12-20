@@ -25,10 +25,8 @@ export class MobileNav {
     urlPathName = urlPathName.replace('/', '');
     if(urlPathName === '') { urlPathName = 'home' }
     let elResult = this.el.querySelector(`#${urlPathName}`);
-    console.log(elResult)
     elResult.classList.add('active');
     elResult = this.el.querySelector(`li #${urlPathName}`);
-    console.log(elResult)
     elResult.classList.add('active');
   }
 
