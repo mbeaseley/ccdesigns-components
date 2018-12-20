@@ -60,13 +60,12 @@ ccdesign-cv-template {
   
       @media screen and (max-width: $screen-xs-max) {
         position: relative;
-        top: 52px;
         -webkit-flex-direction: column;
         flex-direction: column;
+        height: 92vh;
   
         &--left {
           order: 2;
-          padding: 0 0 60px 0;
           flex: 1 1 140vw;
         }
         &--right {
