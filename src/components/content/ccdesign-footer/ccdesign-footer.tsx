@@ -9,8 +9,8 @@ import { contentfulDataFetch, parseData } from '../../../services/contentful';
 export class CcdesignFooter {
   @Prop() entryId: string;
   @Prop({ mutable: true }) backgroundColor: string;
-  @Prop({ mutable: true }) text: string;
-  @Prop({ mutable: true }) inputColor: string;
+  @Prop({ mutable: true }) text: string = '© 2018 Copyright: Michael Beaseley';
+  @Prop({ mutable: true }) inputColor: string = 'dark-grey';
 
   loadContent() {
     let opts = {}
