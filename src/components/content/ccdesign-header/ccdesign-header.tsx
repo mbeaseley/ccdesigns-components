@@ -1,14 +1,14 @@
-import { Component, Prop, State, Element } from "@stencil/core";
-import data from "./nav-data-content";
+import { Component, Prop, State, Element } from '@stencil/core';
+import data from './nav-data-content';
 
 import { NavDataItem } from './nav-data-item';
 
 @Component({
-  tag: "ccdesign-header",
-  styleUrl: "ccdesign-header.scss"
+  tag: 'ccdesign-header',
+  styleUrl: 'ccdesign-header.scss'
 })
 export class TalkHeader {
-  @Prop() section: string = "home";
+  @Prop() section: string = 'home';
   @Prop({ context: 'isClient' }) private isClient: boolean;
 
   @State() initialized: boolean = false;
@@ -18,7 +18,7 @@ export class TalkHeader {
 
   handleLoad() { // wait for window to load so window object can be used
     if (this.isClient) {
-      const desktopLayoutQuery: MediaQueryList = window.matchMedia("(min-width: 768px)")
+      const desktopLayoutQuery: MediaQueryList = window.matchMedia('(min-width: 768px)')
       this.determinHeaderLayout(desktopLayoutQuery);
       desktopLayoutQuery.addListener(this.determinHeaderLayout);
     }
@@ -31,16 +31,9 @@ export class TalkHeader {
   componentDidLoad() {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
-    
-    if(urlPathName === '') {
-      urlPathName = 'home';
-    }
-
-    console.log(urlPathName);
-
+    if(urlPathName === '') { urlPathName = 'home' }
     let elResult = this.el.querySelector(`#${urlPathName}`);
-    elResult.classList.add('navbar__link--active')
-
+    return elResult.classList.add('active');
   }
 
   constructor() { 
@@ -54,11 +47,9 @@ export class TalkHeader {
   getNav(data: NavDataItem[]): JSX.Element {
     return (
       <ul class={`navbar__list`}>
-        <img src="../../../assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
+        <img src='../../../assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
         {data.map((item: NavDataItem) => (
-          <li
-            class={`navbar__item`}
-          >
+          <li class={`navbar__item`}>
             <a
               id={item.id}
               href={item.url}
@@ -74,11 +65,11 @@ export class TalkHeader {
 
   render() {
 
-    const mobileNav = <mobile-nav aria-label="Main Navigation" data={data} />;
-    const desktopNav = <nav class="navbar" aria-label="Main Navigation">{this.getNav(data)}</nav>;
+    const mobileNav = (<mobile-nav aria-label='Main Navigation' data={data} />);
+    const desktopNav = (<nav class='navbar' aria-label='Main Navigation'>{this.getNav(data)}</nav>);
 
     return (
-      <header class="header">
+      <header class='header'>
         {this.isMobileLayout ? mobileNav : desktopNav}
       </header>
     );

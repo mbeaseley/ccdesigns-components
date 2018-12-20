@@ -1,42 +1,44 @@
 ccdesign-header {
-  header {
-    position: fixed;
-    width: 50vw;
-    z-index: 1;
+  @media(min-width: $screen-sm-min) {
+    .header {
+        position: fixed;
+        width: 50vw;
+        z-index: 1;
+    
+      .navbar {
+        position: relative;
+        padding: 12px 4px 5px 0;
+        margin-left: 100px;
+        box-shadow: none;
 
-    .navbar {
-      position: relative;
-      padding: 12px 4px 5px 0;
-      margin-left: 100px;
-      box-shadow: none;
+        &__list {
+          display: flex;
+          align-items: center;
+          list-style: none;
+          padding: 0;
+          margin: 0;
 
-      &__list {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        img {
-          margin-right: 16px;
-        }
-      }
-
-      &__item {
-        display: inline-block;
-      }
-
-      &__link {
-        color: $cc-grey1;
-        padding: 1px 7px;
-        text-decoration: none;
-
-        &--active {
-          color: $cc-light-blue;
+          img {
+            margin-right: 16px;
+          }
         }
 
-        &:hover {
-          color: $cc-white;
+        &__item {
+          display: inline-block;
+        }
+
+        &__link {
+          color: $cc-grey1;
+          padding: 1px 7px;
+          text-decoration: none;
+
+          &.active {
+            color: $cc-light-blue;
+          }
+
+          &:hover {
+            color: $cc-white;
+          }
         }
       }
     }
