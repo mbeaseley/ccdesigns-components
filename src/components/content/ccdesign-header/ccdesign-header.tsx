@@ -47,7 +47,7 @@ export class TalkHeader {
   getNav(data: NavDataItem[]): JSX.Element {
     return (
       <ul class={`navbar__list`}>
-        <img src='../../../assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
+        <img src='assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
         {data.map((item: NavDataItem) => (
           <li class={`navbar__item`}>
             <a
