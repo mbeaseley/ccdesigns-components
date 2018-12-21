@@ -37,6 +37,7 @@ export class CcdesignFooter {
   render() {
     if(!this.entryId) {
       this.text = '© 2018 Copyright: Michael Beaseley';
+      this.backgroundColor = 'dark-grey'
       return (
         <div class={`footer ${this.inputColor}`} innerHTML={`${this.text}`}></div>
       );
