@@ -20,14 +20,18 @@ mobile-nav {
     &__header {
       padding: 12px 4px 10px 0;
       background-color: $cc-black;
-
-      img {
-        margin-left: 12px;
-      } 
+      min-height: 52px;
+      text-align: center;
 
       ccdesign-button {
-        float: right;
+        float: left;
       }
+
+      img {
+        position: absolute;
+        z-index: 5;
+        left: 47vw;
+      } 
     }
 
     &__mobile {

@@ -37,21 +37,21 @@ export class MobileNav {
     );
 
     const openNav = (
-      <ccdesign-button type='text' color='grey' onClick={()=> this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}>
-        <ccdesign-icon icon-name='bars' icon-color='grey' icon-size='xs' />
+      <ccdesign-button text='Menu' type='text' color='grey' onClick={()=> this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}>
+        <ccdesign-icon slot='icon' icon-name='bars' icon-color='grey' icon-size='xs' />
       </ccdesign-button>
     );
 
     const closeNav = (
       <ccdesign-button type='text' color='grey' onClick={()=> this.closeNav()}>
-        <ccdesign-icon icon-name='times' icon-color='grey' icon-size='xs' />
+        <ccdesign-icon slot='icon' icon-name='times' icon-color='grey' icon-size='xs' />
       </ccdesign-button>
     );
 
     const navHeader = (
       <div class='navbar__header'>
-        {logo}
         {openNav}
+        {logo}
       </div>
     );
 
@@ -77,7 +77,6 @@ export class MobileNav {
     const navbar = (
       <nav class={`navbar__mobile ${!this.isNavOpen ? 'hide-left' : 'hide-right'}`}>
         <div class="navbar__mobile__sub-header">
-          {logo}
           {closeNav}
         </div>
         {[getNav()]}

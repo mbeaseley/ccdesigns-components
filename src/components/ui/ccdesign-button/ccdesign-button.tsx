@@ -26,8 +26,8 @@ export class CcdesignButton {
       <TagType
         {...attribute}
         class={ classList }>
-          <slot />
-          {this.text}
+          <slot name = 'icon'/>
+          <span>{this.text}</span>
       </TagType>
     );
   }
