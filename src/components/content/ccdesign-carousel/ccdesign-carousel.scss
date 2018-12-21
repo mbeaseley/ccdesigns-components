@@ -1,0 +1,29 @@
+ccdesign-carousel {
+  .carousel {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    .slides {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+  }
+}
