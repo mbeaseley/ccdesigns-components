@@ -30,7 +30,7 @@ export class MobileNav {
     elResult.classList.add('active');
   }
 
-  render() {
+  render() { 
 
     const logo = (
       <img src='assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
