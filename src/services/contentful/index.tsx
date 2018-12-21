@@ -21,7 +21,7 @@ function contentfulDataFetch(object:any) {
   const config = getConfig(options.space);
 
   const token = config.deliveryToken;
-  const url = `http://cdn.contentful.com/spaces/${config.id}/entries?include=10&sys.id=${options.entryId}&access_token=${token}`;
+  const url = `https://cdn.contentful.com/spaces/${config.id}/entries?include=10&sys.id=${options.entryId}&access_token=${token}`;
 
   return dataFetch(url).then(results => {
     if(!results || Object.keys(results).length == 0 ) throw new Error('No Content Entry Found');
