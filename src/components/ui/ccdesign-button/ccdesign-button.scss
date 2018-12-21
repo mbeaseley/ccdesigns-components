@@ -1,0 +1,18 @@
+ccdesign-button {
+  .btn {
+    display: inline-block;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    
+    &.btn--text {
+      background-color: transparent;
+      border-color: transparent;
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
