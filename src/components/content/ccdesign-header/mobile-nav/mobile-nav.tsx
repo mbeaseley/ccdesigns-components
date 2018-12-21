@@ -33,7 +33,7 @@ export class MobileNav {
   render() {
 
     const logo = (
-      <img src='/assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
+      <img src='assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
     );
 
     const openNav = (
