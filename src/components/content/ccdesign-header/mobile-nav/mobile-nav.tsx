@@ -20,18 +20,21 @@ export class MobileNav {
     this.isNavOpen = false;
   }
 
+  addClass() {
+
+  }
+
   componentDidLoad() {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if(urlPathName === '') { urlPathName = 'home' }
-    let elResult = this.el.querySelector(`#${urlPathName}`);
-    elResult.classList.add('active');
-    elResult = this.el.querySelector(`li #${urlPathName}`);
-    elResult.classList.add('active');
+    let elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
+    [].forEach.call(elResult, (elResult) => {
+      elResult.classList.add('active');
+    });
   }
 
-  render() {
-
+  render() { 
     const logo = (
       <img src='assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
     );

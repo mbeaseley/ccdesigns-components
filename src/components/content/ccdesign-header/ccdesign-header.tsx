@@ -32,8 +32,10 @@ export class TalkHeader {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if(urlPathName === '') { urlPathName = 'home' }
-    let elResult = this.el.querySelector(`#${urlPathName}`);
-    return elResult.classList.add('active');
+    let elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
+    [].forEach.call(elResult, (elResult) => {
+      elResult.classList.add('active');
+    });
   }
 
   constructor() { 
