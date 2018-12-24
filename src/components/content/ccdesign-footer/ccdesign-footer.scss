@@ -23,6 +23,7 @@ $background-colors: (
 
 ccdesign-footer {
   .footer {
+    @extend %heading;
     position: fixed;
     bottom: 0;
     left: 0;

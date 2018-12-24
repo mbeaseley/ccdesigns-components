@@ -22,6 +22,10 @@ p {
   @media (max-width: $screen-xs-min) { font-size: 14px; }
 }
 
+a {
+  @extend %heading;
+}
+
 li {
   font-size: 16px;
   color: $cc-white;
