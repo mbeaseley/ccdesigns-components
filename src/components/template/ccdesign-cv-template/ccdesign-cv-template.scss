@@ -21,8 +21,8 @@ ccdesign-cv-template {
       }
   
       &--left {
-        padding: 0 0 10px 0;
-        margin-top: 60px;
+        padding-bottom: 10px;
+        margin-top: 55px;
         flex: 1 1 50vw;
         order: 1;
         min-width: 387px;
@@ -32,23 +32,14 @@ ccdesign-cv-template {
         @media screen and (max-width: $screen-xs-max) {
           margin-top: 0;
         }
-  
-        .component {
-          text-align: center;
+
+        & > * {
+          text-align: left;
           margin-left: 100px;
-          margin-right: 50px;
-  
+          margin-right: 60px;
+
           @media (max-width: $screen-sm-max ) {
             margin-left: 20px;
-          }
-  
-          &__container {
-            margin-bottom: 16px;
-            text-align: left;
-  
-            a {
-              color: $cc-light-blue;
-            }
           }
         }
       }
