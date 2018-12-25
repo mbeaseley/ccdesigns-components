@@ -20,7 +20,7 @@ mobile-nav {
     &__header {
       padding: 12px 4px 10px 0;
       background-color: $cc-black;
-      min-height: 52px;
+      min-height: 30px;
       text-align: center;
 
       ccdesign-button {
@@ -43,7 +43,7 @@ mobile-nav {
       background-color: $cc-grey4;
 
       &__sub-header {
-        min-height: 52px;
+        min-height: 30px;
         padding: 12px 4px 10px 0;
         background-color: $cc-black;
 
