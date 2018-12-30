@@ -15,14 +15,15 @@ export class CcdesignCvTemplate {
           entry-id={`${this.headerEntry}`}>
         </ccdesign-header>
 
-        <main class="page">
-          <content class="page__body">
-            <div class="page__body--left">
-              <slot name="left-side" />
+        <main class='page'>
+          <content class='page__body'>
+            <div class='page__body--left'>
+              <slot name='left-side' />
             </div>
-            <div class="page__body--right">
-              <slot name="right-side" />
+            <div class='page__body--right'>
+              <slot name='right-side' />
             </div>
+            <slot name='container'/>
           </content>
         </main>
 
