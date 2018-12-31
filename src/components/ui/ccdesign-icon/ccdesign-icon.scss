@@ -3,7 +3,8 @@ $background-colors: (
   light-grey: $cc-grey1,
   grey: $cc-grey2, 
   dark-grey: $cc-grey3,
-  black: $cc-black
+  black: $cc-black,
+  blue: $cc-icons-blue,
 ) !default;
 
 @mixin addColor($color) {

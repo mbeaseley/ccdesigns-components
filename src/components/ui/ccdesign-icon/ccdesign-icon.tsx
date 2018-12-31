@@ -6,8 +6,8 @@ import { Component, Prop, Element } from '@stencil/core';
 })
 export class CcdesignIcon {
   @Prop() iconName: string;
-  @Prop() iconSize: string = "xs";
-  @Prop() iconColor: string = "white";
+  @Prop() iconSize: string = 'xs';
+  @Prop() iconColor: string = 'white';
 
   @Element() iconEl: HTMLElement;
 
@@ -20,10 +20,10 @@ export class CcdesignIcon {
   }
 
   loadSVGIcon() {
-    let iconResult = this.iconEl.querySelector("use");
+    let iconResult = this.iconEl.querySelector('use');
     let ajax = new XMLHttpRequest();
 
-    ajax.open("GET",`https://ccdesigns.blob.core.windows.net/icons/${this.iconName}` + ".svg", true);
+    ajax.open('GET',`https://ccdesigns.blob.core.windows.net/icons/${this.iconName}` + '.svg', true);
     ajax.onload = () => {
       let iconResponse = ajax.responseText;
       iconResponse = iconResponse.replace(
@@ -37,7 +37,7 @@ export class CcdesignIcon {
 
   render() {
     let inputColor;
-    const backgroundColors = ["white", "light-grey", "grey", "dark-grey", "black"];
+    const backgroundColors = ['white', 'light-grey', 'grey', 'dark-grey', 'black', 'blue'];
     if (backgroundColors.indexOf(this.iconColor) > -1) {
       inputColor = `icon--${this.iconColor}`;
     } else {
@@ -46,12 +46,12 @@ export class CcdesignIcon {
     }
 
     let inputSize;
-    const sizes = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"];
+    const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
     if (sizes.indexOf(this.iconSize) > -1) {
       inputSize = `icon--${this.iconSize}`;
     } else {
       console.error(`${this.iconSize} is not a defined size for an icon. It has been set to default size of xs`);
-      inputSize = "icon--xs";
+      inputSize = 'icon--xs';
     }
 
     return (
