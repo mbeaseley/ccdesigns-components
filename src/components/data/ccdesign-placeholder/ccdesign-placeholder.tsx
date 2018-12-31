@@ -8,7 +8,7 @@ export class CcdesignPlaceholder {
 
   render() {
     return (
-      <slot name='container'/>
+      <slot />
     );
   }
 }
