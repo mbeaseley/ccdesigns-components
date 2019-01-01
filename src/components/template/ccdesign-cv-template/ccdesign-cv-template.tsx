@@ -8,7 +8,7 @@ import { MetaData } from './meta-data';
 })
 export class CcdesignCvTemplate {
   @Prop() header: string;
-  @Prop() footerEntry: string;
+  @Prop() footer: string;
   @Prop() pageMeta: any;
   metaData: MetaData;
 
@@ -74,7 +74,7 @@ export class CcdesignCvTemplate {
         </main>
 
         <ccdesign-footer 
-          entry-id={`${this.footerEntry}`}>
+          data={`${this.footer}`}>
         </ccdesign-footer>
       </div>
     );

@@ -1,50 +1,25 @@
 import { Component, Prop } from "@stencil/core";
-import { contentfulDataFetch, parseData } from '../../../services/contentful';
+
+import { footerItem } from './footer-item'; 
 
 @Component({
   tag: "ccdesign-footer",
-  styleUrl: "ccdesign-footer.scss",
-  shadow: false
+  styleUrl: "ccdesign-footer.scss"
 })
 export class CcdesignFooter {
-  @Prop() entryId: string;
-  @Prop({ mutable: true }) backgroundColor: string;
-  @Prop({ mutable: true }) text: string = '© 2018 Copyright: Michael Beaseley';
-  @Prop({ mutable: true }) inputColor: string = 'dark-grey';
-
-  loadContent() {
-    let opts = {}
-    const keyArr = ['space','field', 'entryId'];
-
-    keyArr.forEach(key => {
-      if(this[key]) opts[key] = this[key];
-    })
-
-    contentfulDataFetch(opts)
-    .then(parseData)
-    .then(results => {
-      this.backgroundColor = results[0].fields.backgroundColor;
-      this.text = results[0].fields.text;
-    })
-  }
+  @Prop() data: string;
+  @Prop({ mutable: true }) dataContent: footerItem;
 
   componentWillLoad() {
-    if(!this.entryId) return false;
-
-    this.loadContent();
+    let newData = this.data.replace(/(\bid|\btext|\bbackgroundColor+?):/g, '"$1":');
+    newData = newData.replace(/'/g, '"');
+    this.dataContent = JSON.parse(newData);
   }
  
   render() {
-    if(!this.entryId) {
-      this.text = '© 2018 Copyright: Michael Beaseley';
-      this.backgroundColor = 'dark-grey'
-      return (
-        <div class={`footer ${this.inputColor}`} innerHTML={`${this.text}`}></div>
-      );
-    }
-
+    
     return (
-      <div class={`footer footer--${this.backgroundColor}`} innerHTML={`${this.text}`}></div>
+      <div class={`footer footer--${this.dataContent.backgroundColor}`} innerHTML={`${this.dataContent.text}`}></div>
     );
   }
 }
