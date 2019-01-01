@@ -24,7 +24,6 @@ export class TalkHeader {
     let newData = this.data.replace(/([a-z]+?):/g, '"$1":');
     newData = newData.replace(/'/g, '"');
     this.formattedData = JSON.parse(newData);
-    console.log(this.formattedData);
   }
 
   handleLoad() {
