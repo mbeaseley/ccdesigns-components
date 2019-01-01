@@ -21,15 +21,8 @@
     "dev": "stencil build --dev --watch --serve",
     "prod": "stencil build --prod --watch --serve",
     "start": "npm run dev",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mbeaseley/ccdesigns-components.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
+    "test": "jest --coverage --coverageDirectory=coverage/jest --env=jsdom",
+    "test.watch": "jest --watch"
   },
   "dependencies": {
     "@stencil/helmet": "^0.3.0-2"
@@ -38,6 +31,40 @@
     "@stencil/core": "~0.16.1",
     "@stencil/sass": "^0.1.1",
     "@stencil/utils": "^0.0.5",
+    "@types/jest": "^23.3.11",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
     "tslint": "^5.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbeaseley/ccdesigns-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/stencil"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/@stencil/(?!helmet)"
+    ],
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.(ts|tsx|js|jsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "testEnvironment": "node"
   }
 }
