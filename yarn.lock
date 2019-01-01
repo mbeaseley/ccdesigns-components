@@ -11,6 +11,11 @@
     jsdom "11.11.0"
     typescript "~3.1.6"
 
+"@stencil/helmet@^0.3.0-2":
+  version "0.3.0-2"
+  resolved "https://registry.yarnpkg.com/@stencil/helmet/-/helmet-0.3.0-2.tgz#b3494e794334f0ffc991df78a8c48ad024253755"
+  integrity sha512-uVwQazBsrGGATIZZXuHf2vFWqMUllvxW6BAGgcV9nFwVF7gPZobsMaD66XODNg6h9GoEQtn3dHUcMiMBc05HtA==
+
 "@stencil/sass@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@stencil/sass/-/sass-0.1.1.tgz#5be4b174ecdda0a71895e08d4df0cf4c7c9dfdb3"

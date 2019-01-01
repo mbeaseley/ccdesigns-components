@@ -1,4 +1,6 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, Watch } from '@stencil/core';
+import Helmet from '@stencil/helmet';
+import { MetaData } from './meta-data';
 
 @Component({
   tag: 'ccdesign-cv-template',
@@ -7,13 +9,55 @@ import { Component, Prop } from '@stencil/core';
 export class CcdesignCvTemplate {
   @Prop() headerEntry: string;
   @Prop() footerEntry: string;
+  @Prop() pageMeta: any;
+  metaData: MetaData;
+
+  componentWillLoad() {
+    this.metaHandler(this.pageMeta);
+  }
+
+  @Watch('pageMeta')
+  metaHandler(newMetaData: any) {
+    if (typeof newMetaData === 'string') {
+      try {
+        // let newData = newMetaData.replace(/(\btitle|\bdescription|\bimageUrl+?):/g, '"$1":');
+        // newData = newData.replace(/'/g, '"');
+        newMetaData = JSON.parse(newMetaData);
+      } catch (err) {
+          // console.warn('Template Meta Data: error parsing data string', newMetaData);
+      }
+    }
+
+    if(typeof newMetaData === 'object') {
+      this.metaData = newMetaData || {};
+    } else {
+      // console.warn('template meta data prop invalid', newMetaData);
+    }
+  }
+
+  updateMetaData() {
+    // let imageUrl = this.metaData.imageUrl;
+    return (
+      <Helmet>
+        <meta name='description' content={this.metaData.description} />
+        <meta name='og:description' content={this.metaData.description} />
+        <title>{this.metaData.title}</title>
+
+        {this.metaData.imageUrl ? (
+          <meta property='og:image' content={this.metaData.imageUrl} />
+        ) : (
+          ''
+        )}
+      </Helmet>
+    )
+  }
 
   render() {
     return (
       <div>
-        <ccdesign-header
-          entry-id={`${this.headerEntry}`}>
-        </ccdesign-header>
+        {this.metaData ? this.updateMetaData() : ''}
+
+        <ccdesign-header></ccdesign-header>
 
         <main class='page'>
           <content class='page__body'>

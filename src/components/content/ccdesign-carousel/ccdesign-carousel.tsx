@@ -54,8 +54,6 @@ export class CcdesignCarousel {
 
 
   componentWillLoad() {
-    // let json = "[ { id: 'profilePicture', image: 'https://images.ctfassets.net/43i5e5k8e66i/3s2QTQy7ryM46G2ewIesO2/98e50163a5281ceda24048302fdb3b6e/profile_new.jpg', alt: 'Image of Michael Beaseley'}, { id: 'profilePicture2', image: 'https://images.ctfassets.net/43i5e5k8e66i/2tbgM7o5Wk6208QeuQM6o0/e40591acca2af7f3eb835a1d3bc57fc2/profile_pic.jpg', alt: 'Image of Michael Beaseley(2)'} ]";
-
     let newData = this.data.replace(/(\bid|\bimage|\balt+?):/g, '"$1":');
     newData = newData.replace(/'/g, '"');
     const formattedData = JSON.parse(newData);

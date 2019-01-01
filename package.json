@@ -31,7 +31,9 @@
   "bugs": {
     "url": "https://github.com/ionic-team/stencil"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@stencil/helmet": "^0.3.0-2"
+  },
   "devDependencies": {
     "@stencil/core": "~0.16.1",
     "@stencil/sass": "^0.1.1",
