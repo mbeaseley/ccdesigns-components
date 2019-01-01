@@ -1,4 +1,5 @@
 dist/
+coverage/
 www/
 
 *~
@@ -9,7 +10,7 @@ www/
 log.txt
 *.sublime-project
 *.sublime-workspace
-
+/coverage
 .stencil/
 .idea/
 .vscode/
