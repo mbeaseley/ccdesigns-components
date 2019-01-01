@@ -20,10 +20,6 @@ export class MobileNav {
     this.isNavOpen = false;
   }
 
-  addClass() {
-
-  }
-
   componentDidLoad() {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');

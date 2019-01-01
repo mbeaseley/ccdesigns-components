@@ -36,7 +36,6 @@ export class CcdesignCvTemplate {
   }
 
   updateMetaData() {
-    // let imageUrl = this.metaData.imageUrl;
     return (
       <Helmet>
         <meta name='description' content={this.metaData.description} />

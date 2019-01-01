@@ -1,5 +1,5 @@
 import { Component, Element, Prop } from '@stencil/core';
-
+import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 import { carouselItem } from './carousel-item';
 
 @Component({
@@ -54,10 +54,7 @@ export class CcdesignCarousel {
 
 
   componentWillLoad() {
-    let newData = this.data.replace(/(\bid|\bimage|\balt+?):/g, '"$1":');
-    newData = newData.replace(/'/g, '"');
-    const formattedData = JSON.parse(newData);
-
+    const formattedData = regexFormatter(this.data, /(\bid|\bimage|\balt+?):/g);
     this.dataElement = this.getData(formattedData);
   }
 

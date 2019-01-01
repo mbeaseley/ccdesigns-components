@@ -1,6 +1,5 @@
 import { Component, Prop, State, Element } from '@stencil/core';
-// import data from './nav-data-content';
-
+import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 import { NavDataItem } from './nav-data-item';
 
 @Component({
@@ -21,9 +20,7 @@ export class TalkHeader {
   headerContent: NavDataItem[];
 
   formatContent() {
-    let newData = this.data.replace(/([a-z]+?):/g, '"$1":');
-    newData = newData.replace(/'/g, '"');
-    this.formattedData = JSON.parse(newData);
+    this.formattedData = regexFormatter(this.data, /([a-z]+?):/g);
   }
 
   handleLoad() {

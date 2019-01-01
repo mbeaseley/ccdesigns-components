@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-
+import { regexFormatter } from "../../../utils/helpers/regexFormatter";
 import { footerItem } from './footer-item'; 
 
 @Component({
@@ -11,13 +11,10 @@ export class CcdesignFooter {
   @Prop({ mutable: true }) dataContent: footerItem;
 
   componentWillLoad() {
-    let newData = this.data.replace(/(\bid|\btext|\bbackgroundColor+?):/g, '"$1":');
-    newData = newData.replace(/'/g, '"');
-    this.dataContent = JSON.parse(newData);
+    this.dataContent = regexFormatter(this.data, /(\bid|\btext|\bbackgroundColor+?):/g);
   }
  
   render() {
-    
     return (
       <div class={`footer footer--${this.dataContent.backgroundColor}`} innerHTML={`${this.dataContent.text}`}></div>
     );
