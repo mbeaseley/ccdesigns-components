@@ -7,7 +7,7 @@ import { MetaData } from './meta-data';
   styleUrl: 'ccdesign-cv-template.scss'
 })
 export class CcdesignCvTemplate {
-  @Prop() headerEntry: string;
+  @Prop() header: string;
   @Prop() footerEntry: string;
   @Prop() pageMeta: any;
   metaData: MetaData;
@@ -57,7 +57,9 @@ export class CcdesignCvTemplate {
       <div>
         {this.metaData ? this.updateMetaData() : ''}
 
-        <ccdesign-header></ccdesign-header>
+        <ccdesign-header 
+          data={`${this.header}`}>
+        </ccdesign-header>
 
         <main class='page'>
           <content class='page__body'>

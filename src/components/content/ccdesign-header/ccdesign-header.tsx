@@ -1,5 +1,5 @@
 import { Component, Prop, State, Element } from '@stencil/core';
-import data from './nav-data-content';
+// import data from './nav-data-content';
 
 import { NavDataItem } from './nav-data-item';
 
@@ -8,6 +8,8 @@ import { NavDataItem } from './nav-data-item';
   styleUrl: 'ccdesign-header.scss'
 })
 export class TalkHeader {
+  @Prop() data: string;
+  @Prop({ mutable: true }) formattedData: any;
   @Prop() section: string = 'home';
   @Prop({ context: 'isClient' }) private isClient: boolean;
 
@@ -15,6 +17,15 @@ export class TalkHeader {
   @State() isMobileLayout: boolean;
 
   @Element() el: HTMLElement;
+
+  headerContent: NavDataItem[];
+
+  formatContent() {
+    let newData = this.data.replace(/([a-z]+?):/g, '"$1":');
+    newData = newData.replace(/'/g, '"');
+    this.formattedData = JSON.parse(newData);
+    console.log(this.formattedData);
+  }
 
   handleLoad() {
     if (this.isClient) {
@@ -25,6 +36,7 @@ export class TalkHeader {
   } 
 
   componentWillLoad() {
+    this.formatContent();
     this.handleLoad();
   }
 
@@ -67,8 +79,8 @@ export class TalkHeader {
 
   render() {
 
-    const mobileNav = (<mobile-nav aria-label='Main Navigation' data={data} />);
-    const desktopNav = (<nav class='navbar' aria-label='Main Navigation'>{this.getNav(data)}</nav>);
+    const mobileNav = (<mobile-nav aria-label='Main Navigation' data={this.formattedData} />);
+    const desktopNav = (<nav class='navbar' aria-label='Main Navigation'>{this.getNav(this.formattedData)}</nav>);
 
     return (
       <header class='header'>
