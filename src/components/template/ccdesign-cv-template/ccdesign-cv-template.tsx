@@ -1,6 +1,7 @@
 import { Component, Prop, Watch } from '@stencil/core';
 import Helmet from '@stencil/helmet';
 import { MetaData } from './meta-data';
+// import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 
 @Component({
   tag: 'ccdesign-cv-template',
@@ -20,11 +21,9 @@ export class CcdesignCvTemplate {
   metaHandler(newMetaData: any) {
     if (typeof newMetaData === 'string') {
       try {
-        // let newData = newMetaData.replace(/(\btitle|\bdescription|\bimageUrl+?):/g, '"$1":');
-        // newData = newData.replace(/'/g, '"');
-        newMetaData = JSON.parse(newMetaData);
+        // newMetaData = regexFormatter(newMetaData, /(\btitle|\bdescription|\bimageUrl+?):/g);
       } catch (err) {
-          // console.warn('Template Meta Data: error parsing data string', newMetaData);
+        // console.warn('Template Meta Data: error parsing data string', newMetaData);
       }
     }
 
@@ -37,17 +36,19 @@ export class CcdesignCvTemplate {
 
   updateMetaData() {
     return (
-      <Helmet>
-        <meta name='description' content={this.metaData.description} />
-        <meta name='og:description' content={this.metaData.description} />
-        <title>{this.metaData.title}</title>
+      <div>
+        <Helmet>
+          <meta name='description' content={this.metaData.description} />
+          <meta name='og:description' content={this.metaData.description} />
+          <title>{this.metaData.title}</title>
 
-        {this.metaData.imageUrl ? (
-          <meta property='og:image' content={this.metaData.imageUrl} />
-        ) : (
-          ''
-        )}
-      </Helmet>
+          {this.metaData.imageUrl ? (
+            <meta property='og:image' content={this.metaData.imageUrl} />
+          ) : (
+            ''
+          )}
+        </Helmet>
+      </div>
     )
   }
 
