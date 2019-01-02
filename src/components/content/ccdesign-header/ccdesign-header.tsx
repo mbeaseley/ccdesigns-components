@@ -6,7 +6,7 @@ import { NavDataItem } from './nav-data-item';
   tag: 'ccdesign-header',
   styleUrl: 'ccdesign-header.scss'
 })
-export class TalkHeader {
+export class CcdesignHeader {
   @Prop() data: string;
   @Prop({ mutable: true }) formattedData: any;
   @Prop() section: string = 'home';
