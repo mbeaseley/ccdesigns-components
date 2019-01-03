@@ -13,7 +13,7 @@ export class CcdesignSocialContainer {
       <div class='circle circle--outercircle'>
         <div class='circle circle--innercircle'>
           <ccdesign-button url={this.url}>
-            <ccdesign-icon icon-name={this.socialIcon} icon-color='blue'></ccdesign-icon>
+            <ccdesign-icon name={this.socialIcon} color='blue'></ccdesign-icon>
           </ccdesign-button>
         </div>  
       </div>

@@ -37,13 +37,13 @@ export class MobileNav {
 
     const openNav = (
       <ccdesign-button text='Menu' type='text' color='grey' onClick={()=> this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}>
-        <ccdesign-icon slot='icon' icon-name='bars' icon-color='grey' icon-size='xs' />
+        <ccdesign-icon slot='icon' name='bars' color='grey' size='xs' />
       </ccdesign-button>
     );
 
     const closeNav = (
       <ccdesign-button type='text' color='grey' onClick={()=> this.closeNav()}>
-        <ccdesign-icon slot='icon' icon-name='times' icon-color='grey' icon-size='xs' />
+        <ccdesign-icon slot='icon' name='times' color='grey' size='xs' />
       </ccdesign-button>
     );
 

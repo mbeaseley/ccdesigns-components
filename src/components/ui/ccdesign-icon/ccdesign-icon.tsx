@@ -5,59 +5,43 @@ import { Component, Prop, Element } from '@stencil/core';
   styleUrl: 'ccdesign-icon.scss'
 })
 export class CcdesignIcon {
-  @Prop() iconName: string;
-  @Prop() iconSize: string = 'xs';
-  @Prop() iconColor: string = 'white';
+  @Prop() name: string;
+  @Prop() size: string = 'xs';
+  @Prop() color: string = 'white';
 
-  @Element() iconEl: HTMLElement;
+  @Element() iconEl: HTMLElement
 
   componentDidLoad() {
-    this.loadSVGIcon();
-  }
-
-  componentWillUpdate() {
-    this.loadSVGIcon();
-  }
-
-  loadSVGIcon() {
-    let iconResult = this.iconEl.querySelector('use');
-    let ajax = new XMLHttpRequest();
-
-    ajax.open('GET',`https://ccdesigns.blob.core.windows.net/icons/${this.iconName}` + '.svg', true);
-    ajax.onload = () => {
-      let iconResponse = ajax.responseText;
-      iconResponse = iconResponse.replace(
-        `layer_1`,
-        `${this.iconName}`
-      );
-      iconResult.innerHTML = iconResponse;
-    };
-    ajax.send();
+    const url = `https://ttwebcomponentsprod.blob.core.windows.net/icons/${this.name}.svg`;
+    fetch(url)
+      .then(res => res.text())
+      .then(svg => {
+        const result = this.iconEl.querySelector('div');
+        result.insertAdjacentHTML('afterbegin', svg);
+      });
   }
 
   render() {
-    let inputColor;
+    let inputColor: string;
     const backgroundColors = ['white', 'light-grey', 'grey', 'dark-grey', 'black', 'blue'];
-    if (backgroundColors.indexOf(this.iconColor) > -1) {
-      inputColor = `icon--${this.iconColor}`;
+    if (backgroundColors.indexOf(this.color) > -1) {
+      inputColor = `icon--${this.color}`;
     } else {
-      console.error(`${this.iconColor} is not a defined color. Default color is used.`);
+      console.error(`${this.color} is not a defined color. Default color is used.`);
       inputColor = `icon--dark-grey`;
     }
 
-    let inputSize;
+    let inputSize: string;
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
-    if (sizes.indexOf(this.iconSize) > -1) {
-      inputSize = `icon--${this.iconSize}`;
+    if (sizes.indexOf(this.size) > -1) {
+      inputSize = `icon--${this.size}`;
     } else {
-      console.error(`${this.iconSize} is not a defined size for an icon. It has been set to default size of xs`);
+      console.error(`${this.size} is not a defined size for an icon. It has been set to default size of xs`);
       inputSize = 'icon--xs';
     }
 
     return (
-      <svg class={`icon ${inputColor} ${inputSize}`}>
-        <use xlinkHref={`#${this.iconName}`}/>
-      </svg>
+      <div class={`icon ${inputSize} ${inputColor}`}></div>
     );
   }
 }
