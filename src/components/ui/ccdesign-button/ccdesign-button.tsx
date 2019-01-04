@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, Element } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-button',
@@ -7,9 +7,17 @@ import { Component, Prop } from '@stencil/core';
 export class CcdesignButton {
   @Prop() text: string;
   @Prop() url: string;
+  @Prop() icon: string;
   @Prop() color: string;
   @Prop() type: string;
   @Prop() eventName: string;
+
+  @Element() el: HTMLElement;
+
+  componentDidLoad() {
+    const result = this.el.querySelector('span');
+    (result.innerHTML) ? result.setAttribute('class', `text--${this.color}`) : '';
+  }
 
   render() {
     const TagType = this.url ? 'a' : 'button';
@@ -22,12 +30,15 @@ export class CcdesignButton {
       [`btn--${this.type}`]: this.type == 'text',
     }
 
+    const icon = 
+      <ccdesign-icon name={this.icon} color={this.color} size='xs'></ccdesign-icon>
+
     return (
       <TagType
         {...attribute}
         class={ classList }>
-          <slot name = 'icon'/>
-          <span>{this.text}</span>
+          {icon}
+          <span class=''>{this.text}</span> 
       </TagType>
     );
   }

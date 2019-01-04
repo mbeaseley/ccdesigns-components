@@ -18,3 +18,13 @@ $cc-icons-blue: #007bff;
 //back button: 
 $cc-grey-color: rgba(255, 255, 255, 0.5);
 $cc-grey-border: rgba(255, 255, 255, 0.1);
+
+// color array
+$colors-list: (
+  white: $cc-white,
+  light-grey: $cc-grey1,
+  grey: $cc-grey2, 
+  dark-grey: $cc-grey3,
+  black: $cc-black,
+  blue: $cc-icons-blue,
+) !default; 

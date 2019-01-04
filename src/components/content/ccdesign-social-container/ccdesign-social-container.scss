@@ -35,6 +35,12 @@ ccdesign-social-container {
       display: flex;
       align-items: center;
       justify-content: center;
+
+      ccdesign-button {
+        a {
+          display: grid;
+        }
+      }
     }
   }
 }
