@@ -6,14 +6,14 @@ import { Component, Prop } from '@stencil/core';
 })
 export class CcdesignSocialContainer {
   @Prop() url: string;
-  @Prop() socialIcon: string;
+  @Prop() icon: string;
 
   render() {
     return (
       <div class='circle circle--outercircle'>
         <div class='circle circle--innercircle'>
           <ccdesign-button url={this.url}>
-            <ccdesign-icon name={this.socialIcon} color='blue'></ccdesign-icon>
+            <ccdesign-icon name={this.icon} color='blue' size='xs'></ccdesign-icon>
           </ccdesign-button>
         </div>  
       </div>

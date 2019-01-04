@@ -12,10 +12,13 @@ export class CcdesignIcon {
   @Element() iconEl: HTMLElement
 
   componentDidLoad() {
-    const url = `https://ttwebcomponentsprod.blob.core.windows.net/icons/${this.name}.svg`;
+    const url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
     fetch(url)
       .then(res => res.text())
       .then(svg => {
+        if(!svg.includes('<svg')) {
+          svg = '';
+        }
         const result = this.iconEl.querySelector('div');
         result.insertAdjacentHTML('afterbegin', svg);
       });
