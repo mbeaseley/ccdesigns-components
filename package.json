@@ -27,7 +27,8 @@
     "test.watch": "jest --watch"
   },
   "pre-commit" : [
-    "lint"
+    "lint",
+    "test"
   ],
   "dependencies": {
     "@stencil/helmet": "^0.3.0-2"
