@@ -1,18 +1,20 @@
-import { Component, Prop, State, Element } from '@stencil/core';
+import { Component, Element, Prop, State } from '@stencil/core';
+
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
+
 import { NavDataItem } from './nav-data-item';
 
 @Component({
   tag: 'ccdesign-header',
-  styleUrl: 'ccdesign-header.scss'
+  styleUrl: 'ccdesign-header.scss',
 })
 export class CcdesignHeader {
   @Prop() data: string;
   @Prop({ mutable: true }) formattedData: any;
-  @Prop() section: string = 'home';
+  @Prop() section = 'home';
   @Prop({ context: 'isClient' }) private isClient: boolean;
 
-  @State() initialized: boolean = false;
+  @State() initialized = false;
   @State() isMobileLayout: boolean;
 
   @Element() el: HTMLElement;
@@ -25,11 +27,11 @@ export class CcdesignHeader {
 
   handleLoad() {
     if (this.isClient) {
-      const desktopLayoutQuery: MediaQueryList = window.matchMedia('(min-width: 768px)')
+      const desktopLayoutQuery: MediaQueryList = window.matchMedia('(min-width: 768px)');
       this.determinHeaderLayout(desktopLayoutQuery);
       desktopLayoutQuery.addListener(this.determinHeaderLayout);
     }
-  } 
+  }
 
   componentWillLoad() {
     this.formatContent();
@@ -39,14 +41,14 @@ export class CcdesignHeader {
   componentDidLoad() {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
-    if(urlPathName === '') { urlPathName = 'home' }
-    let elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
-    [].forEach.call(elResult, (elResult) => {
-      elResult.classList.add('active');
+    if (urlPathName === '') { urlPathName = 'home'; }
+    const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
+    [].forEach.call(elResult, elementResult => {
+      elementResult.classList.add('active');
     });
   }
 
-  constructor() { 
+  constructor() {
     this.determinHeaderLayout = this.determinHeaderLayout.bind(this);
   }
 
@@ -57,13 +59,13 @@ export class CcdesignHeader {
   getNav(data: NavDataItem[]): JSX.Element {
     return (
       <ul class={`navbar__list`}>
-        <img src='assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
+        <img src="assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
         {data.map((item: NavDataItem) => (
           <li class={`navbar__item`}>
             <a
               id={item.id}
               href={item.url}
-              class={`navbar__link`}          
+              class={`navbar__link`}
             >
               {item.name}
             </a>
@@ -75,11 +77,11 @@ export class CcdesignHeader {
 
   render() {
 
-    const mobileNav = (<mobile-nav aria-label='Main Navigation' data={this.formattedData} />);
-    const desktopNav = (<nav class='navbar' aria-label='Main Navigation'>{this.getNav(this.formattedData)}</nav>);
+    const mobileNav = (<mobile-nav aria-label="Main Navigation" data={this.formattedData} />);
+    const desktopNav = (<nav class="navbar" aria-label="Main Navigation">{this.getNav(this.formattedData)}</nav>);
 
     return (
-      <header class='header'>
+      <header class="header">
         {this.isMobileLayout ? mobileNav : desktopNav}
       </header>
     );

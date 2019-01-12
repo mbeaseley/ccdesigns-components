@@ -1,4 +1,4 @@
-export interface carouselItem {
+export interface CarouselItem {
   id?: string;
   image: string;
   alt: string;

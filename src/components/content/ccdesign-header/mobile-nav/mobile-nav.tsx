@@ -1,10 +1,10 @@
-import { Component, Prop, State, Element } from '@stencil/core';
+import { Component, Element, Prop, State } from '@stencil/core';
 
 import { NavDataItem } from '../nav-data-item';
 
 @Component({
   tag: 'mobile-nav',
-  styleUrl: 'mobile-nav.scss'
+  styleUrl: 'mobile-nav.scss',
 })
 export class MobileNav {
   @Prop() data: NavDataItem[];
@@ -23,39 +23,39 @@ export class MobileNav {
   componentDidLoad() {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
-    if(urlPathName === '') { urlPathName = 'home' }
-    let elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
-    [].forEach.call(elResult, (elResult) => {
-      elResult.classList.add('active');
+    if (urlPathName === '') { urlPathName = 'home'; }
+    const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
+    [].forEach.call(elResult, elementResult => {
+      elementResult.classList.add('active');
     });
   }
 
-  render() { 
+  render() {
     const logo = (
-      <img src='assets/favicon.ico' height='30' width='30' alt='CCDesigns' />
+      <img src="assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
     );
 
     const openNav = (
-      <ccdesign-button 
-        text='Menu' 
-        icon='bars' 
-        type='text' 
-        color='grey' 
-        onClick={()=> this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}>
+      <ccdesign-button
+        text="Menu"
+        icon="bars"
+        type="text"
+        color="grey"
+        onClick={() => this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}>
       </ccdesign-button>
     );
 
     const closeNav = (
-      <ccdesign-button 
-        type='text' 
-        icon='times' 
-        color='grey' 
-        onClick={()=> this.closeNav()}>
+      <ccdesign-button
+        type="text"
+        icon="times"
+        color="grey"
+        onClick={() => this.closeNav()}>
       </ccdesign-button>
     );
 
     const navHeader = (
-      <div class='navbar__header'>
+      <div class="navbar__header">
         {openNav}
         {logo}
       </div>
@@ -74,8 +74,8 @@ export class MobileNav {
       ));
 
       return returnItems;
-    }
-    
+    };
+
     const getNav = () => (
       <ul class={'navbar__mobile__list'}>{getNavItems()}</ul>
     );
@@ -89,6 +89,6 @@ export class MobileNav {
       </nav>
     );
 
-    return [navHeader, navbar]
+    return [navHeader, navbar];
   }
 }

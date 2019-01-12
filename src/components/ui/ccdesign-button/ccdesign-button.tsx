@@ -1,8 +1,8 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Element, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-button',
-  styleUrl: 'ccdesign-button.scss'
+  styleUrl: 'ccdesign-button.scss',
 })
 export class CcdesignButton {
   @Prop() text: string;
@@ -16,29 +16,30 @@ export class CcdesignButton {
 
   componentDidLoad() {
     const result = this.el.querySelector('span');
-    (result.innerHTML) ? result.setAttribute('class', `text--${this.color}`) : '';
+    (result.innerHTML) ? result.setAttribute('class', `text--${this.color}`) : null;
   }
 
   render() {
     const TagType = this.url ? 'a' : 'button';
 
-    const attribute = TagType === 'button' ? {type: this.type} : {href: this.url};
+    const attribute = TagType === 'button' ? { type: this.type } : { href: this.url };
 
     const classList = {
       btn: true,
       [`btn--${this.color}`]: true,
-      [`btn--${this.type}`]: this.type == 'text',
-    }
+      [`btn--${this.type}`]: this.type === 'text',
+    };
 
-    const icon = 
-      <ccdesign-icon name={this.icon} color={this.color} size='xs'></ccdesign-icon>
+    const icon =
+      <ccdesign-icon name={this.icon} color={this.color} size="xs"></ccdesign-icon>;
 
     return (
+      // @ts-ignore
       <TagType
         {...attribute}
         class={ classList }>
           {icon}
-          <span class=''>{this.text}</span> 
+          <span class="">{this.text}</span>
       </TagType>
     );
   }

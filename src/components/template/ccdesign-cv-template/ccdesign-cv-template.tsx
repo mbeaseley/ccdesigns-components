@@ -1,11 +1,12 @@
 import { Component, Prop, Watch } from '@stencil/core';
 import Helmet from '@stencil/helmet';
+
 import { MetaData } from './meta-data';
 // import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 
 @Component({
   tag: 'ccdesign-cv-template',
-  styleUrl: 'ccdesign-cv-template.scss'
+  styleUrl: 'ccdesign-cv-template.scss',
 })
 export class CcdesignCvTemplate {
   @Prop() header: string;
@@ -27,7 +28,7 @@ export class CcdesignCvTemplate {
       }
     }
 
-    if(typeof newMetaData === 'object') {
+    if (typeof newMetaData === 'object') {
       this.metaData = newMetaData || {};
     } else {
       // console.warn('template meta data prop invalid', newMetaData);
@@ -38,18 +39,18 @@ export class CcdesignCvTemplate {
     return (
       <div>
         <Helmet>
-          <meta name='description' content={this.metaData.description} />
-          <meta name='og:description' content={this.metaData.description} />
+          <meta name="description" content={this.metaData.description} />
+          <meta name="og:description" content={this.metaData.description} />
           <title>{this.metaData.title}</title>
 
           {this.metaData.imageUrl ? (
-            <meta property='og:image' content={this.metaData.imageUrl} />
+            <meta property="og:image" content={this.metaData.imageUrl} />
           ) : (
             ''
           )}
         </Helmet>
       </div>
-    )
+    );
   }
 
   render() {
@@ -57,23 +58,23 @@ export class CcdesignCvTemplate {
       <div>
         {this.metaData ? this.updateMetaData() : ''}
 
-        <ccdesign-header 
+        <ccdesign-header
           data={`${this.header}`}>
         </ccdesign-header>
 
-        <main class='page'>
-          <content class='page__body'>
-            <div class='page__body--left'>
-              <slot name='left-side' />
+        <main class="page">
+          <content class="page__body">
+            <div class="page__body--left">
+              <slot name="left-side" />
             </div>
-            <div class='page__body--right'>
-              <slot name='right-side' />
+            <div class="page__body--right">
+              <slot name="right-side" />
             </div>
-            <slot name='container'/>
+            <slot name="container"/>
           </content>
         </main>
 
-        <ccdesign-footer 
+        <ccdesign-footer
           data={`${this.footer}`}>
         </ccdesign-footer>
       </div>

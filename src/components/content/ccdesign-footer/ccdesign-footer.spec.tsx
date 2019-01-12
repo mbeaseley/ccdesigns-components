@@ -1,10 +1,11 @@
-import { CcdesignFooter } from './ccdesign-footer';
 import { h } from '@stencil/core/testing';
 
+import { CcdesignFooter } from './ccdesign-footer';
+
 const mockFooterData = {
-  id: 'example', 
+  id: 'example',
   text: 'example text',
-  backgroundColor: 'exampleColor'
+  backgroundColor: 'exampleColor',
 };
 
 describe('ccdesign-footer', () => {
@@ -19,5 +20,5 @@ describe('ccdesign-footer', () => {
       expect(result.vattrs.text).toBe(mockFooterData.text);
       expect(result.vattrs.backgroundColor).toBe(mockFooterData.backgroundColor);
     });
-  })
+  });
 });

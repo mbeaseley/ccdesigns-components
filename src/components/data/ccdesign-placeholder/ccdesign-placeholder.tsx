@@ -2,7 +2,7 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-placeholder',
-  styleUrl: 'ccdesign-placeholder.scss'
+  styleUrl: 'ccdesign-placeholder.scss',
 })
 export class CcdesignPlaceholder {
 

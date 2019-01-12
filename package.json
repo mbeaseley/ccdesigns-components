@@ -20,10 +20,15 @@
     "build": "stencil build",
     "dev": "stencil build --dev --watch --serve",
     "prod": "stencil build --prod --watch --serve",
+    "lint": "tslint --project tsconfig.json --config tslint.json",
+    "lint.fix": "tslint --fix --project tsconfig.json --config tslint.json",
     "start": "npm run dev",
     "test": "jest --coverage --coverageDirectory=coverage/jest --env=jsdom",
     "test.watch": "jest --watch"
   },
+  "pre-commit" : [
+    "lint"
+  ],
   "dependencies": {
     "@stencil/helmet": "^0.3.0-2"
   },
@@ -35,7 +40,10 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
-    "tslint": "^5.12.0"
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.12.1",
+    "tslint-ionic-rules": "0.0.21",
+    "typescript": "^3.2.2"
   },
   "repository": {
     "type": "git",

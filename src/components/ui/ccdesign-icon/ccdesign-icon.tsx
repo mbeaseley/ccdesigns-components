@@ -1,22 +1,23 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Element, Method, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-icon',
-  styleUrl: 'ccdesign-icon.scss'
+  styleUrl: 'ccdesign-icon.scss',
 })
 export class CcdesignIcon {
   @Prop() name: string;
-  @Prop() size: string = 'xs';
-  @Prop() color: string = 'white';
+  @Prop() size = 'xs';
+  @Prop() color = 'white';
 
-  @Element() iconEl: HTMLElement
+  @Element() iconEl: HTMLElement;
 
+  @Method()
   componentDidLoad() {
     const url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
     fetch(url)
       .then(res => res.text())
       .then(svg => {
-        if(!svg.includes('<svg')) {
+        if (!svg.includes('<svg')) {
           svg = '';
         }
         const result = this.iconEl.querySelector('div');

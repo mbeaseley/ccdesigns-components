@@ -1,4 +1,4 @@
-export function dataFetch(url, options?:any) {
+export function dataFetch(url, options?: any) {
   return fetch(url, options).then(response => {
     if (response.ok) {
       return response.json();
@@ -7,5 +7,5 @@ export function dataFetch(url, options?:any) {
     }
   }, error => {
     return Promise.reject(new Error(error.message));
-  })
+  });
 }
