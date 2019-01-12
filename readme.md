@@ -4,8 +4,6 @@
 
 This is a starter project for building a standalone Web Component using Stencil.
 
-Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
-
 # Stencil
 
 Stencil is a compiler for building fast web apps using Web Components.
@@ -19,32 +17,28 @@ Stencil components are just Web Components, so they work in any major framework 
 To start building a new web component using Stencil, clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
+git clone https://github.com/mbeaseley/ccdesigns-components.git
 cd my-component
-git remote rm origin
 ```
 
 and run:
 
 ```bash
-npm install
-npm start
+yarn
+yarn dev
 ```
 
-To build the component for production, run:
+To build the component for development, run:
 
 ```bash
-npm run build
+yarn build
 ```
 
 To run the unit tests for the components, run:
 
 ```bash
-npm test
+yarn test
 ```
-
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
-
 
 ## Naming Components
 
@@ -66,7 +60,7 @@ st-cc cc-newcomponent
 ```
 
 
-## Using this component
+## Using this component library
 
 ### Script tag
 
@@ -77,9 +71,4 @@ st-cc cc-newcomponent
 ### Node Modules
 - Run `npm install my-component --save`
 - Put a script tag similar to this `<script src='node_modules/my-component/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
-
-### In a stencil-starter app
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
 - Then you can use the element anywhere in your template, JSX, html etc
