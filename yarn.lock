@@ -18,7 +18,7 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@stencil/core@~0.16.1":
+"@stencil/core@~0.16.2":
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.16.2.tgz#80e037ba014055a05da0320ca54c490fc8c44d06"
   integrity sha512-0ZhsWeyS9UOEgomFdUfDUqFY/Wyn/vUxvGL34Q0/WZxa351c7INaP2yUAwC2uW3oX74/y6vzLtY1jMmlOq4Huw==

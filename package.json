@@ -26,7 +26,7 @@
     "test": "jest --coverage --coverageDirectory=coverage/jest --env=jsdom",
     "test.watch": "jest --watch"
   },
-  "pre-commit" : [
+  "pre-commit": [
     "lint",
     "test"
   ],
@@ -34,10 +34,10 @@
     "@stencil/helmet": "^0.3.0-2"
   },
   "devDependencies": {
-    "@stencil/core": "~0.16.1",
+    "@stencil/core": "~0.16.2",
     "@stencil/sass": "^0.1.1",
     "@stencil/utils": "^0.0.5",
-    "@types/jest": "^23.3.11",
+    "@types/jest": "^23.3.12",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
