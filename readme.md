@@ -17,7 +17,7 @@ Stencil components are just Web Components, so they work in any major framework 
 Use the following command:
 
 ```bash
-npm i ccdesigns-component
+npm i ccdesign-component
 ```
 
 ## Getting Started For Development
