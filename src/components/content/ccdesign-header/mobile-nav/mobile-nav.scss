@@ -18,9 +18,9 @@ mobile-nav {
     width: 100vw;
 
     &__header {
-      padding: 12px 4px 10px 0;
+      padding: 12px 4px 12px 0;
       background-color: $cc-black;
-      min-height: 52px;
+      min-height: 30px;
       text-align: center;
 
       ccdesign-button {
@@ -37,13 +37,13 @@ mobile-nav {
     &__mobile {
       position: fixed;
       top: 0;
-      z-index: 1;
+      z-index: 6;
       width: 280px;
       height: 100vh;
       background-color: $cc-grey4;
 
       &__sub-header {
-        min-height: 52px;
+        min-height: 30px;
         padding: 12px 4px 10px 0;
         background-color: $cc-black;
 

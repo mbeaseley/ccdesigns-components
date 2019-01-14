@@ -1,16 +1,8 @@
-$background-colors: (
-  white: $cc-white,
-  light-grey: $cc-grey1,
-  grey: $cc-grey2, 
-  dark-grey: $cc-grey3,
-  black: $cc-black
-) !default;
-
 @mixin addColor($color) {
   background-color: $color;
 }
 
-@each $type, $color in $background-colors {
+@each $type, $color in $colors-list {
   .footer--#{$type} {
     @include addColor($color);
     @if($type == "light-grey") {
@@ -23,6 +15,7 @@ $background-colors: (
 
 ccdesign-footer {
   .footer {
+    @extend %heading;
     position: fixed;
     bottom: 0;
     left: 0;

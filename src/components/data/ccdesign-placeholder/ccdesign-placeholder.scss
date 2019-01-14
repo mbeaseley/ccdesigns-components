@@ -1,0 +1,17 @@
+ccdesign-placeholder {
+  position: absolute;
+  z-index: 5;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 365px;
+
+  @media screen and (max-width: $screen-xs-max) {
+    flex-direction: row;
+    top: 35vh;
+  }
+}

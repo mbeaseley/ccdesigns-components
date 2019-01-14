@@ -1,84 +1,78 @@
-$background-colors: (
-  white: $cc-white,
-  light-grey: $cc-grey1,
-  grey: $cc-grey2, 
-  dark-grey: $cc-grey3,
-  black: $cc-black
-) !default;
-
 @mixin addColor($color) {
   color: $color;
 }
 
-@each $type, $color in $background-colors {
+@each $type, $color in $colors-list {
   .icon--#{$type} {
     @include addColor($color);
   }
 }
 ccdesign-icon {
   .icon {
-    display: inline-block;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-decoration: inherit;
-    text-rendering: optimizeLegibility;
-    text-transform: none;
-    vertical-align: middle;
     fill: currentColor;
 
     &--xxs {
-      width: 25px;
-      height: 25px;
+      svg {
+        width: 25px;
+        height: 25px;
+      }
     }
   
     &--xs {
-      width: 30px;
-      height: 30px;
+      svg {
+        width: 30px;
+        height: 30px;
+      }
     }
     &--sm {
-      width: 40px;
-      height: 40px;
+      svg {
+        width: 40px;
+        height: 40px;
+      }
     }
     &--md {
-      width: 48px;
-      height: 48px;
-  
-      @media (min-width: $screen-lg-min) {
-        width: 60px;
-        height: 60px;
-      }
-      @media (min-width: $screen-md-min) {
-        width: 52px;
-        height: 52px;
+      svg {
+        width: 48px;
+        height: 48px;
+    
+        @media (min-width: $screen-lg-min) {
+          width: 60px;
+          height: 60px;
+        }
+        @media (min-width: $screen-md-min) {
+          width: 52px;
+          height: 52px;
+        }
       }
     }
     &--lg {
-      width: 60px;
-      height: 60px;
-  
-      @media (min-width: $screen-lg-min) {
-        width: 80px;
-        height: 80px;
-      }
-      @media (min-width: $screen-md-min) {
-        width: 68px;
-        height: 68px;
+      svg {
+        width: 60px;
+        height: 60px;
+    
+        @media (min-width: $screen-lg-min) {
+          width: 80px;
+          height: 80px;
+        }
+        @media (min-width: $screen-md-min) {
+          width: 68px;
+          height: 68px;
+        }
       }
     }
     &--xl {
-      width: 80px;
-      height: 80px;
-  
-      @media (min-width: $screen-lg-min) {
-        width: 112px;
-        height: 112px;
-      }
-      @media (min-width: $screen-md-min) {
-        width: 96px;
-        height: 96px;
+      svg {
+        width: 80px;
+        height: 80px;
+    
+        @media (min-width: $screen-lg-min) {
+          width: 112px;
+          height: 112px;
+        }
+        @media (min-width: $screen-md-min) {
+          width: 96px;
+          height: 96px;
+        }
       }
     }
     &--xxl {

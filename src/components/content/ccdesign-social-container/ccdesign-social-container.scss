@@ -1,0 +1,46 @@
+ccdesign-social-container {
+  @media screen and (min-width: $screen-sm-min) {
+    margin-bottom: 30px;
+  }
+  
+  @media screen and (max-width: $screen-xs-max) {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  .circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: $screen-xs-min) {
+      width: 60px;
+      height: 60px;
+    }
+
+    &--outercircle {
+      background-color: $cc-outer-circle;
+    }
+
+    &--innercircle {
+      height: 70%;
+      width: 70%;
+      background-color: $cc-inner-circle;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ccdesign-button {
+        a {
+          display: grid;
+        }
+      }
+    }
+  }
+}

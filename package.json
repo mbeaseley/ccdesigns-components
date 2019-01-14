@@ -1,6 +1,6 @@
 {
-  "name": "ccdesigns-components",
-  "version": "1.0.0",
+  "name": "ccdesign-components",
+  "version": "1.1.0",
   "description": "CCDesigns Component Library",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
@@ -20,9 +20,31 @@
     "build": "stencil build",
     "dev": "stencil build --dev --watch --serve",
     "prod": "stencil build --prod --watch --serve",
+    "lint": "tslint --project tsconfig.json --config tslint.json",
+    "lint.fix": "tslint --fix --project tsconfig.json --config tslint.json",
     "start": "npm run dev",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test": "jest --coverage --coverageDirectory=coverage/jest --env=jsdom",
+    "test.watch": "jest --watch"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "dependencies": {
+    "@stencil/helmet": "^0.3.0-2"
+  },
+  "devDependencies": {
+    "@stencil/core": "~0.16.2",
+    "@stencil/sass": "^0.1.1",
+    "@stencil/utils": "^0.0.5",
+    "@types/jest": "^23.3.12",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.12.1",
+    "tslint-ionic-rules": "0.0.21",
+    "typescript": "^3.2.2"
   },
   "repository": {
     "type": "git",
@@ -31,12 +53,27 @@
   "bugs": {
     "url": "https://github.com/ionic-team/stencil"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@stencil/core": "0.16.1",
-    "@stencil/sass": "^0.1.1",
-    "@stencil/utils": "^0.0.5",
-    "bootstrap-sass": "^3.4.0",
-    "tslint": "^5.12.0"
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/@stencil/(?!helmet)"
+    ],
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.(ts|tsx|js|jsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "testEnvironment": "node"
   }
 }
