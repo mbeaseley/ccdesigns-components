@@ -1,5 +1,5 @@
 {
-  "name": "ccdesign-components",
+  "name": "ccdesigns-components",
   "version": "1.0.0",
   "description": "CCDesigns Component Library",
   "module": "dist/esm/index.js",
