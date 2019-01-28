@@ -1,4 +1,4 @@
-import { Component, Element, Method, Prop } from '@stencil/core';
+import { Component, Element, Method, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-icon',
@@ -12,17 +12,34 @@ export class CcdesignIcon {
   @Element() iconEl: HTMLElement;
 
   @Method()
-  componentDidLoad() {
+  getSVG() {
     const url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
     fetch(url)
       .then(res => res.text())
       .then(svg => {
         if (!svg.includes('<svg')) {
           svg = '';
+          console.warn(`${ this.name } Icon doesn't exist in blob`);
         }
         const result = this.iconEl.querySelector('div');
+        const iconExist = Boolean(result.querySelector('svg'));
+
+        if (iconExist) {
+          result.querySelector('svg').remove();
+        }
+
         result.insertAdjacentHTML('afterbegin', svg);
       });
+  }
+
+  @Method()
+  componentDidLoad() {
+    this.getSVG();
+  }
+
+  @Watch('name')
+  componentWillUpdate() {
+    this.getSVG();
   }
 
   render() {
