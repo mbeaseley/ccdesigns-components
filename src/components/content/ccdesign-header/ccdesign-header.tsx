@@ -16,6 +16,7 @@ export class CcdesignHeader {
 
   @State() initialized = false;
   @State() isMobileLayout: boolean;
+  @State() isRootPage = false;
 
   @Element() el: HTMLElement;
 
@@ -33,6 +34,15 @@ export class CcdesignHeader {
     }
   }
 
+  menuRootPage() {
+    this.isRootPage = true;
+  }
+
+  backRootPage() {
+    window.location.href = 'http://localhost:4200/portfolio';
+    this.isRootPage = false;
+  }
+
   componentWillLoad() {
     this.formatContent();
     this.handleLoad();
@@ -42,6 +52,10 @@ export class CcdesignHeader {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if (urlPathName === '') { urlPathName = 'home'; }
+    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project'];
+    if (UrlArray.indexOf(urlPathName) > -1) {
+      return this.menuRootPage();
+    }
     const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
     [].forEach.call(elResult, elementResult => {
       elementResult.classList.add('active');
@@ -60,7 +74,14 @@ export class CcdesignHeader {
     return (
       <ul class={`navbar__list`}>
         <img src="assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
-        {data.map((item: NavDataItem) => (
+        {this.isRootPage
+          ? (<ccdesign-button
+            icon="chevron-left"
+            type="text"
+            color="light-grey"
+            onClick={() => this.backRootPage()}>
+          </ccdesign-button>)
+        : data.map((item: NavDataItem) => (
           <li class={`navbar__item`}>
             <a
               id={item.id}
@@ -76,7 +97,6 @@ export class CcdesignHeader {
   }
 
   render() {
-
     const mobileNav = (<mobile-nav aria-label="Main Navigation" data={this.formattedData} />);
     const desktopNav = (<nav class="navbar" aria-label="Main Navigation">{this.getNav(this.formattedData)}</nav>);
 
