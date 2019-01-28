@@ -64,12 +64,7 @@ export class CcdesignCvTemplate {
 
         <main class="page">
           <content class="page__body">
-            <div class="page__body--left">
-              <slot name="left-side" />
-            </div>
-            <div class="page__body--right">
-              <slot name="right-side" />
-            </div>
+            <slot />
             <slot name="container"/>
           </content>
         </main>
@@ -77,6 +72,7 @@ export class CcdesignCvTemplate {
         <ccdesign-footer
           data={`${this.footer}`}>
         </ccdesign-footer>
+
       </div>
     );
   }

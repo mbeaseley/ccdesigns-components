@@ -4,6 +4,14 @@ body {
 }
 
 ccdesign-cv-template {
+  @media(max-width: $screen-md) {
+    ccdesign-header {
+      .navbar {
+        margin-left: 20px !important;
+      }
+    }
+  }
+  
   .page {
     overflow: hidden;
     background-color: $cc-black;
@@ -15,6 +23,21 @@ ccdesign-cv-template {
       flex-direction: row;
       width: 100vw;
       height: 97vh;
+
+      // TODO: change this when angular problem solved
+      > app-home,
+      app-portfolio,
+      app-contact,
+      app-fyp-project,
+      app-website-project,
+      app-webcomponent-project {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        width: 100vw;
+        height: 97vh;
+      }
 
       &--left::-webkit-scrollbar {
         display: none;
@@ -55,6 +78,18 @@ ccdesign-cv-template {
         -webkit-flex-direction: column;
         flex-direction: column;
         height: 92vh;
+
+        > app-home,
+        app-portfolio,
+        app-contact,
+        app-fyp-project,
+        app-website-project,
+        app-webcomponent-project {
+          position: relative;
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          height: 92vh;
+        }
   
         &--left {
           order: 2;
@@ -64,7 +99,7 @@ ccdesign-cv-template {
           order: 1;
           min-height: 35vh;
           max-height: 35vh;
-          margin-bottom: 40px;
+          margin-bottom: 45px;
         }
       }
     }
