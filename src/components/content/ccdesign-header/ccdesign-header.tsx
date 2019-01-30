@@ -1,6 +1,7 @@
 import { Component, Element, Prop, State } from '@stencil/core';
 
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
+import environment from '../../../services/environment/index';
 
 import { NavDataItem } from './nav-data-item';
 
@@ -17,6 +18,7 @@ export class CcdesignHeader {
   @State() initialized = false;
   @State() isMobileLayout: boolean;
   @State() isRootPage = false;
+  @State() env: string;
 
   @Element() el: HTMLElement;
 
@@ -39,7 +41,7 @@ export class CcdesignHeader {
   }
 
   backRootPage() {
-    window.location.href = 'http://localhost:4200/portfolio';
+    window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
 
@@ -63,7 +65,12 @@ export class CcdesignHeader {
   }
 
   constructor() {
+    this.env = this.determineEnvironment();
     this.determinHeaderLayout = this.determinHeaderLayout.bind(this);
+  }
+
+  determineEnvironment() {
+    return environment.getEndpoint().dataEndpoint.url;
   }
 
   determinHeaderLayout(desktopLayoutQuery) {
@@ -73,7 +80,9 @@ export class CcdesignHeader {
   getNav(data: NavDataItem[]): JSX.Element {
     return (
       <ul class={`navbar__list`}>
-        <img src="assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
+        <a href={this.env}>
+          <img src="assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
+        </a>
         {this.isRootPage
           ? (<ccdesign-button
             icon="chevron-left"
