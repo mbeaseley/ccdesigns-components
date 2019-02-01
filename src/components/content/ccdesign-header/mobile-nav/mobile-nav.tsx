@@ -9,6 +9,7 @@ import { NavDataItem } from '../nav-data-item';
 export class MobileNav {
   @Prop() data: NavDataItem[];
   @State() isNavOpen = false;
+  @State() isRootPage = false;
 
   @Element() el: HTMLElement;
 
@@ -20,10 +21,23 @@ export class MobileNav {
     this.isNavOpen = false;
   }
 
+  menuRootPage() {
+    this.isRootPage = true;
+  }
+
+  backRootPage() {
+    window.location.href = 'http://localhost:4200/portfolio';
+    this.isRootPage = false;
+  }
+
   componentDidLoad() {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if (urlPathName === '') { urlPathName = 'home'; }
+    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project'];
+    if (UrlArray.indexOf(urlPathName) > -1) {
+      return this.menuRootPage();
+    }
     const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
     [].forEach.call(elResult, elementResult => {
       elementResult.classList.add('active');
@@ -36,27 +50,40 @@ export class MobileNav {
     );
 
     const openNav = (
-      <ccdesign-button
+      (!this.isRootPage)
+      ? (<ccdesign-button
         text="Menu"
         icon="bars"
         type="text"
-        color="grey"
+        color="light-grey"
         onClick={() => this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}>
-      </ccdesign-button>
+      </ccdesign-button>)
+      : ''
     );
 
     const closeNav = (
       <ccdesign-button
         type="text"
         icon="times"
-        color="grey"
+        color="light-grey"
         onClick={() => this.closeNav()}>
       </ccdesign-button>
     );
 
+    const backNav = (
+      (this.isRootPage)
+      ? (<ccdesign-button
+        icon="chevron-left"
+        type="text"
+        color="light-grey"
+        onClick={() => this.backRootPage()}>
+      </ccdesign-button>)
+      : ''
+    );
+
     const navHeader = (
       <div class="navbar__header">
-        {openNav}
+        {!this.isRootPage ? openNav : backNav}
         {logo}
       </div>
     );

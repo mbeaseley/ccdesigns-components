@@ -1,0 +1,39 @@
+ccdesign-image-card {
+  .image-card {
+    text-decoration: none;
+    
+    &__image {
+      width: 100%;
+      &:hover,
+      &:focus {
+        background: $cc-dark-blue;
+      }
+      img {
+        width: 100%;
+        &:hover,
+        &:focus {
+          opacity: 0.1;
+        }
+      }
+    }
+
+    &__description {
+      background: $cc-white;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+
+      @media (max-width: $screen-md-max) {
+        align-items: center;
+        height: 50px;
+      }
+
+      p {
+        text-align: center;
+        color: $cc-black;
+        margin: 0;
+        max-width: 20ch;
+      }
+    }
+  }
+}

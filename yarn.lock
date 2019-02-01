@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@stencil/core@~0.16.2":
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.16.2.tgz#80e037ba014055a05da0320ca54c490fc8c44d06"
-  integrity sha512-0ZhsWeyS9UOEgomFdUfDUqFY/Wyn/vUxvGL34Q0/WZxa351c7INaP2yUAwC2uW3oX74/y6vzLtY1jMmlOq4Huw==
+"@stencil/core@~0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.17.0.tgz#df9672c40422e88f2474c0546c5106f53d245e16"
+  integrity sha512-DzSSRr9w7ckFMcEpkoTzsqr5ZgXrv7bp21ugyevz/W4YvQKIH97WmeXDS7kXdIqrdpEdtdeOCo7Ymge1DjiGlw==
   dependencies:
     chokidar "2.0.3"
     jsdom "11.11.0"
@@ -1941,7 +1941,7 @@ jest-changed-files@^23.4.2:
   dependencies:
     throat "^4.0.0"
 
-jest-cli@^23.6.0:
+jest-cli@23.6.0, jest-cli@^23.6.0:
   version "23.6.0"
   resolved "https://registry.yarnpkg.com/jest-cli/-/jest-cli-23.6.0.tgz#61ab917744338f443ef2baa282ddffdd658a5da4"
   integrity sha512-hgeD1zRUp1E1zsiyOXjEn4LzRLWdJBV//ukAHGlx6s5mfCNJTbhbHjgxnDUXA8fsKWN/HqFFF6X5XcCwC/IvYQ==

@@ -21,51 +21,55 @@
   <ccdesign-cv-template
     header="[ { id: 'home', name: 'Home', url: '/' }, { id: 'portfolio', name: 'Portfolio', url: '/portfolio'}, { id: 'contact', name: 'Contact', url: '/contact'} ]"
     page-meta="{ title: 'CCDesign Web Component Library (updated title)', description: 'CCDesign Web Component Library (updated description)'}" 
-    footer="{ id: 'ccdesign footer', text: '© 2018 Copyright: Michael Beaseley', backgroundColor: 'dark-grey'}">
+    footer="{ id: 'ccdesign footer', text: '© 2019 Copyright: Michael Beaseley', backgroundColor: 'dark-grey'}">
 
-    <div slot="left-side">
-      <ccdesign-copy 
-        copy="<h1>MY</h1><h1>NAME</h1><h1>IS:</h1><h2>MICHAEL</h2><h2>BEASELEY.</h2>">
-      </ccdesign-copy>
-      <ccdesign-separator></ccdesign-separator>
-      <ccdesign-copy 
-        copy="<p>Graduated with a 2:1 in Computer Science (Software Engineering) at Brunel University, 
-          aspiring to become a Full Stack Developer within the IT industry. 
-        </p>">
-      </ccdesign-copy>
-      <ccdesign-copy 
-        copy="<p>Ambitious, passionate and keen to learn, I always strive for success in whatever I do. 
-        I enjoy working both as part of a team, or individually using my own initiative. 
-        I always put 100% into all the activities I undertake, and am devoted when presented with 
-        demanding situations.</p>">
-      </ccdesign-copy>
-      <ccdesign-separator></ccdesign-separator>
-      <ccdesign-copy 
-        copy="<h3>Experiences</h3>
-        <p>Currently, a Graduate Software Development Engineer at TalkTalk. 
-          Having a high involvement in the use of Content Management System 
-          (CMS) and the evolution of the Front End Site.
-        </p>">
-      </ccdesign-copy>
-      <ccdesign-copy 
-        copy="<p>Previously, a Retail Operative at Primark Chelmsford. 
-          Gaining Experience working in all departments from customer services to stock room, 
-          effectively adapting to each environment. Mainly with customer services, the role consisted of addressing the needs of clients, 
-          being able to use my initiative in any situation and keeping calm under pressure along with 
-          operating within a team.The skills required for successful completion of this job included being efficient whilst attentive, 
-          having patience and understanding and especially using good people skills. 
-          This experience has given me an excellent understanding of customer care and service, 
-          as well as being confident in communicating with a wide range of people.
-        </p>">
-      </ccdesign-copy>
-      <ccdesign-separator></ccdesign-separator>
+    <div class="page__body--left">
+      <div slot="left-side">
+        <ccdesign-copy 
+          copy="<h1>MY</h1><h1>NAME</h1><h1>IS:</h1><h2>MICHAEL</h2><h2>BEASELEY.</h2>">
+        </ccdesign-copy>
+        <ccdesign-separator></ccdesign-separator>
+        <ccdesign-copy 
+          copy="<p>Graduated with a 2:1 in Computer Science (Software Engineering) at Brunel University, 
+            aspiring to become a Full Stack Developer within the IT industry. 
+          </p>">
+        </ccdesign-copy>
+        <ccdesign-copy 
+          copy="<p>Ambitious, passionate and keen to learn, I always strive for success in whatever I do. 
+          I enjoy working both as part of a team, or individually using my own initiative. 
+          I always put 100% into all the activities I undertake, and am devoted when presented with 
+          demanding situations.</p>">
+        </ccdesign-copy>
+        <ccdesign-separator></ccdesign-separator>
+        <ccdesign-copy 
+          copy="<h3>Experiences</h3>
+          <p>Currently, a Graduate Software Development Engineer at TalkTalk. 
+            Having a high involvement in the use of Content Management System 
+            (CMS) and the evolution of the Front End Site.
+          </p>">
+        </ccdesign-copy>
+        <ccdesign-copy 
+          copy="<p>Previously, a Retail Operative at Primark Chelmsford. 
+            Gaining Experience working in all departments from customer services to stock room, 
+            effectively adapting to each environment. Mainly with customer services, the role consisted of addressing the needs of clients, 
+            being able to use my initiative in any situation and keeping calm under pressure along with 
+            operating within a team.The skills required for successful completion of this job included being efficient whilst attentive, 
+            having patience and understanding and especially using good people skills. 
+            This experience has given me an excellent understanding of customer care and service, 
+            as well as being confident in communicating with a wide range of people.
+          </p>">
+        </ccdesign-copy>
+        <ccdesign-separator></ccdesign-separator>
+      </div>
     </div>
-
-    <ccdesign-carousel 
-      slot="right-side"
-      data="[ { id: 'profilePicture', image: 'https://images.ctfassets.net/43i5e5k8e66i/3s2QTQy7ryM46G2ewIesO2/98e50163a5281ceda24048302fdb3b6e/profile_new.jpg', alt: 'Image of Michael Beaseley'}, { id: 'profilePicture2', image: 'https://images.ctfassets.net/43i5e5k8e66i/2tbgM7o5Wk6208QeuQM6o0/e40591acca2af7f3eb835a1d3bc57fc2/profile_pic.jpg', alt: 'Image of Michael Beaseley(2)'} ,{ id: 'profilePicture3', image: 'https://images.ctfassets.net/43i5e5k8e66i/57QD3oI2tiUMOmwqyOgI42/aa1f6fc07bd425a6a7cba65f84f10710/profile_station2.jpg', alt: 'Image of Michael Beaseley(2)'} ]"
-      time-interval="7500">
-    </ccdesign-carousel>
+    <div class="page__body--right">
+      <div slot="right-slot">
+        <ccdesign-carousel 
+          data="[ { id: 'profilePicture', image: 'https://images.ctfassets.net/43i5e5k8e66i/3s2QTQy7ryM46G2ewIesO2/98e50163a5281ceda24048302fdb3b6e/profile_new.jpg', alt: 'Image of Michael Beaseley'}, { id: 'profilePicture2', image: 'https://images.ctfassets.net/43i5e5k8e66i/2tbgM7o5Wk6208QeuQM6o0/e40591acca2af7f3eb835a1d3bc57fc2/profile_pic.jpg', alt: 'Image of Michael Beaseley(2)'} ,{ id: 'profilePicture3', image: 'https://images.ctfassets.net/43i5e5k8e66i/57QD3oI2tiUMOmwqyOgI42/aa1f6fc07bd425a6a7cba65f84f10710/profile_station2.jpg', alt: 'Image of Michael Beaseley(2)'} ]"
+          time-interval="7500">
+        </ccdesign-carousel>
+      </div>
+    </div>
 
     <ccdesign-placeholder slot="container">
       <ccdesign-social-container slot="icon" url="https://www.linkedin.com/in/michael-beaseley-817b5a101" icon="linkedin"></ccdesign-social-container>

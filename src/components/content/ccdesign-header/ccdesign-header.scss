@@ -18,6 +18,11 @@ ccdesign-header {
           padding: 0;
           margin: 0;
 
+          ccdesign-button {
+            position: absolute;
+            right: 0;
+          }
+
           img {
             margin-right: 16px;
           }

@@ -48,6 +48,7 @@ export class CcdesignCarousel {
     const items: CarouselItem[] = carouseData;
 
     returnItems = items.map((item: CarouselItem) => (
+      // tslint:disable-next-line
       <div id={item.id} title={item.alt} style={{ backgroundImage: `url(${item.image})` }} class="slides slide-out-right"></div>
     ));
 
