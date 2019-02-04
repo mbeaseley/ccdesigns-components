@@ -34,7 +34,7 @@ export class MobileNav {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if (urlPathName === '') { urlPathName = 'home'; }
-    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project'];
+    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project'];
     if (UrlArray.indexOf(urlPathName) > -1) {
       return this.menuRootPage();
     }

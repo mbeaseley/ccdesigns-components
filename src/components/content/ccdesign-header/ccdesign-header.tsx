@@ -65,7 +65,11 @@ export class CcdesignHeader {
   }
 
   constructor() {
-    this.env = this.determineEnvironment();
+    try {
+      this.env = this.determineEnvironment().toString();
+    } catch (e) {
+      this.env = 'http://ccdesign.me.uk/';
+    }
     this.determinHeaderLayout = this.determinHeaderLayout.bind(this);
   }
 
