@@ -1,4 +1,5 @@
 import { Component, Element, Prop, State } from '@stencil/core';
+import environment from '../../../../services/environment/index';
 
 import { NavDataItem } from '../nav-data-item';
 
@@ -10,6 +11,7 @@ export class MobileNav {
   @Prop() data: NavDataItem[];
   @State() isNavOpen = false;
   @State() isRootPage = false;
+  @State() env: string;
 
   @Element() el: HTMLElement;
 
@@ -26,7 +28,7 @@ export class MobileNav {
   }
 
   backRootPage() {
-    window.location.href = 'http://localhost:4200/portfolio';
+    window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
 
@@ -42,6 +44,18 @@ export class MobileNav {
     [].forEach.call(elResult, elementResult => {
       elementResult.classList.add('active');
     });
+  }
+
+  determineEnvironment() {
+    return environment.getEndpoint().dataEndpoint.url;
+  }
+
+  constructor() {
+    try {
+      this.env = this.determineEnvironment().toString();
+    } catch (e) {
+      this.env = 'http://ccdesign.me.uk/';
+    }
   }
 
   render() {
