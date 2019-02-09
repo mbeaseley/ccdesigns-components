@@ -33,7 +33,7 @@
     "@stencil/helmet": "^0.3.0-2"
   },
   "devDependencies": {
-    "@stencil/core": "~0.17.1",
+    "@stencil/core": "^0.17.2",
     "@stencil/sass": "^0.1.1",
     "@stencil/utils": "^0.0.5",
     "@types/jest": "^23.3.12",

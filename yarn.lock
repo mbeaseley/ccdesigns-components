@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@stencil/core@~0.17.1":
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.17.1.tgz#041bdacdd2bdbdadd5b7bd1ef9f8cbd667010d57"
-  integrity sha512-J91+MvXqMfvOLEr0uBRFJaSXtzujFcxzpjoPcOnFXxvZFY+kLh2ig+hV4mr/w6aK4GCKnSH7V7r0VtJCNISurQ==
+"@stencil/core@^0.17.2":
+  version "0.17.2"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.17.2.tgz#f213f6e25bd0b5af259fe3e299465961b1f6deb4"
+  integrity sha512-mL9u7amALlQbiMkfPjTGaXexGvVp7+NCzzLV5IxpAw9qJQwiF4e0uBarkKQAoUiWw51pc41nJwC58hD82EStqg==
   dependencies:
     chokidar "2.0.3"
     jsdom "11.11.0"
