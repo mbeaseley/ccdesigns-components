@@ -24,9 +24,7 @@
     "lint.fix": "tslint --fix --project tsconfig.json --config tslint.json",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --watch",
-    "test.e2e": "stencil test --e2e",
-    "storybook": "set NODE_PATH=src && start-storybook -p 9001 -c .storybook -s www",
-    "build-storybook": "build-storybook -c .storybook -o dist-storybook"
+    "test.e2e": "stencil test --e2e"
   },
   "pre-commit": [
     "lint"
@@ -34,16 +32,6 @@
   "dependencies": {
     "@polymer/polymer": "^3.2.0",
     "@stencil/helmet": "^0.3.0-2",
-    "@storybook/addon-a11y": "^5.0.11",
-    "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-backgrounds": "^5.0.11",
-    "@storybook/addon-knobs": "^5.0.11",
-    "@storybook/addon-links": "^5.0.11",
-    "@storybook/addon-notes": "^5.0.11",
-    "@storybook/addon-options": "^5.0.11",
-    "@storybook/addon-storysource": "^5.0.11",
-    "@storybook/addon-viewport": "^5.0.11",
-    "@storybook/polymer": "^5.0.11",
     "lit-html": "^1.0.0",
     "polymer-webpack-loader": "^2.0.3"
   },
