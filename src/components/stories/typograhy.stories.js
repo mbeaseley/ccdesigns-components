@@ -5,12 +5,12 @@ import { storyStyles } from "./utils";
 
 const defaultTypo = (h1, h2, h3, p, a, li) => `
   <div class="border">
-    <h1>${h1}</h1>
-    <h2>${h2}</h2>
-    <h3>${h3}</h3>
-    <p>${p}</p>
-    <a href-"/">${a}</a>
-    <li>${li}</li>
+    <ccdesign-copy copy="<h1>${h1}</h1>"></ccdesign-copy>
+    <ccdesign-copy copy="<h2>${h2}</h2>"></ccdesign-copy>
+    <ccdesign-copy copy="<h3>${h3}</h3>"></ccdesign-copy>
+    <ccdesign-copy copy="<p>${p}</p>"></ccdesign-copy>
+    <ccdesign-copy copy="<a href=''>Example Link Text</a>"></ccdesign-copy>
+    <ccdesign-copy copy="<li>${li}</li>"></ccdesign-copy>
   </div>
 `;
 
