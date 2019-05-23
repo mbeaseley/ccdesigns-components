@@ -42,7 +42,7 @@ const notes = `
   <p>There are no slots used in this component. </p>
 `;
 
-const stories = storiesOf("UI|Icon")
+const stories = storiesOf("UI|Icon", module)
   .addDecorator(withKnobs);
 
 stories.add(

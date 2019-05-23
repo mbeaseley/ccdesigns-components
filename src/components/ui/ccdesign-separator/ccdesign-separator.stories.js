@@ -24,7 +24,7 @@ const notes = `
   <p>There are no slots used in this component. </p>
 `;
 
-const stories = storiesOf("UI|Separator");
+const stories = storiesOf("UI|Separator", module);
 
 stories.add(
   "Default Variant",

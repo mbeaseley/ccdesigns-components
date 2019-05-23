@@ -2,6 +2,8 @@ export const storyStyles = `
   <style>
     .border { border: 1px solid red; display: block; text-align: center; margin: 20px; padding: 10px; }
     .boxContainer { display: block; background-color: red; text-align: center; padding: 20px;}
+    .bodyContainer { display: block; padding: 10px; max-width: 900px; }
+    .margin { margin-top: 20px; }
   </style>
 `;
 
