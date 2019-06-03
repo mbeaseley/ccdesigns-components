@@ -1,7 +1,6 @@
 import { Component, Element, Prop } from '@stencil/core';
 
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
-
 import { CarouselItem } from './carousel-item';
 
 @Component({
@@ -48,8 +47,12 @@ export class CcdesignCarousel {
     const items: CarouselItem[] = carouseData;
 
     returnItems = items.map((item: CarouselItem) => (
-      // tslint:disable-next-line
-      <div id={item.id} title={item.alt} style={{ backgroundImage: `url(${item.image})` }} class="slides slide-out-right"></div>
+      <div
+        id={item.id}
+        title={item.alt}
+        style={{ backgroundImage: `url(${item.image})` }}
+         class="slides slide-out-right">
+      </div>
     ));
 
     return returnItems;
