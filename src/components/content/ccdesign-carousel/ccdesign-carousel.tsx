@@ -1,4 +1,4 @@
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, JSX, Prop, h } from '@stencil/core';
 
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 import { CarouselItem } from './carousel-item';

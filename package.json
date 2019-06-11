@@ -2,7 +2,7 @@
   "name": "ccdesign-components",
   "version": "1.5.0",
   "description": "CCDesigns Component Library",
-  "module": "dist/esm/index.js",
+  "module": "dist/index.mjs",
   "main": "dist/index.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
@@ -38,8 +38,8 @@
     "polymer-webpack-loader": "^2.0.3"
   },
   "devDependencies": {
-    "@stencil/core": "~0.18.1",
-    "@stencil/sass": "^0.2.3",
+    "@stencil/core": "^1.0.2",
+    "@stencil/sass": "^1.0.0",
     "@stencil/utils": "^0.0.5",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "^5.0.11",
@@ -62,9 +62,7 @@
     "tslint-ionic-rules": "0.0.21",
     "typescript": "^3.3.3"
   },
-  "resolutions": {
-    
-  },
+  "resolutions": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mbeaseley/ccdesigns-components.git"
