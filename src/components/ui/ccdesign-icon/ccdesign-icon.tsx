@@ -1,4 +1,4 @@
-import { Component, Element, Method, Prop, Watch } from '@stencil/core';
+import { Component, Element, Prop, Watch, h } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-icon',
@@ -11,7 +11,6 @@ export class CcdesignIcon {
 
   @Element() iconEl: HTMLElement;
 
-  @Method()
   getSVG() {
     const url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
     fetch(url)
@@ -32,7 +31,6 @@ export class CcdesignIcon {
       });
   }
 
-  @Method()
   componentDidLoad() {
     this.getSVG();
   }

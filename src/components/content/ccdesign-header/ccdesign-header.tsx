@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State } from '@stencil/core';
+import { Component, Element, JSX, Prop, State, h } from '@stencil/core';
 
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 import environment from '../../../services/environment/index';

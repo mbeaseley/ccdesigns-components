@@ -1,4 +1,4 @@
-import { Component, Prop, Watch } from '@stencil/core';
+import { Component, Prop, Watch, h } from '@stencil/core';
 import Helmet from '@stencil/helmet';
 
 import { MetaData } from './meta-data';
