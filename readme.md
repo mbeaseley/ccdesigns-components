@@ -2,7 +2,7 @@
 
 # CCDesign Component Library
 
-This is a web component library that is used on ccdesign.me.uk. 
+This is a web component library that is used on <a href="http://ccdesign-me.uk">ccdesign.me.uk.</a> All components are now available to be looked at on <a href="https://mbeaseley.github.io/ccdesigns-components/">mbeaseley.github.io/ccdesigns-components/</a>
 
 # Stencil
 
@@ -42,6 +42,11 @@ To build the component for development, run:
 yarn build
 ```
 
+To build the component for production, run:
+```bash
+yarn build.prod
+```
+
 To run the unit tests for the components, run:
 
 ```bash
@@ -65,4 +70,28 @@ yarn global add st-cc
 To add a new component
 ```bash
 st-cc cc-newcomponent
+```
+
+## Storybook
+
+Component are presented in Storybook. For each new component, a storybook file is required.
+
+For testing: 
+```bash
+yarn storybook
+```
+
+For pre-production test:
+Do a build: 
+```bash
+yarn build-storybook
+```
+To run: 
+```bash
+npx http-server .out
+```
+
+To deploy to production:
+```bash
+yarn deploy-storybook
 ```
