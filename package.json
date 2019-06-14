@@ -1,6 +1,6 @@
 {
   "name": "ccdesign-components",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "CCDesigns Component Library",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
