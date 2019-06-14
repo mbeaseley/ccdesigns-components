@@ -27,7 +27,7 @@
     "test.watch": "stencil test --spec --watch",
     "test.e2e": "stencil test --e2e",
     "storybook": "start-storybook -p 9001 -c .storybook -s www",
-    "build-storybook": "yarn build && build-storybook -s public -c .storybook -o .out && ./scripts/move-storybook.sh",
+    "build-storybook": "yarn build.prod && build-storybook -s public -c .storybook -o .out && ./scripts/move-storybook.sh",
     "deploy-storybook": "storybook-to-ghpages --out=.out"
   },
   "pre-commit": [
