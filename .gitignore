@@ -1,6 +1,7 @@
 dist/
 coverage/
 www/
+.out/
 
 *~
 *.sw[mnpcod]

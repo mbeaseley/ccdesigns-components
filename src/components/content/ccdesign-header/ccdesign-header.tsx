@@ -58,10 +58,14 @@ export class CcdesignHeader {
     if (UrlArray.indexOf(urlPathName) > -1) {
       return this.menuRootPage();
     }
-    const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
-    [].forEach.call(elResult, elementResult => {
-      elementResult.classList.add('active');
-    });
+    try {
+      const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
+      [].forEach.call(elResult, elementResult => {
+        elementResult.classList.add('active');
+      });
+    } catch (e) {
+      return console.warn('Error with header: ', e);
+    }
   }
 
   constructor() {
