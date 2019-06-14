@@ -13,8 +13,10 @@ const welcome = () => {
         Most, not all, components will have a series of addons applied to them which are Knobs, Action and Notes.
         Please play around with these and read the notes in each compoent to see what they are, and how to use them.</p>">
       </ccdesign-copy>
-      <img src="../../assets/favicon.ico"
+      <img src="https://images.ctfassets.net/43i5e5k8e66i/3uqgEDpiPCCkgiaCYEc2AQ/12e8ae839d5a8e9bff8c06a6cdfd0706/ccdesign-min.png"
           alt="CCDesign Web Component Library"
+          height="256" 
+          width="256"
           style="display: block; margin: auto;">
       <h3>Components</h3>
       <h3 style="font-size: 14px;">Content Components</h3>
