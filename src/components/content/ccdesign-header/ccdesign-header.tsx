@@ -88,27 +88,30 @@ export class CcdesignHeader {
   getNav(data: NavDataItem[]): JSX.Element {
     return (
       <ul class={`navbar__list`}>
-        <a href={this.env}>
-          <img src="assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
-        </a>
+        <li>
+          <a href={this.env}>
+            <img src="assets/favicon.svg" height="30" width="30" alt="CCDesigns" />
+          </a>
+        </li>
         {this.isRootPage
           ? (<ccdesign-button
             icon="chevron-left"
             type="text"
             color="light-grey"
-            onClick={() => this.backRootPage()}>
+            onClick={() => this.backRootPage()}
+            alt="chevron-left">
           </ccdesign-button>)
-        : data.map((item: NavDataItem) => (
-          <li class={`navbar__item`}>
-            <a
-              id={item.id}
-              href={item.url}
-              class={`navbar__link`}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))}
+          : data.map((item: NavDataItem) => (
+            <li class={`navbar__item`}>
+              <a
+                id={item.id}
+                href={item.url}
+                class={`navbar__link`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
       </ul>
     );
   }

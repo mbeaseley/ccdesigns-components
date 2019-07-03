@@ -11,6 +11,7 @@ export class CcdesignButton {
   @Prop() color: string;
   @Prop() type: string;
   @Prop() eventName: string;
+  @Prop() alt: string;
 
   @Element() el: HTMLElement;
 
@@ -37,7 +38,9 @@ export class CcdesignButton {
       // @ts-ignore
       <TagType
         {...attribute}
-        class={ classList }>
+        class={ classList }
+        alt={ this.alt }
+        aria-label={ this.alt }>
           {icon}
           <span class="">{this.text}</span>
       </TagType>
