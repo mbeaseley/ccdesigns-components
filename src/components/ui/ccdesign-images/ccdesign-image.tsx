@@ -4,7 +4,7 @@ import { Component, Element, Prop, State, h } from '@stencil/core';
   tag: 'ccdesign-image',
   styleUrl: 'ccdesign-image.scss'
 })
-export class CcImages {
+export class CcdesignImages {
   @Prop() img: string;
   @Prop() alt: string;
   @State() oldImg: string;

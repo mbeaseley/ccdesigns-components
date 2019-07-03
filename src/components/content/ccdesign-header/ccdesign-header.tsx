@@ -1,8 +1,6 @@
-import { Component, Element, JSX, Prop, State, h } from '@stencil/core';
-
+import { Component, Element, JSX, Listen, Prop, State, h } from '@stencil/core';
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 import environment from '../../../services/environment/index';
-
 import { NavDataItem } from './nav-data-item';
 
 @Component({
@@ -12,9 +10,7 @@ import { NavDataItem } from './nav-data-item';
 export class CcdesignHeader {
   @Prop() data: string;
   @Prop({ mutable: true }) formattedData: any;
-  @Prop() section = 'home';
   @Prop({ context: 'isClient' }) private isClient: boolean;
-
   @State() initialized = false;
   @State() isMobileLayout: boolean;
   @State() isRootPage = false;
@@ -28,11 +24,10 @@ export class CcdesignHeader {
     this.formattedData = regexFormatter(this.data, /([a-z]+?):/g);
   }
 
+  @Listen('resize', { target: 'window' })
   handleLoad() {
     if (this.isClient) {
-      const desktopLayoutQuery: MediaQueryList = window.matchMedia('(min-width: 768px)');
-      this.determinHeaderLayout(desktopLayoutQuery);
-      desktopLayoutQuery.addListener(this.determinHeaderLayout);
+      this.isMobileLayout = window.innerWidth < 768 ? true : false;
     }
   }
 
@@ -74,15 +69,10 @@ export class CcdesignHeader {
     } catch (e) {
       this.env = 'http://ccdesign.me.uk/';
     }
-    this.determinHeaderLayout = this.determinHeaderLayout.bind(this);
   }
 
   determineEnvironment() {
     return environment.getEndpoint().dataEndpoint.url;
-  }
-
-  determinHeaderLayout(desktopLayoutQuery) {
-    this.isMobileLayout = desktopLayoutQuery.matches ? false : true;
   }
 
   getNav(data: NavDataItem[]): JSX.Element {
