@@ -1,7 +1,12 @@
 import { Component, Element, JSX, Listen, Prop, State, h } from '@stencil/core';
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 import environment from '../../../services/environment/index';
-import { NavDataItem } from './nav-data-item';
+
+export interface NavDataItem {
+  id?: string;
+  url: string;
+  name: string;
+}
 
 @Component({
   tag: 'ccdesign-header',
