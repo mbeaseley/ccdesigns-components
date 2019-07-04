@@ -1,24 +1,25 @@
-import { h } from '@stencil/core/testing';
-
+import { newSpecPage } from '@stencil/core/testing';
 import { CcdesignFooter } from './ccdesign-footer';
 
-const mockFooterData = {
-  id: 'example',
-  text: 'example text',
-  backgroundColor: 'exampleColor',
-};
+const mockFooterHtml = `
+  <ccdesign-footer
+    data="{ id: 'footer id', text: 'text', backgroundColor: 'color'}">
+  </ccdesign-footer
+`;
 
 describe('ccdesign-footer', () => {
-  it('should build', () => {
-    expect(new CcdesignFooter()).toBeTruthy();
+  let page;
+  beforeEach(async () => {
+    page = await newSpecPage({
+      components: [CcdesignFooter],
+      html: mockFooterHtml,
+      supportsShadowDom: false
+    });
   });
 
-  describe('footer functionality', () => {
-    it('should process footer object', () => {
-      const result = h('<ccdesign-footer></ccdesign-footer>', mockFooterData);
-      expect(result.vattrs.id).toBe(mockFooterData.id);
-      expect(result.vattrs.text).toBe(mockFooterData.text);
-      expect(result.vattrs.backgroundColor).toBe(mockFooterData.backgroundColor);
-    });
+  it('should render without shadow dom', async () => {
+    await page.waitForChanges();
+    expect(page.rootInstance.data).toEqual(`{ id: 'footer id', text: 'text', backgroundColor: 'color'}`);
+    expect(page.root.querySelector('div.footer--color')).toBeTruthy();
   });
 });

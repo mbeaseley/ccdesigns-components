@@ -8,17 +8,18 @@ export class CcdesignIcon {
   @Prop() name: string;
   @Prop() size = 'xs';
   @Prop() color = 'white';
+  @Prop({ mutable: true }) url: string;
 
   @Element() iconEl: HTMLElement;
 
   getSVG() {
-    const url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
-    fetch(url)
+    this.url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
+    fetch(this.url)
       .then(res => res.text())
       .then(svg => {
         if (!svg.includes('<svg')) {
           svg = '';
-          console.warn(`${ this.name } Icon doesn't exist in blob`);
+          console.warn(`${this.name} Icon doesn't exist in blob`);
         }
         const result = this.iconEl.querySelector('div');
         const iconExist = Boolean(result.querySelector('svg'));

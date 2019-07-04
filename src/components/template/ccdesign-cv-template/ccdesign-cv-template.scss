@@ -30,7 +30,10 @@ ccdesign-cv-template {
       app-contact,
       app-fyp-project,
       app-website-project,
-      app-webcomponent-project {
+      app-webcomponent-project,
+      app-talktalk-azure,
+      app-talktalk-component,
+      app-talktalk-sales {
         display: -webkit-flex;
         display: flex;
         -webkit-flex-direction: row;
@@ -88,7 +91,10 @@ ccdesign-cv-template {
         app-contact,
         app-fyp-project,
         app-website-project,
-        app-webcomponent-project {
+        app-webcomponent-project,
+        app-talktalk-azure,
+        app-talktalk-component,
+        app-talktalk-sales {
           position: relative;
           -webkit-flex-direction: column;
           flex-direction: column;

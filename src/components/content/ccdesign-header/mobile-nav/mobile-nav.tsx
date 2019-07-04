@@ -36,7 +36,7 @@ export class MobileNav {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if (urlPathName === '') { urlPathName = 'home'; }
-    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project'];
+    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project', 'portfolio/talktalk-azure', 'portfolio/talktalk-component', 'portfolio/talktalk-sales'];
     if (UrlArray.indexOf(urlPathName) > -1) {
       return this.menuRootPage();
     }
@@ -60,19 +60,20 @@ export class MobileNav {
 
   render() {
     const logo = (
-      <img src="assets/favicon.ico" height="30" width="30" alt="CCDesigns" />
+      <img src="assets/favicon.svg" height="30" width="30" alt="CCDesigns" />
     );
 
     const openNav = (
       (!this.isRootPage)
-      ? (<ccdesign-button
-        text="Menu"
-        icon="bars"
-        type="text"
-        color="light-grey"
-        onClick={() => this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}>
-      </ccdesign-button>)
-      : ''
+        ? (<ccdesign-button
+          text="Menu"
+          icon="bars"
+          type="text"
+          color="light-grey"
+          onClick={() => this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}
+          alt="Menu">
+        </ccdesign-button>)
+        : ''
     );
 
     const closeNav = (
@@ -80,19 +81,21 @@ export class MobileNav {
         type="text"
         icon="times"
         color="light-grey"
-        onClick={() => this.closeNav()}>
+        onClick={() => this.closeNav()}
+        alt="close">
       </ccdesign-button>
     );
 
     const backNav = (
       (this.isRootPage)
-      ? (<ccdesign-button
-        icon="chevron-left"
-        type="text"
-        color="light-grey"
-        onClick={() => this.backRootPage()}>
-      </ccdesign-button>)
-      : ''
+        ? (<ccdesign-button
+          icon="chevron-left"
+          type="text"
+          color="light-grey"
+          onClick={() => this.backRootPage()}
+          alt="chevron-left">
+        </ccdesign-button>)
+        : ''
     );
 
     const navHeader = (
@@ -107,10 +110,10 @@ export class MobileNav {
 
       const navItems: NavDataItem[] = this.data;
       returnItems = navItems.map((item: NavDataItem) => (
-        <li id ={item.id} class={'navbar__mobile__item'}>
-            <a id ={item.id} class={'navbar__mobile__link'} href={item.url}>
-              {item.name}
-            </a>
+        <li id={item.id} class={'navbar__mobile__item'}>
+          <a id={item.id} class={'navbar__mobile__link'} href={item.url}>
+            {item.name}
+          </a>
         </li>
       ));
 

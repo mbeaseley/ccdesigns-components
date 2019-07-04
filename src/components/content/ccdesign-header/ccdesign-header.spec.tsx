@@ -1,36 +1,24 @@
-import { h } from '@stencil/core/testing';
-
+import { newSpecPage } from '@stencil/core/testing';
 import { CcdesignHeader } from './ccdesign-header';
 
-const mockHeaderData = [
-  {
-    id: 'example1',
-    url: '/example1',
-    name: 'example1',
-  },
-  {
-    id: 'example2',
-    url: '/example2',
-    name: 'example2',
-  },
-  {
-    id: 'example2',
-    url: '/example2',
-    name: 'example2',
-  },
-];
+const mockHeaderHtml = `
+  <ccdesign-header
+    data=\"[ { id: 'home', name: 'Home', url: '/' }, { id: 'portfolio', name: 'Portfolio', url: '/portfolio'}, { id: 'contact', name: 'Contact', url: '/contact'} ]\">
+  </ccdesign-header>
+`;
 
 describe('ccdesign-header', () => {
-  it('should build', () => {
-    expect(new CcdesignHeader()).toBeTruthy();
+  let page;
+  beforeEach(async () => {
+    page = await newSpecPage({
+      components: [CcdesignHeader],
+      html: mockHeaderHtml,
+      supportsShadowDom: false
+    });
   });
 
-  describe('header functionality', () => {
-    it('should process header object', () => {
-      const result = h('<ccdesign-header></ccdesign-header>', mockHeaderData);
-      expect(result.vattrs[0].id).toBe(mockHeaderData[0].id);
-      expect(result.vattrs[1].url).toBe(mockHeaderData[1].url);
-      expect(result.vattrs[2].name).toBe(mockHeaderData[2].name);
-    });
+  it('should render without shadow dom', async () => {
+    await page.waitForChanges();
+    expect(page.rootInstance.data).toEqual(`[ { id: 'home', name: 'Home', url: '/' }, { id: 'portfolio', name: 'Portfolio', url: '/portfolio'}, { id: 'contact', name: 'Contact', url: '/contact'} ]`);
   });
 });

@@ -15,7 +15,8 @@ export class CcdesignSocialContainer {
           <ccdesign-button
             icon={this.icon}
             color="blue"
-            url={this.url}>
+            url={this.url}
+            alt={this.icon}>
           </ccdesign-button>
         </div>
       </div>

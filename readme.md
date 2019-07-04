@@ -2,7 +2,7 @@
 
 # CCDesign Component Library
 
-This is a web component library that is used on <a href="http://ccdesign-me.uk">ccdesign.me.uk.</a> All components are now available to be looked at on <a href="https://mbeaseley.github.io/ccdesigns-components/">mbeaseley.github.io/ccdesigns-components/</a>
+This is a web component library that is used on <a href="http://ccdesign.me.uk">ccdesign.me.uk.</a> All components are now available to be looked at on <a href="https://mbeaseley.github.io/ccdesigns-components/">mbeaseley.github.io/ccdesigns-components/</a>
 
 # Stencil
 
