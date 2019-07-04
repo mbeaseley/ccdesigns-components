@@ -18,7 +18,7 @@ ccdesign-image-card {
     }
 
     &__description {
-      background: $cc-white;
+      border: 1px solid $cc-white;
       padding: 15px;
       display: flex;
       justify-content: center;
@@ -30,9 +30,8 @@ ccdesign-image-card {
 
       p {
         text-align: center;
-        color: $cc-black;
+        color: $cc-white;
         margin: 0;
-        max-width: 20ch;
       }
     }
   }

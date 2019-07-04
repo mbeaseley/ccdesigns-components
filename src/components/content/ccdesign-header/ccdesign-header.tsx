@@ -49,7 +49,7 @@ export class CcdesignHeader {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if (urlPathName === '') { urlPathName = 'home'; }
-    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project'];
+    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project', 'portfolio/talktalk-azure', 'portfolio/talktalk-component', 'portfolio/talktalk-sales'];
     if (UrlArray.indexOf(urlPathName) > -1) {
       return this.menuRootPage();
     }
