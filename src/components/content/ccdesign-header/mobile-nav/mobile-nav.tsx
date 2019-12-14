@@ -1,12 +1,7 @@
 import { Component, Element, JSX, Prop, State, h } from '@stencil/core';
+
 import environment from '../../../../services/environment/index';
-
-export interface NavDataItem {
-  id?: string;
-  url: string;
-  name: string;
-}
-
+import { NavDataItem } from '../../../../utils/modal/nav-data-item';
 
 @Component({
   tag: 'mobile-nav',
