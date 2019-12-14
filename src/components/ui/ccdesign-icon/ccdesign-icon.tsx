@@ -32,7 +32,7 @@ export class CcdesignIcon {
       });
   }
 
-  componentDidLoad() {
+  componentWillLoad() {
     this.getSVG();
   }
 

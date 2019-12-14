@@ -23,7 +23,7 @@ export class CcdesignButton {
   render() {
     const TagType = this.url ? 'a' : 'button';
 
-    const attribute = TagType === 'button' ? { type: this.type } : { href: this.url };
+    const attribute = TagType === 'button' ? { type: this.type } : { href: this.url, alt: this.alt };
 
     const classList = {
       btn: true,
@@ -37,9 +37,8 @@ export class CcdesignButton {
     return (
       // @ts-ignore
       <TagType
-        {...attribute}
         class={ classList }
-        alt={ this.alt }
+        {...attribute}
         aria-label={ this.alt }>
           {icon}
           <span class="">{this.text}</span>
