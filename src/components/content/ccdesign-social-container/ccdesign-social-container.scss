@@ -1,4 +1,6 @@
 ccdesign-social-container {
+  display: block;
+
   @media screen and (min-width: $screen-sm-min) {
     margin-bottom: 30px;
   }
@@ -8,6 +10,7 @@ ccdesign-social-container {
       margin-right: 20px;
     }
   }
+
   .circle {
     width: 75px;
     height: 75px;
