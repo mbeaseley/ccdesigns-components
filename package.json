@@ -32,9 +32,6 @@
     "npm:clear": "rm -rf $PWD/node_modules && rm $PWD/package-lock.json && npm cache verify && npm install",
     "yarn:clear": "rm -rf $PWD/node_modules && rm $PWD/yarn.lock && yarn cache clean && yarn"
   },
-  "pre-commit": [
-    "lint",
-  ],
   "dependencies": {
     "@polymer/polymer": "^3.3.1",
     "lit-html": "^1.1.2",
