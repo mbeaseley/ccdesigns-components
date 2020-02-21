@@ -2,11 +2,23 @@ mobile-nav {
   .hide-left {
     left: -280px;
     transition-duration: 0.5s;
+
+    &.navbar__mobile {
+      &::before {
+        display: none;
+      }
+    }
   }
 
   .hide-right {
     left: 0;
     transition-duration: 0.5s;
+
+    &.navbar__mobile {
+      &::before {
+        display: block;
+      }
+    }
   }
 
   .visible {
@@ -14,9 +26,6 @@ mobile-nav {
   }
 
   .navbar {
-    height: 100vh;
-    width: 100vw;
-
     &__header {
       padding: 12px 4px 12px 0;
       background-color: $cc-black;
@@ -41,6 +50,17 @@ mobile-nav {
       width: 280px;
       height: 100vh;
       background-color: $cc-grey4;
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 280px;
+        width: 100vw;
+        height: 100vh;
+        background-color: $cc-black;
+        opacity: 0.7;
+      }
 
       &__sub-header {
         min-height: 30px;
