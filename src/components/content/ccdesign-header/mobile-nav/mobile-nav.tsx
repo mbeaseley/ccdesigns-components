@@ -1,5 +1,6 @@
 import { Component, Element, JSX, Prop, State, h } from '@stencil/core';
 import environment from '../../../../services/environment/index';
+import 'pure-swipe/src/pure-swipe';
 
 export interface NavDataItem {
   id?: string;
@@ -38,6 +39,7 @@ export class MobileNav {
   }
 
   componentDidLoad() {
+    this.handleGuestures();
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if (urlPathName === '') { urlPathName = 'home'; }
@@ -61,6 +63,20 @@ export class MobileNav {
     } catch (e) {
       this.env = 'http://ccdesign.me.uk/';
     }
+  }
+
+  /**
+   * Binds querySelector contents to swipe action
+   */
+  handleGuestures(): void {
+    const elRight = this.el.querySelector('.navbar__mobile--interaction');
+    elRight.addEventListener('swiped-right', () => {
+      this.openNav();
+    });
+    const elLeft = this.el.querySelector('.navbar__mobile');
+    elLeft.addEventListener('swiped-left', () => {
+      this.closeNav();
+    });
   }
 
   render() {
@@ -117,7 +133,7 @@ export class MobileNav {
       returnItems = navItems.map((item: NavDataItem) => (
         <li id={item.id} class={'navbar__mobile__item'}>
           <a id={item.id} class={'navbar__mobile__link'} href={item.url}>
-            {item.name}
+            <div>{item.name}</div>
           </a>
         </li>
       ));
@@ -138,6 +154,10 @@ export class MobileNav {
       </nav>
     );
 
-    return [navHeader, navbar];
+    const navbarInteraction = (
+      <div class="navbar__mobile--interaction"></div>
+    )
+
+    return [navHeader, navbar, navbarInteraction];
   }
 }

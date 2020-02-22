@@ -59,6 +59,7 @@
     "jest-cli": "24.9.0",
     "pre-commit": "^1.2.2",
     "puppeteer": "1.20.0",
+    "pure-swipe": "^1.0.7",
     "tslint": "^6.0.0",
     "tslint-ionic-rules": "0.0.21",
     "typescript": "^3.8.2"

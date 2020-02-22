@@ -58,6 +58,13 @@ mobile-nav {
       height: 100vh;
       background-color: $cc-grey4;
 
+      &--interaction {
+        position: absolute;
+        height: 100vh;
+        width: 30px;
+        z-index: 5;
+      }
+
       &::before {
         content: '';
         position: absolute;
@@ -91,11 +98,15 @@ mobile-nav {
 
       &__item {
         display: block;
-        padding: 17px 40px 17px 17px;
         border-bottom: 2px solid $cc-grey2;
 
         &.active {
           background-color: $cc-black;
+        }
+
+        &:focus,
+        &:focus-within {
+          outline: none;
         }
       }
 
@@ -109,9 +120,18 @@ mobile-nav {
           color: $cc-light-blue;
         }
 
+        &:focus,
+        &:focus-within {
+          outline: none;
+        }
+
         &:hover {
           color: $cc-white;
           text-decoration: none;
+        }
+
+        & > div {
+          padding: 17px 40px 17px 17px;
         }
       }
     }
