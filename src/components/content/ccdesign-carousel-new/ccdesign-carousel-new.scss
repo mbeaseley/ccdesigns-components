@@ -1,0 +1,60 @@
+%slide {
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  transition: 1s;
+}
+
+ccdesign-carousel-new {
+  .carousel {
+    position: relative;
+    display: block;
+    margin: auto;
+    height: 97vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: $cc-grey1;
+
+    @media (max-width: $screen-xs-max) {
+      height: 35vh;
+    }
+
+    .slide-out-right {
+      left: 100%;
+      z-index: 2;
+      @extend %slide;
+    }
+
+    .slide-in-left {
+      left: 0;
+      z-index: 4;
+      @extend %slide;
+    }
+
+    .slide-from-left {
+      left: -100%;
+      z-index: 2;
+      @extend %slide;
+    }
+
+    & > ccdesign-lazy-image {
+      position: absolute;
+
+      img {
+        position: relative;
+        display: block;
+        height: 100vh;
+        object-fit: cover;
+
+        // move image up on mobile devices
+        @media (max-width: $screen-xs-max) {
+          top: -30vh;
+        }
+      }
+    }
+  }
+}

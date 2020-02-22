@@ -1,3 +1,25 @@
+.blurry-load {
+  filter: blur(8px);
+}
+
+@keyframes blurOut {
+  0% {
+    filter: blur(20px);
+  }
+
+  50% {
+    filter: blur(10px);
+  }
+
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.blur-out {
+  animation: blurOut 0.5s ease-out;
+}
+
 ccdesign-lazy-image {
   & > img {
     display: block;
