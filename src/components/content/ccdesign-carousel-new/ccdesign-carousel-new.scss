@@ -52,7 +52,11 @@ ccdesign-carousel-new {
 
         // move image up on mobile devices
         @media (max-width: $screen-xs-max) {
-          top: -30vh;
+          top: -9vh;
+          width: 100vw;
+          min-height: 35vh;
+          height: unset;
+          object-fit: unset;
         }
       }
     }
