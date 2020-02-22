@@ -32,6 +32,13 @@ mobile-nav {
       min-height: 30px;
       text-align: center;
 
+      ccdesign-lazy-image {
+        & > img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
       ccdesign-button {
         float: left;
       }

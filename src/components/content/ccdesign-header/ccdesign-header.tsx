@@ -85,7 +85,7 @@ export class CcdesignHeader {
       <ul class={`navbar__list`}>
         <li>
           <a href={this.env}>
-            <img src="assets/favicon.svg" height="30" width="30" alt="CCDesigns" />
+            <ccdesign-lazy-image img-src="assets/favicon.svg" alt="CCDesigns"></ccdesign-lazy-image>
           </a>
         </li>
         {this.isRootPage

@@ -18,6 +18,13 @@ ccdesign-header {
           padding: 0;
           margin: 0;
 
+          ccdesign-lazy-image {
+            & > img {
+              width: 30px;
+              height: 30px;
+            }
+          }
+
           ccdesign-button {
             position: absolute;
             right: 0;
