@@ -13,7 +13,7 @@ export class CcdesignCarouselNew {
   @Prop({ mutable: true }) imageSelected = 1;
 
   @Element() el: HTMLElement;
-  items: NodeListOf<Element>
+  items: NodeListOf<Element>;
 
   getData(carouseData: any): JSX.Element[] {
     let returnItems: JSX.Element[] = [];
@@ -23,7 +23,7 @@ export class CcdesignCarouselNew {
     returnItems = items.map((item: CarouselItem) => (
       <ccdesign-lazy-image
         img-src={item.image}
-        classNames="slide-out-right"
+        classNames="slide-right"
         alt={item.alt}>
       </ccdesign-lazy-image>
     ));
@@ -36,18 +36,24 @@ export class CcdesignCarouselNew {
     this.dataElement = this.getData(formattedData);
   }
 
+  sortClasses(data: HTMLElement, i?: number): any {
+    if (data.className === 'slide-middle blurry-out') {
+      return data.classList.replace('slide-middle', 'slide-right');
+    } else if (i === this.imageSelected) {
+      return data.classList.replace('slide-left', 'slide-middle');
+    } else {
+      return data.classList.replace('slide-right', 'slide-left');
+    }
+  }
+
   timeTrigger(items: NodeListOf<Element>) {
+    this.items = items;
+
     setInterval(() => {
       (this.imageSelected >= items.length) ? this.imageSelected = 0 : null;
       // Loops through each image at set timeInterval to swap classNames
-      items.forEach((data: HTMLElement, i: number) => {
-        if (data.className === 'slide-in-left blurry-out') {
-          return data.classList.replace('slide-in-left', 'slide-out-right');
-        } else if (i === this.imageSelected) {
-          return data.classList.replace('slide-from-left', 'slide-in-left');
-        } else {
-          return data.classList.replace('slide-out-right', 'slide-from-left');
-        }
+      this.items.forEach((data: HTMLElement, i: number) => {
+        return this.sortClasses(data, i);
       });
       this.imageSelected++;
     }, this.timeInterval);
@@ -56,11 +62,12 @@ export class CcdesignCarouselNew {
 
 
   componentLoadImages(items: NodeListOf<Element>): any {
-    [].forEach.call(items, (data: HTMLElement, index: number) => {
-      if (index === 0) {
-        data.classList.replace('slide-out-right', 'slide-in-left');
+    this.items = items;
+    this.items.forEach((data: HTMLElement, i: number) => {
+      if (i === 0) {
+        data.classList.replace('slide-right', 'slide-middle');
       } else {
-        data.classList.replace('slide-out-right', 'slide-from-left');
+        data.classList.replace('slide-right', 'slide-left');
       }
     });
   }

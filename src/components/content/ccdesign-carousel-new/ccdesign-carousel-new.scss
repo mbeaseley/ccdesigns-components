@@ -23,19 +23,19 @@ ccdesign-carousel-new {
       height: 35vh;
     }
 
-    .slide-out-right {
+    .slide-right {
       left: 100%;
       z-index: 2;
       @extend %slide;
     }
 
-    .slide-in-left {
+    .slide-middle {
       left: 0;
       z-index: 4;
       @extend %slide;
     }
 
-    .slide-from-left {
+    .slide-left {
       left: -100%;
       z-index: 2;
       @extend %slide;
