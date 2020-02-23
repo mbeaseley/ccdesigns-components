@@ -1,7 +1,7 @@
 import { Component, Element, JSX, Prop, h } from '@stencil/core';
 
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
-import { CarouselItem } from './carousel-item';
+import { CarouselItem } from '../../../utils/types/carousel-item';
 
 @Component({
   tag: 'ccdesign-carousel',

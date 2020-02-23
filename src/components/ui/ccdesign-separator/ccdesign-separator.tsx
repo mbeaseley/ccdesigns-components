@@ -6,6 +6,9 @@ import { Component, h } from '@stencil/core';
 })
 export class CcdesignSeparator {
 
+  /**
+   * render
+   */
   render() {
     return (
       <hr />

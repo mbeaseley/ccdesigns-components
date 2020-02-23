@@ -6,6 +6,9 @@ import { Component, h } from '@stencil/core';
 })
 export class CcdesignPlaceholder {
 
+  /**
+   * render
+   */
   render() {
     return (
       <slot />

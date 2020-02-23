@@ -16,7 +16,11 @@ ccdesign-button {
     text-decoration: none;
     cursor: pointer;
 
-    // TODO: better solution for on hover action
+    &:focus,
+    &:focus-within {
+      outline: none;
+    }
+
     &:hover {
       .icon--blue {
         color: $cc-icons-blue-action;

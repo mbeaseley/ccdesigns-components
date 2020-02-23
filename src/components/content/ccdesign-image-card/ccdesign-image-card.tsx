@@ -10,6 +10,9 @@ export class CcdesignImageCard {
   @Prop() imageAlt: string;
   @Prop() description: string;
 
+  /**
+   * render
+   */
   render() {
     const image = (
       <div class="image-card__image">

@@ -8,6 +8,9 @@ export class CcdesignSocialContainer {
   @Prop() url: string;
   @Prop() icon: string;
 
+  /**
+   * render
+   */
   render() {
     return (
       <div class="circle circle--outercircle">

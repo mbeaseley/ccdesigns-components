@@ -7,6 +7,9 @@ import { Component, Prop, h } from '@stencil/core';
 export class CcdesignGrid {
   @Prop() heading: string;
 
+  /**
+   * render
+   */
   render() {
     const header = (
       <div class="grid__header">

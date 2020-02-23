@@ -15,11 +15,17 @@ export class CcdesignButton {
 
   @Element() el: HTMLElement;
 
+  /**
+   * component did fully load
+   */
   componentDidLoad() {
     const result = this.el.querySelector('span');
     (result.innerHTML) ? result.setAttribute('class', `text--${this.color}`) : null;
   }
 
+  /**
+   * render
+   */
   render() {
     const TagType = this.url ? 'a' : 'button';
 

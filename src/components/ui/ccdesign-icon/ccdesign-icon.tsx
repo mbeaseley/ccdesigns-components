@@ -12,6 +12,9 @@ export class CcdesignIcon {
 
   @Element() iconEl: HTMLElement;
 
+  /**
+   * gets and sets icon svg to element
+   */
   getSVG() {
     this.url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
     fetch(this.url)
@@ -22,7 +25,7 @@ export class CcdesignIcon {
           console.warn(`${this.name} Icon doesn't exist in blob`);
         }
         const result = this.iconEl.querySelector('div');
-        const iconExist = Boolean(result.querySelector('svg'));
+        const iconExist = !!result.querySelector('svg');
 
         if (iconExist) {
           result.querySelector('svg').remove();
@@ -32,15 +35,24 @@ export class CcdesignIcon {
       });
   }
 
+  /**
+   * component did fully load
+   */
   componentDidLoad() {
     this.getSVG();
   }
 
+  /**
+   * watches to see if icon name changes so it can update dom
+   */
   @Watch('name')
   componentWillUpdate() {
     this.getSVG();
   }
 
+  /**
+   * render
+   */
   render() {
     let inputColor: string;
     const backgroundColors = ['white', 'light-grey', 'grey', 'dark-grey', 'black', 'blue'];

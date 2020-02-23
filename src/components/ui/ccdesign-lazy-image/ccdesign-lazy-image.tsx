@@ -1,0 +1,64 @@
+import { Component, Element, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'ccdesign-lazy-image',
+  styleUrl: 'ccdesign-lazy-image.scss'
+})
+export class CcdesignLazyImage {
+  @Element() el: HTMLElement;
+
+  @Prop() imgSrc: string;
+  @Prop() alt: string;
+  @Prop() classNames: string;
+
+  private observer: IntersectionObserver;
+  img: HTMLImageElement
+
+  /**
+   * component did render
+   */
+  componentDidRender() {
+    this.img = this.el.querySelector('img');
+    this.img.classList.add('blurry-load');
+    // Attached onload so images loads in one go
+    this.img.onload = () => {
+      this.img.removeAttribute('style');
+      this.img.classList.remove('blurry-load')
+      this.img.classList.add('blurry-out');
+    };
+
+    if (this.img) {
+      this.observer = new IntersectionObserver(this.onIntersection);
+      this.observer.observe(this.img);
+    }
+  }
+
+  /**
+   * asynchronousily swaps data-src to src
+   */
+  private onIntersection = async (entries: [any]) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+         if (this.observer) {
+            this.observer.disconnect();
+         }
+
+         if (entry.target.getAttribute('data-src')) {
+            entry.target.setAttribute('style', 'opacity: 0');
+
+            entry.target.setAttribute('src',
+              entry.target.getAttribute('data-src')
+            );
+            entry.target.removeAttribute('data-src');
+         }
+      }
+    }
+  };
+
+  /**
+   * render
+   */
+  render() {
+    return <img class={this.classNames} data-src={this.imgSrc} alt={this.alt}/>;
+  }
+}

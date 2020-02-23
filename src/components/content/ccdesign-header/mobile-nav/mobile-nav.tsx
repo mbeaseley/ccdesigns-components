@@ -2,6 +2,7 @@ import { Component, Element, JSX, Prop, State, h } from '@stencil/core';
 
 import environment from '../../../../services/environment/index';
 import { NavDataItem } from '../../../../utils/modal/nav-data-item';
+import 'pure-swipe/src/pure-swipe';
 
 @Component({
   tag: 'mobile-nav',
@@ -15,39 +16,45 @@ export class MobileNav {
 
   @Element() el: HTMLElement;
 
+  /**
+   * sets nav to open
+   */
   openNav() {
     this.isNavOpen = true;
   }
 
+  /**
+   * sets nav to close
+   */
   closeNav() {
     this.isNavOpen = false;
   }
 
-  menuRootPage() {
-    this.isRootPage = true;
-  }
-
+  /**
+   * sets user back to root page
+   */
   backRootPage() {
     window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
 
+  /**
+   * component did fully load
+   */
   componentDidLoad() {
+    this.handleGuestures();
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
     if (urlPathName === '') { urlPathName = 'home'; }
     const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project', 'portfolio/talktalk-azure', 'portfolio/talktalk-component', 'portfolio/talktalk-sales'];
     if (UrlArray.indexOf(urlPathName) > -1) {
-      return this.menuRootPage();
+      this.isRootPage = true;
+      return;
     }
     const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
-    [].forEach.call(elResult, elementResult => {
+    elResult.forEach((elementResult: Element) => {
       elementResult.classList.add('active');
     });
-  }
-
-  determineEnvironment() {
-    return environment.getEndpoint().dataEndpoint.url;
   }
 
   constructor() {
@@ -58,9 +65,33 @@ export class MobileNav {
     }
   }
 
+  /**
+   * Checks for environment, dev or prod
+   */
+  determineEnvironment() {
+    return environment.getEndpoint().dataEndpoint.url;
+  }
+
+  /**
+   * Binds querySelector contents to swipe action
+   */
+  handleGuestures(): void {
+    const elRight = this.el.querySelector('.navbar__mobile--interaction');
+    elRight.addEventListener('swiped-right', () => {
+      this.openNav();
+    });
+    const elLeft = this.el.querySelector('.navbar__mobile');
+    elLeft.addEventListener('swiped-left', () => {
+      this.closeNav();
+    });
+  }
+
+  /**
+   * render
+   */
   render() {
     const logo = (
-      <img src="assets/favicon.svg" height="30" width="30" alt="CCDesigns" />
+      <ccdesign-lazy-image img-src="assets/favicon.svg" alt="CCDesigns"></ccdesign-lazy-image>
     );
 
     const openNav = (
@@ -112,7 +143,7 @@ export class MobileNav {
       returnItems = navItems.map((item: NavDataItem) => (
         <li id={item.id} class={'navbar__mobile__item'}>
           <a id={item.id} class={'navbar__mobile__link'} href={item.url}>
-            {item.name}
+            <div>{item.name}</div>
           </a>
         </li>
       ));
@@ -133,6 +164,10 @@ export class MobileNav {
       </nav>
     );
 
-    return [navHeader, navbar];
+    const navbarInteraction = (
+      <div class="navbar__mobile--interaction"></div>
+    )
+
+    return [navHeader, navbar, navbarInteraction];
   }
 }
