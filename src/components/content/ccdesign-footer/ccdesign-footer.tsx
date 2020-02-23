@@ -1,12 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
-
-export interface FooterItem {
-  id?: string;
-  text: string;
-  backgroundColor: string;
-}
+import { FooterItem } from '../../../utils/modal/footer-item';
 
 @Component({
   tag: 'ccdesign-footer',
