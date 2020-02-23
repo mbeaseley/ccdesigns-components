@@ -16,23 +16,31 @@ export class MobileNav {
 
   @Element() el: HTMLElement;
 
+  /**
+   * sets nav to open
+   */
   openNav() {
     this.isNavOpen = true;
   }
 
+  /**
+   * sets nav to close
+   */
   closeNav() {
     this.isNavOpen = false;
   }
 
-  menuRootPage() {
-    this.isRootPage = true;
-  }
-
+  /**
+   * sets user back to root page
+   */
   backRootPage() {
     window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
 
+  /**
+   * component did fully load
+   */
   componentDidLoad() {
     this.handleGuestures();
     let urlPathName = window.location.pathname;
@@ -40,16 +48,13 @@ export class MobileNav {
     if (urlPathName === '') { urlPathName = 'home'; }
     const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project', 'portfolio/talktalk-azure', 'portfolio/talktalk-component', 'portfolio/talktalk-sales'];
     if (UrlArray.indexOf(urlPathName) > -1) {
-      return this.menuRootPage();
+      this.isRootPage = true;
+      return;
     }
     const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
-    [].forEach.call(elResult, elementResult => {
+    elResult.forEach((elementResult: Element) => {
       elementResult.classList.add('active');
     });
-  }
-
-  determineEnvironment() {
-    return environment.getEndpoint().dataEndpoint.url;
   }
 
   constructor() {
@@ -58,6 +63,13 @@ export class MobileNav {
     } catch (e) {
       this.env = 'http://ccdesign.me.uk/';
     }
+  }
+
+  /**
+   * Checks for environment, dev or prod
+   */
+  determineEnvironment() {
+    return environment.getEndpoint().dataEndpoint.url;
   }
 
   /**
@@ -74,6 +86,9 @@ export class MobileNav {
     });
   }
 
+  /**
+   * render
+   */
   render() {
     const logo = (
       <ccdesign-lazy-image img-src="assets/favicon.svg" alt="CCDesigns"></ccdesign-lazy-image>

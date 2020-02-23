@@ -14,6 +14,9 @@ export class CcdesignLazyImage {
   private observer: IntersectionObserver;
   img: HTMLImageElement
 
+  /**
+   * component did render
+   */
   componentDidRender() {
     this.img = this.el.querySelector('img');
     this.img.classList.add('blurry-load');
@@ -30,6 +33,9 @@ export class CcdesignLazyImage {
     }
   }
 
+  /**
+   * asynchronousily swaps data-src to src
+   */
   private onIntersection = async (entries: [any]) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
@@ -49,6 +55,9 @@ export class CcdesignLazyImage {
     }
   };
 
+  /**
+   * render
+   */
   render() {
     return <img class={this.classNames} data-src={this.imgSrc} alt={this.alt}/>;
   }

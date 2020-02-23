@@ -44,6 +44,4 @@ li {
   @extend %base;
   font-size: 16px;
   color: $cc-white;
-
-  @media (max-width: $screen-xs-min) { font-size: 14px; }
 }

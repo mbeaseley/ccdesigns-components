@@ -11,10 +11,16 @@ export class CcdesignFooter {
   @Prop() data: string;
   @Prop({ mutable: true }) dataContent: FooterItem;
 
+  /**
+   * component will fully load
+   */
   componentWillLoad() {
     this.dataContent = regexFormatter(this.data, /(\bid|\btext|\bbackgroundColor+?):/g);
   }
 
+  /**
+   * render
+   */
   render() {
     return (
       <div class={`footer footer--${this.dataContent.backgroundColor}`} innerHTML={`${this.dataContent.text}`}></div>

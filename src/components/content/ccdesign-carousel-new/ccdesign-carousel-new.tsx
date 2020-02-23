@@ -15,6 +15,10 @@ export class CcdesignCarouselNew {
   @Element() el: HTMLElement;
   items: NodeListOf<Element>;
 
+  /**
+   * Converts carousel Data into JSX Elements
+   * @param carouseData - Formatted carousel data
+   */
   getData(carouseData: any): JSX.Element[] {
     let returnItems: JSX.Element[] = [];
 
@@ -31,11 +35,19 @@ export class CcdesignCarouselNew {
     return returnItems;
   }
 
+  /**
+   * component will fully load
+   */
   componentWillLoad(): void {
     const formattedData = regexFormatter(this.data, /(\bid|\bimage|\balt+?):/g);
     this.dataElement = this.getData(formattedData);
   }
 
+  /**
+   * Swap classes between elements
+   * @param data - HTML Element
+   * @param i - index
+   */
   sortClasses(data: HTMLElement, i?: number): any {
     if (data.className === 'slide-middle blurry-out') {
       return data.classList.replace('slide-middle', 'slide-right');
@@ -46,6 +58,10 @@ export class CcdesignCarouselNew {
     }
   }
 
+  /**
+   * Trigger for carousel swapping
+   * @param items - HTML elements
+   */
   timeTrigger(items: NodeListOf<Element>) {
     this.items = items;
 
@@ -59,8 +75,10 @@ export class CcdesignCarouselNew {
     }, this.timeInterval);
   }
 
-
-
+  /**
+   * on component first load
+   * @param items - HTML elements
+   */
   componentLoadImages(items: NodeListOf<Element>): any {
     this.items = items;
     this.items.forEach((data: HTMLElement, i: number) => {
@@ -72,6 +90,9 @@ export class CcdesignCarouselNew {
     });
   }
 
+  /**
+   * Component fully loaded
+   */
   componentDidLoad(): void {
     this.items = this.el.querySelectorAll('ccdesign-lazy-image img');
 
@@ -79,6 +100,9 @@ export class CcdesignCarouselNew {
     this.timeTrigger(this.items);
   }
 
+  /**
+   * render
+   */
   render() {
     return (
       <div class="carousel">

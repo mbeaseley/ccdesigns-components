@@ -8,6 +8,9 @@ export class CcdesignCvTemplate {
   @Prop() header: string;
   @Prop() footer: string;
 
+  /**
+   * render
+   */
   render() {
     return (
       <div>

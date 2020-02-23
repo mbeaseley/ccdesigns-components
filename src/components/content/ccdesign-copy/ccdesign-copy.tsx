@@ -7,6 +7,9 @@ import { Component, Prop, h } from '@stencil/core';
 export class CcdesignCopy {
   @Prop() copy: string;
 
+  /**
+   * render
+   */
   render() {
     return (
       <div class="copy" innerHTML={this.copy} />
