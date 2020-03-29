@@ -28,7 +28,7 @@
     "test.e2e": "stencil test --e2e",
     "test.e2e:watch": "stencil test --e2e --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s www",
-    "build-storybook": "yarn build.prod && build-storybook -s public -c .storybook -o .out && ./scripts/move-storybook.sh",
+    "build-storybook": "npm run build.prod && build-storybook -s public -c .storybook -o .out && ./scripts/move-storybook.sh",
     "deploy-storybook": "storybook-to-ghpages --out=.out",
     "npm:clear": "rm -rf $PWD/node_modules && rm $PWD/package-lock.json && npm cache verify && npm install"
   },
@@ -46,7 +46,6 @@
     "@storybook/addon-knobs": "^5.3.13",
     "@storybook/addon-links": "^5.3.13",
     "@storybook/addon-notes": "^5.3.13",
-    "@storybook/addon-options": "^5.3.13",
     "@storybook/addon-storysource": "^5.3.13",
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/polymer": "^5.3.13",
