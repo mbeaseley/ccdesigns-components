@@ -16,10 +16,7 @@ export class CcdesignImageCard {
   render() {
     const image = (
       <div class="image-card__image">
-        <ccdesign-image
-          img={`${this.imageUrl}`}
-          alt={`${this.imageAlt}`}>
-        </ccdesign-image>
+        <ccdesign-lazy-image img-src={`${this.imageUrl}`} alt={`${this.imageAlt}`}></ccdesign-lazy-image>
       </div>
     );
 

@@ -2,8 +2,6 @@ import { configure, addParameters } from '@storybook/polymer';
 
 import theme from './theme';
 
-
-
 addParameters({
   options: {
     hierarchySeparator: /\/|\./,

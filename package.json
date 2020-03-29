@@ -1,6 +1,6 @@
 {
   "name": "ccdesign-components",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "CCDesigns Component Library",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -28,7 +28,7 @@
     "test.e2e": "stencil test --e2e",
     "test.e2e:watch": "stencil test --e2e --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s www",
-    "build-storybook": "yarn build.prod && build-storybook -s public -c .storybook -o .out && ./scripts/move-storybook.sh",
+    "build-storybook": "npm run build.prod && build-storybook -s public -c .storybook -o .out && ./scripts/move-storybook.sh",
     "deploy-storybook": "storybook-to-ghpages --out=.out",
     "npm:clear": "rm -rf $PWD/node_modules && rm $PWD/package-lock.json && npm cache verify && npm install"
   },
@@ -38,7 +38,7 @@
     "polymer-webpack-loader": "^2.0.3"
   },
   "devDependencies": {
-    "@stencil/core": "1.8.9",
+    "@stencil/core": "1.11.2",
     "@stencil/sass": "^1.1.1",
     "@stencil/utils": "^0.0.5",
     "@storybook/addon-actions": "^5.3.13",
@@ -46,7 +46,6 @@
     "@storybook/addon-knobs": "^5.3.13",
     "@storybook/addon-links": "^5.3.13",
     "@storybook/addon-notes": "^5.3.13",
-    "@storybook/addon-options": "^5.3.13",
     "@storybook/addon-storysource": "^5.3.13",
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/polymer": "^5.3.13",
