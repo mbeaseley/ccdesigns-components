@@ -1,24 +1,23 @@
 dist/
-coverage/
 www/
-.out/
+loader/
 
 *~
 *.sw[mnpcod]
 *.log
+*.lock
 *.tmp
 *.tmp.*
 log.txt
 *.sublime-project
 *.sublime-workspace
-/coverage
+
 .stencil/
 .idea/
 .vscode/
 .sass-cache/
 .versions/
 node_modules/
-dist-storybook/
 $RECYCLE.BIN/
 
 .DS_Store

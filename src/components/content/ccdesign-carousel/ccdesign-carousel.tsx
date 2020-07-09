@@ -17,7 +17,7 @@ export class CcdesignCarousel {
 
   timeTrigger(items: NodeListOf<Element>) {
     setInterval(() => {
-      (this.imageSelected >= items.length) ? this.imageSelected = 0 : null;
+      this.imageSelected >= items.length ? (this.imageSelected = 0) : null;
       [].forEach.call(items, (data: HTMLElement, index: number) => {
         if (data.className === 'slides slide-in-left') {
           return data.classList.replace('slide-in-left', 'slide-out-right');
@@ -51,8 +51,8 @@ export class CcdesignCarousel {
         id={item.id}
         title={item.alt}
         style={{ backgroundImage: `url(${item.image})` }}
-         class="slides slide-out-right">
-      </div>
+        class='slides slide-out-right'
+      ></div>
     ));
 
     return returnItems;
@@ -70,8 +70,6 @@ export class CcdesignCarousel {
   }
 
   render() {
-    return (
-      <div class="carousel">{this.dataElement}</div>
-    );
+    return <div class='carousel'>{this.dataElement}</div>;
   }
 }

@@ -4,7 +4,7 @@ import { CarouselItem } from '../../../utils/types/carousel-item';
 
 @Component({
   tag: 'ccdesign-carousel-new',
-  styleUrl: 'ccdesign-carousel-new.scss'
+  styleUrl: 'ccdesign-carousel-new.scss',
 })
 export class CcdesignCarouselNew {
   @Prop() data: string;
@@ -19,17 +19,17 @@ export class CcdesignCarouselNew {
    * Converts carousel Data into JSX Elements
    * @param carouseData - Formatted carousel data
    */
-  getData(carouseData: any): JSX.Element[] {
-    let returnItems: JSX.Element[] = [];
+  getData(carouseData: any): Element[] {
+    let returnItems: Element[] = [];
 
     const items: CarouselItem[] = carouseData;
 
     returnItems = items.map((item: CarouselItem) => (
       <ccdesign-lazy-image
         img-src={item.image}
-        classNames="slide-right"
-        alt={item.alt}>
-      </ccdesign-lazy-image>
+        classNames='slide-right'
+        alt={item.alt}
+      ></ccdesign-lazy-image>
     ));
 
     return returnItems;
@@ -66,7 +66,7 @@ export class CcdesignCarouselNew {
     this.items = items;
 
     setInterval(() => {
-      (this.imageSelected >= items.length) ? this.imageSelected = 0 : null;
+      this.imageSelected >= items.length ? (this.imageSelected = 0) : null;
       // Loops through each image at set timeInterval to swap classNames
       this.items.forEach((data: HTMLElement, i: number) => {
         return this.sortClasses(data, i);
@@ -104,10 +104,6 @@ export class CcdesignCarouselNew {
    * render
    */
   render() {
-    return (
-      <div class="carousel">
-        {this.dataElement}
-      </div>
-    );
+    return <div class='carousel'>{this.dataElement}</div>;
   }
 }
