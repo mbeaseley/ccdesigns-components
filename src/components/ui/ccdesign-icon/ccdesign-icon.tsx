@@ -8,7 +8,9 @@ export class CcdesignIcon {
   @Prop() name: string;
   @Prop() size = 'xs';
   @Prop() color = 'white';
-  @Prop({ mutable: true }) url: string;
+  @Prop({ mutable: true })
+  @Prop({ mutable: true })
+  url: string = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
 
   @Element() iconEl: HTMLElement;
 
@@ -16,13 +18,11 @@ export class CcdesignIcon {
    * gets and sets icon svg to element
    */
   getSVG() {
-    this.url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
     fetch(this.url)
-      .then(res => res.text())
-      .then(svg => {
+      .then((res) => res.text())
+      .then((svg) => {
         if (!svg.includes('<svg')) {
           svg = '';
-          console.warn(`${this.name} Icon doesn't exist in blob`);
         }
         const result = this.iconEl.querySelector('div');
         const iconExist = !!result.querySelector('svg');
@@ -68,12 +68,12 @@ export class CcdesignIcon {
     if (sizes.indexOf(this.size) > -1) {
       inputSize = `icon--${this.size}`;
     } else {
-      console.error(`${this.size} is not a defined size for an icon. It has been set to default size of xs`);
+      console.error(
+        `${this.size} is not a defined size for an icon. It has been set to default size of xs`,
+      );
       inputSize = 'icon--xs';
     }
 
-    return (
-      <div class={`icon ${inputSize} ${inputColor}`}></div>
-    );
+    return <div class={`icon ${inputSize} ${inputColor}`}></div>;
   }
 }

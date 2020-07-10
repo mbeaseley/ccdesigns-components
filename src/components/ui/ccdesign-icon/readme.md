@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `color`  | `color`   |             | `string` | `'white'`   |
-| `name`   | `name`    |             | `string` | `undefined` |
-| `size`   | `size`    |             | `string` | `'xs'`      |
-| `url`    | `url`     |             | `string` | `undefined` |
+| Property | Attribute | Description | Type     | Default                                                            |
+| -------- | --------- | ----------- | -------- | ------------------------------------------------------------------ |
+| `color`  | `color`   |             | `string` | `'white'`                                                          |
+| `name`   | `name`    |             | `string` | `undefined`                                                        |
+| `size`   | `size`    |             | `string` | `'xs'`                                                             |
+| `url`    | `url`     |             | `string` | ``https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`` |
 
 
 ## Dependencies
