@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-cv-template',
@@ -11,24 +12,22 @@ export class CcdesignCvTemplate {
   /**
    * render
    */
-  render() {
+  render(): AnyHTMLElement {
+    const header = this.header ? <ccdesign-header data={`${this.header}`}></ccdesign-header> : null;
+    const footer = this.footer ? <ccdesign-footer data={`${this.footer}`}></ccdesign-footer> : null;
+
     return (
       <div>
-        <ccdesign-header
-          data={`${this.header}`}>
-        </ccdesign-header>
+        {header}
 
-        <main class="page">
-          <content class="page__body">
+        <main class='page'>
+          <content class='page__body'>
             <slot />
-            <slot name="container"/>
+            <slot name='container' />
           </content>
         </main>
 
-        <ccdesign-footer
-          data={`${this.footer}`}>
-        </ccdesign-footer>
-
+        {footer}
       </div>
     );
   }
