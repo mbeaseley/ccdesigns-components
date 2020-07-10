@@ -1,21 +1,20 @@
-import { newE2EPage } from '@stencil/core/testing';
+import { newE2EPage, E2EPage } from '@stencil/core/testing';
 
 describe('ccdesign-icon', () => {
-  beforeEach(() => {
+  let page: E2EPage;
+
+  beforeEach(async () => {
     global.fetch = jest.fn().mockResolvedValue('<svg');
+    page = await newE2EPage({});
   });
 
   it('renders', async () => {
-    const page = await newE2EPage({});
-
     await page.setContent('<ccdesign-icon></ccdesign-icon>');
     const element = await page.find('ccdesign-icon');
     expect(element).toHaveClass('hydrated');
   });
 
   it('renders with values', async () => {
-    const page = await newE2EPage({});
-
     await page.setContent('<ccdesign-icon></ccdesign-icon>');
     const component = await page.find('ccdesign-icon');
     const element = await page.find('div');

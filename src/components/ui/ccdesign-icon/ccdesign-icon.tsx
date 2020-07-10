@@ -1,4 +1,5 @@
 import { Component, Element, Prop, Watch, h } from '@stencil/core';
+import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-icon',
@@ -17,8 +18,12 @@ export class CcdesignIcon {
   /**
    * gets and sets icon svg to element
    */
-  getSVG() {
-    fetch(this.url)
+  getSVG(): Promise<void> {
+    if (!this.name) {
+      return Promise.resolve(undefined);
+    }
+
+    return fetch(this.url)
       .then((res) => res.text())
       .then((svg) => {
         if (!svg.includes('<svg')) {
@@ -32,28 +37,29 @@ export class CcdesignIcon {
         }
 
         result.insertAdjacentHTML('afterbegin', svg);
-      });
+      })
+      .catch(() => {});
   }
 
   /**
    * component did fully load
    */
-  componentDidLoad() {
-    this.getSVG();
+  componentDidLoad(): Promise<void> {
+    return this.getSVG();
   }
 
   /**
    * watches to see if icon name changes so it can update dom
    */
   @Watch('name')
-  componentWillUpdate() {
-    this.getSVG();
+  componentWillUpdate(): Promise<void> {
+    return this.getSVG();
   }
 
   /**
    * render
    */
-  render() {
+  render(): AnyHTMLElement {
     let inputColor: string;
     const backgroundColors = ['white', 'light-grey', 'grey', 'dark-grey', 'black', 'blue'];
     if (backgroundColors.indexOf(this.color) > -1) {

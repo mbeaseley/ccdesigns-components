@@ -1,4 +1,5 @@
 import { Component, Element, Prop, h } from '@stencil/core';
+import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-button',
@@ -18,18 +19,21 @@ export class CcdesignButton {
   /**
    * component did fully load
    */
-  componentDidLoad() {
-    const result = this.el.querySelector('span');
-    (result.innerHTML) ? result.setAttribute('class', `text--${this.color}`) : null;
+  componentDidLoad(): void {
+    if (this.color) {
+      const result = this.el.querySelector('span');
+      result.innerHTML ? result.setAttribute('class', `text--${this.color}`) : null;
+    }
   }
 
   /**
    * render
    */
-  render() {
+  render(): AnyHTMLElement {
     const TagType = this.url ? 'a' : 'button';
 
-    const attribute = TagType === 'button' ? { type: this.type } : { href: this.url, alt: this.alt };
+    const attribute =
+      TagType === 'button' ? { type: this.type } : { href: this.url, alt: this.alt };
 
     const classList = {
       btn: true,
@@ -37,17 +41,15 @@ export class CcdesignButton {
       [`btn--${this.type}`]: this.type === 'text',
     };
 
-    const icon =
-      <ccdesign-icon name={this.icon} color={this.color} size="xs"></ccdesign-icon>;
+    const icon = this.icon ? (
+      <ccdesign-icon name={this.icon} color={this.color} size='xs'></ccdesign-icon>
+    ) : null;
 
     return (
       // @ts-ignore
-      <TagType
-        class={ classList }
-        {...attribute}
-        aria-label={ this.alt }>
-          {icon}
-          <span class="">{this.text}</span>
+      <TagType class={classList} {...attribute} aria-label={this.alt}>
+        {icon}
+        <span>{this.text}</span>
       </TagType>
     );
   }
