@@ -15,15 +15,10 @@ describe('ccdesign-icon', () => {
   });
 
   it('renders with values', async () => {
-    await page.setContent('<ccdesign-icon></ccdesign-icon>');
-    const component = await page.find('ccdesign-icon');
+    await page.setContent(
+      '<ccdesign-icon name="chevron-left" size="xxs" color="grey"></ccdesign-icon>',
+    );
     const element = await page.find('div');
-    expect(element).toHaveClasses(['icon', 'icon--white', 'icon--xs']);
-
-    component.setProperty('name', 'chevron-left');
-    component.setProperty('size', 'xxs');
-    component.setProperty('color', 'grey');
-    await page.waitForChanges();
     expect(element).toHaveClasses(['icon', 'icon--grey', 'icon--xxs']);
   });
 });
