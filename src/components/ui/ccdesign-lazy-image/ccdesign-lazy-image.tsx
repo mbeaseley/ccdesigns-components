@@ -1,8 +1,9 @@
 import { Component, Element, Prop, h } from '@stencil/core';
+import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-lazy-image',
-  styleUrl: 'ccdesign-lazy-image.scss'
+  styleUrl: 'ccdesign-lazy-image.scss',
 })
 export class CcdesignLazyImage {
   @Element() el: HTMLElement;
@@ -12,18 +13,18 @@ export class CcdesignLazyImage {
   @Prop() classNames: string;
 
   private observer: IntersectionObserver;
-  img: HTMLImageElement
+  img: HTMLImageElement;
 
   /**
    * component did render
    */
-  componentDidRender() {
+  componentDidRender(): void {
     this.img = this.el.querySelector('img');
     this.img.classList.add('blurry-load');
     // Attached onload so images loads in one go
     this.img.onload = () => {
       this.img.removeAttribute('style');
-      this.img.classList.remove('blurry-load')
+      this.img.classList.remove('blurry-load');
       this.img.classList.add('blurry-out');
     };
 
@@ -36,21 +37,19 @@ export class CcdesignLazyImage {
   /**
    * asynchronousily swaps data-src to src
    */
-  private onIntersection = async (entries: [any]) => {
+  private onIntersection = async (entries: [any]): Promise<void> => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
-         if (this.observer) {
-            this.observer.disconnect();
-         }
+        if (this.observer) {
+          this.observer.disconnect();
+        }
 
-         if (entry.target.getAttribute('data-src')) {
-            entry.target.setAttribute('style', 'opacity: 0');
+        if (entry.target.getAttribute('data-src')) {
+          entry.target.setAttribute('style', 'opacity: 0');
 
-            entry.target.setAttribute('src',
-              entry.target.getAttribute('data-src')
-            );
-            entry.target.removeAttribute('data-src');
-         }
+          entry.target.setAttribute('src', entry.target.getAttribute('data-src'));
+          entry.target.removeAttribute('data-src');
+        }
       }
     }
   };
@@ -58,7 +57,7 @@ export class CcdesignLazyImage {
   /**
    * render
    */
-  render() {
-    return <img class={this.classNames} data-src={this.imgSrc} alt={this.alt}/>;
+  render(): AnyHTMLElement {
+    return <img class={this.classNames} data-src={this.imgSrc} alt={this.alt} />;
   }
 }
