@@ -3,6 +3,7 @@ import { Component, Element, JSX, Prop, State, h } from '@stencil/core';
 import environment from '../../../../services/environment/index';
 import { NavDataItem } from '../../../../utils/modal/nav-data-item';
 import 'pure-swipe/src/pure-swipe';
+import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'mobile-nav',
@@ -19,21 +20,21 @@ export class MobileNav {
   /**
    * sets nav to open
    */
-  openNav() {
+  openNav(): void {
     this.isNavOpen = true;
   }
 
   /**
    * sets nav to close
    */
-  closeNav() {
+  closeNav(): void {
     this.isNavOpen = false;
   }
 
   /**
    * sets user back to root page
    */
-  backRootPage() {
+  backRootPage(): void {
     window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
@@ -41,12 +42,21 @@ export class MobileNav {
   /**
    * component did fully load
    */
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.handleGuestures();
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
-    if (urlPathName === '') { urlPathName = 'home'; }
-    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project', 'portfolio/talktalk-azure', 'portfolio/talktalk-component', 'portfolio/talktalk-sales'];
+    if (urlPathName === '') {
+      urlPathName = 'home';
+    }
+    const UrlArray = [
+      'portfolio/fyp-project',
+      'portfolio/website-project',
+      'portfolio/webcomponent-project',
+      'portfolio/talktalk-azure',
+      'portfolio/talktalk-component',
+      'portfolio/talktalk-sales',
+    ];
     if (UrlArray.indexOf(urlPathName) > -1) {
       this.isRootPage = true;
       return;
@@ -61,14 +71,14 @@ export class MobileNav {
     try {
       this.env = this.determineEnvironment().toString();
     } catch (e) {
-      this.env = 'http://ccdesign.me.uk/';
+      this.env = environment.getEndpoint().dataEndpoint.url;
     }
   }
 
   /**
    * Checks for environment, dev or prod
    */
-  determineEnvironment() {
+  determineEnvironment(): string {
     return environment.getEndpoint().dataEndpoint.url;
   }
 
@@ -89,54 +99,59 @@ export class MobileNav {
   /**
    * render
    */
-  render() {
+  render(): AnyHTMLElement[] {
     const logo = (
-      <ccdesign-lazy-image img-src="assets/favicon.svg" alt="CCDesigns"></ccdesign-lazy-image>
+      <ccdesign-lazy-image img-src='assets/favicon.svg' alt='CCDesigns'></ccdesign-lazy-image>
     );
 
-    const openNav = (
-      (!this.isRootPage)
-        ? (<ccdesign-button
-          text="Menu"
-          icon="bars"
-          type="text"
-          color="light-grey"
-          onClick={() => this.openNav()} class={`${this.isNavOpen ? 'visible' : ''}`}
-          alt="Menu">
-        </ccdesign-button>)
-        : ''
+    const openNav = !this.isRootPage ? (
+      <ccdesign-button
+        text='Menu'
+        icon='bars'
+        type='text'
+        color='light-grey'
+        onClick={() => this.openNav()}
+        class={`${this.isNavOpen ? 'visible' : ''}`}
+        alt='Menu'
+      ></ccdesign-button>
+    ) : (
+      ''
     );
 
     const closeNav = (
       <ccdesign-button
-        type="text"
-        icon="times"
-        color="light-grey"
+        type='text'
+        icon='times'
+        color='light-grey'
         onClick={() => this.closeNav()}
-        alt="close">
-      </ccdesign-button>
+        alt='close'
+      ></ccdesign-button>
     );
 
-    const backNav = (
-      (this.isRootPage)
-        ? (<ccdesign-button
-          icon="chevron-left"
-          type="text"
-          color="light-grey"
-          onClick={() => this.backRootPage()}
-          alt="chevron-left">
-        </ccdesign-button>)
-        : ''
+    const backNav = this.isRootPage ? (
+      <ccdesign-button
+        icon='chevron-left'
+        type='text'
+        color='light-grey'
+        onClick={() => this.backRootPage()}
+        alt='chevron-left'
+      ></ccdesign-button>
+    ) : (
+      ''
     );
 
     const navHeader = (
-      <div class="navbar__header">
+      <div class='navbar__header'>
         {!this.isRootPage ? openNav : backNav}
         {logo}
       </div>
     );
 
     const getNavItems = (): JSX.Element[] => {
+      if (!this.data) {
+        return;
+      }
+
       let returnItems: JSX.Element[] = [];
 
       const navItems: NavDataItem[] = this.data;
@@ -151,22 +166,16 @@ export class MobileNav {
       return returnItems;
     };
 
-    const getNav = () => (
-      <ul class={'navbar__mobile__list'}>{getNavItems()}</ul>
-    );
+    const getNav = () => <ul class={'navbar__mobile__list'}>{getNavItems()}</ul>;
 
     const navbar = (
       <nav class={`navbar__mobile ${!this.isNavOpen ? 'hide-left' : 'hide-right'}`}>
-        <div class="navbar__mobile__sub-header">
-          {closeNav}
-        </div>
+        <div class='navbar__mobile__sub-header'>{closeNav}</div>
         {[getNav()]}
       </nav>
     );
 
-    const navbarInteraction = (
-      <div class="navbar__mobile--interaction"></div>
-    )
+    const navbarInteraction = <div class='navbar__mobile--interaction'></div>;
 
     return [navHeader, navbar, navbarInteraction];
   }
