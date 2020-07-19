@@ -25,7 +25,7 @@
     "npm:clear": "rm -rf $PWD/node_modules && rm $PWD/package-lock.json && npm cache verify && npm install",
     "story": "npm-run-all --parallel start:prod storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s www",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook"
   },
   "dependencies": {},
   "devDependencies": {
