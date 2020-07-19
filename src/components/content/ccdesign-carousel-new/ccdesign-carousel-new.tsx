@@ -39,8 +39,10 @@ export class CcdesignCarouselNew {
    * component will fully load
    */
   componentWillLoad(): void {
-    const formattedData = regexFormatter(this.data, /(\bid|\bimage|\balt+?):/g);
-    this.dataElement = this.getData(formattedData);
+    if (this.data) {
+      const formattedData = regexFormatter(this.data, /(\bid|\bimage|\balt+?):/g);
+      this.dataElement = this.getData(formattedData);
+    }
   }
 
   /**
@@ -94,16 +96,18 @@ export class CcdesignCarouselNew {
    * Component fully loaded
    */
   componentDidLoad(): void {
-    this.items = this.el.querySelectorAll('ccdesign-lazy-image img');
+    if (this.data) {
+      this.items = this.el.querySelectorAll('ccdesign-lazy-image img');
 
-    this.componentLoadImages(this.items);
-    this.timeTrigger(this.items);
+      this.componentLoadImages(this.items);
+      this.timeTrigger(this.items);
+    }
   }
 
   /**
    * render
    */
   render() {
-    return <div class='carousel'>{this.dataElement}</div>;
+    return <div class='carousel'>{this.data ? this.dataElement : null}</div>;
   }
 }
