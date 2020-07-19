@@ -21,7 +21,7 @@
     "build:prod": "stencil build --prod",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test:watch": "stencil test --spec --e2e --watchAll",
     "npm:clear": "rm -rf $PWD/node_modules && rm $PWD/package-lock.json && npm cache verify && npm install"
   },
   "dependencies": {},
