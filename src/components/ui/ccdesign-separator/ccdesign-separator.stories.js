@@ -3,5 +3,7 @@ export default {
 };
 
 export const Default = () => `
-  <div style="width: 60%; margin: 24px;"><ccdesign-separator></ccdesign-separator></div>
+  <div class="border">
+    <ccdesign-separator />
+  </div>
 `;
