@@ -1,5 +1,5 @@
 export default {
-  title: 'Separator',
+  title: 'UI | Separator',
 };
 
 export const Default = () => `

@@ -16,11 +16,11 @@ describe('ccdesign-button', () => {
   it('renders button with values', async () => {
     const { root } = await newSpecPage({
       components: [CcdesignButton],
-      html: '<ccdesign-button text="content" icon="chervon-right" color="grey"></ccdesign-button>',
+      html: '<ccdesign-button icon="chervon-right" color="grey">content</ccdesign-button>',
     });
 
     expect(root).toEqualHtml(
-      '<ccdesign-button color="grey" icon="chervon-right" text="content"><button class="btn btn--grey"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></button></ccdesign-button>',
+      '<ccdesign-button color="grey" icon="chervon-right"><button class="btn btn--grey"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></button></ccdesign-button>',
     );
   });
 
@@ -28,11 +28,11 @@ describe('ccdesign-button', () => {
     const { root } = await newSpecPage({
       components: [CcdesignButton],
       html:
-        '<ccdesign-button text="content" url="https://www.something.com" icon="chervon-right" color="grey"></ccdesign-button>',
+        '<ccdesign-button url="https://www.something.com" icon="chervon-right" color="grey">content</ccdesign-button>',
     });
 
     expect(root).toEqualHtml(
-      '<ccdesign-button color="grey" icon="chervon-right" text="content" url="https://www.something.com"><a class="btn btn--grey" href="https://www.something.com"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></a></ccdesign-button>',
+      '<ccdesign-button color="grey" icon="chervon-right" url="https://www.something.com"><a class="btn btn--grey" href="https://www.something.com"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></a></ccdesign-button>',
     );
   });
 });

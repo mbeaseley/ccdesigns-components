@@ -6,7 +6,6 @@ import { AnyHTMLElement } from '@stencil/core/internal';
   styleUrl: 'ccdesign-button.scss',
 })
 export class CcdesignButton {
-  @Prop() text: string;
   @Prop() url: string;
   @Prop() icon: string;
   @Prop() color: string;
@@ -49,7 +48,9 @@ export class CcdesignButton {
       // @ts-ignore
       <TagType class={classList} {...attribute} aria-label={this.alt}>
         {icon}
-        <span>{this.text}</span>
+        <span>
+          <slot />
+        </span>
       </TagType>
     );
   }

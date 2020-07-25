@@ -1,17 +1,211 @@
-ccdesign-placeholder {
-  position: absolute;
-  z-index: 5;
-  top: 50vh;
-  left: 50vw;
-  transform: translate(-50%,-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 100px;
+@mixin yRelativePositioning($position) {
+  @if $position == 'top' {
+    justify-content: flex-start;
+  }
 
-  @media screen and (max-width: $screen-xs-max) {
-    flex-direction: row;
-    top: 35vh;
+  @if $position == 'middle' {
+    justify-content: center;
+  }
+
+  @if $position == 'bottom' {
+    justify-content: flex-end;
+  }
+}
+
+@mixin xRelativePositioning($position) {
+  @if $position == 'left' {
+    align-items: flex-start;
+  }
+
+  @if $position == 'right' {
+    align-items: flex-end;
+  }
+
+  @if $position == 'center' {
+    align-items: center;
+  }
+}
+
+@mixin yAbsolutePositioning($position) {
+  @if $position == 'top' {
+    top: 0vh;
+  }
+
+  @if $position == 'middle' {
+    top: 50vh;
+  }
+
+  @if $position == 'bottom' {
+    bottom: 0vh;
+  }
+}
+
+@mixin xAbsolutePositioning($position) {
+  @if $position == 'left' {
+    left: 0vw;
+    align-items: flex-start;
+  }
+
+  @if $position == 'right' {
+    right: 0vw;
+    align-items: flex-end;
+  }
+
+  @if $position == 'center' {
+    left: 50vw;
+  }
+}
+
+ccdesign-placeholder {
+  .placeholder {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    z-index: 5;
+
+    // positioning
+    &--relative {
+      position: relative;
+
+      &.placeholder {
+        &--top-left {
+          @include yRelativePositioning('top');
+          @include xRelativePositioning('left');
+        }
+
+        &--top-right {
+          @include yRelativePositioning('top');
+          @include xRelativePositioning('right');
+        }
+
+        &--top-center {
+          @include yRelativePositioning('top');
+          @include xRelativePositioning('center');
+        }
+
+        &--middle-left {
+          @include yRelativePositioning('middle');
+          @include xRelativePositioning('left');
+        }
+
+        &--middle-right {
+          @include yRelativePositioning('middle');
+          @include xRelativePositioning('right');
+        }
+
+        &--middle-center {
+          @include yRelativePositioning('middle');
+          @include xRelativePositioning('center');
+          transform: translate(-50%, -50%);
+        }
+
+        &--bottom-left {
+          @include yRelativePositioning('bottom');
+          @include xRelativePositioning('left');
+        }
+
+        &--bottom-right {
+          @include yRelativePositioning('bottom');
+          @include xRelativePositioning('right');
+        }
+
+        &--bottom-center {
+          @include yRelativePositioning('bottom');
+          @include xRelativePositioning('center');
+        }
+      }
+    }
+
+    &--absolute {
+      position: absolute;
+
+      &.placeholder {
+        &--top-left {
+          @include yAbsolutePositioning('top');
+          @include xAbsolutePositioning('left');
+        }
+
+        &--top-right {
+          @include yAbsolutePositioning('top');
+          @include xAbsolutePositioning('right');
+        }
+
+        &--top-center {
+          @include yAbsolutePositioning('top');
+          @include xAbsolutePositioning('center');
+        }
+        &--middle-left {
+          @include yAbsolutePositioning('middle');
+          @include xAbsolutePositioning('left');
+        }
+
+        &--middle-right {
+          @include yAbsolutePositioning('middle');
+          @include xAbsolutePositioning('right');
+        }
+
+        &--middle-center {
+          @include yAbsolutePositioning('middle');
+          @include xAbsolutePositioning('center');
+          transform: translate(-50%, -50%);
+
+          @media screen and (max-width: $screen-xs-max) {
+            flex-direction: row;
+            top: 35vh;
+          }
+        }
+        &--bottom-left {
+          @include yAbsolutePositioning('top');
+          @include xAbsolutePositioning('left');
+        }
+
+        &--bottom-right {
+          @include yAbsolutePositioning('top');
+          @include xAbsolutePositioning('right');
+        }
+
+        &--bottom-center {
+          @include yAbsolutePositioning('top');
+          @include xAbsolutePositioning('center');
+        }
+      }
+    }
+
+    // width
+    &--width {
+      &-auto {
+        width: auto;
+      }
+
+      &-small {
+        width: 100px;
+      }
+
+      &-medium {
+        width: 500px;
+      }
+
+      &-large {
+        width: 700px;
+      }
+    }
+
+    &--height {
+      &-auto {
+        height: auto;
+      }
+
+      &-small {
+        height: 100px;
+      }
+
+      &-medium {
+        height: 500px;
+      }
+
+      &-large {
+        height: 700px;
+      }
+    }
   }
 }

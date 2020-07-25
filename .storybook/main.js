@@ -8,7 +8,7 @@ const OUTPUT_DIR = '../dist';
 const PROJECT_NAME = 'ccdesigns-ui';
 
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
+  stories: ['../src/**/*.stories.ts'],
   addons: ['@storybook/addon-notes/register'],
   // Custom webpack config to tell Storybook where to find the compiled files from Stencil
   async webpackFinal(config) {

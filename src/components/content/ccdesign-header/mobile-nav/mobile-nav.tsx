@@ -106,14 +106,15 @@ export class MobileNav {
 
     const openNav = !this.isRootPage ? (
       <ccdesign-button
-        text='Menu'
         icon='bars'
         type='text'
         color='light-grey'
         onClick={() => this.openNav()}
         class={`${this.isNavOpen ? 'visible' : ''}`}
         alt='Menu'
-      ></ccdesign-button>
+      >
+        Menu
+      </ccdesign-button>
     ) : (
       ''
     );

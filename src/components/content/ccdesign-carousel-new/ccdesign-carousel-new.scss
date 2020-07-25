@@ -43,6 +43,7 @@ ccdesign-carousel-new {
 
     & > ccdesign-lazy-image {
       position: absolute;
+      display: flex;
 
       img {
         position: relative;

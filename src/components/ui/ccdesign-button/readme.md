@@ -13,7 +13,6 @@
 | `color`     | `color`      |             | `string` | `undefined` |
 | `eventName` | `event-name` |             | `string` | `undefined` |
 | `icon`      | `icon`       |             | `string` | `undefined` |
-| `text`      | `text`       |             | `string` | `undefined` |
 | `type`      | `type`       |             | `string` | `undefined` |
 | `url`       | `url`        |             | `string` | `undefined` |
 
