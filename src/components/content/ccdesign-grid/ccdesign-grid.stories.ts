@@ -1,14 +1,21 @@
+import { withKnobs, text } from '@storybook/addon-knobs';
+
 export default {
   title: 'Content | Grid',
+  decorators: [withKnobs],
 };
 
-export const Default = () => `
-  <div class="border">
-    <ccdesign-grid heading="header">
-      <div slot="children" class="boxContainer">child</div>
-      <div slot="children" class="boxContainer">child</div>
-      <div slot="children" class="boxContainer">child</div>
-      <div slot="children" class="boxContainer">child</div>
-    </ccdesign-grid>
-  </div>
-`;
+export const Default = () => {
+  const headerContent = text('Header', 'Header');
+
+  return `
+    <div class='story'>
+      <ccdesign-grid heading='${headerContent}'>
+        <div slot='children' class='box-container'>child</div>
+        <div slot='children' class='box-container'>child</div>
+        <div slot='children' class='box-container'>child</div>
+        <div slot='children' class='box-container'>child</div>
+      </ccdesign-grid>
+    </div>
+  `;
+};

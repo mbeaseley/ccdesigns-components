@@ -1,5 +1,4 @@
 import { Component, Element, Prop, h } from '@stencil/core';
-import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-button',
@@ -28,7 +27,7 @@ export class CcdesignButton {
   /**
    * render
    */
-  render(): AnyHTMLElement {
+  render(): JSX.Element {
     const TagType = this.url ? 'a' : 'button';
 
     const attribute =

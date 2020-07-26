@@ -1,5 +1,4 @@
 import { Component, Prop, h } from '@stencil/core';
-import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-social-container',
@@ -12,7 +11,7 @@ export class CcdesignSocialContainer {
   /**
    * render
    */
-  render(): AnyHTMLElement {
+  render(): JSX.Element {
     return (
       <div class='circle circle--outercircle'>
         <div class='circle circle--innercircle'>

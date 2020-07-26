@@ -3,7 +3,7 @@ export default {
 };
 
 export const Default = () => `
-  <div class="border">
-    <ccdesign-button icon="chervon-right" color="grey">Content</ccdesign-button>
+  <div class='story'>
+    <ccdesign-button icon='chervon-right' color='grey'>Content</ccdesign-button>
   </div>
 `;

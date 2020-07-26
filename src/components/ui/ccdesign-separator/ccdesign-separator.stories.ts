@@ -3,7 +3,7 @@ export default {
 };
 
 export const Default = () => `
-  <div class="border">
+  <div class="story">
     <ccdesign-separator />
   </div>
 `;

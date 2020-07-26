@@ -17,6 +17,7 @@ export enum PlaceholderAlignment {
 
 export enum PlaceholderWidth {
   auto = 'auto',
+  minSmall = 'min-small',
   small = 'small',
   medium = 'medium',
   large = 'large',

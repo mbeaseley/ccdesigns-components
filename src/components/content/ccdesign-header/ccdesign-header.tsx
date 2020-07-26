@@ -3,7 +3,6 @@ import { Component, Element, JSX, Listen, Prop, State, h } from '@stencil/core';
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
 import environment from '../../../services/environment';
 import { NavDataItem } from '../../../utils/modal/nav-data-item';
-import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-header',
@@ -74,6 +73,7 @@ export class CcdesignHeader {
     if (urlPathName === '') {
       urlPathName = 'home';
     }
+    // Url paths for ccdesign.me.uk
     const UrlArray = [
       'portfolio/fyp-project',
       'portfolio/website-project',
@@ -139,7 +139,7 @@ export class CcdesignHeader {
   /**
    * render
    */
-  render(): AnyHTMLElement {
+  render(): JSX.Element {
     const mobileNav = this.formattedData ? (
       <mobile-nav aria-label='Main Navigation' data={this.formattedData} />
     ) : null;

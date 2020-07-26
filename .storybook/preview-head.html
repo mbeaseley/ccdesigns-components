@@ -1,19 +1,20 @@
 <!-- Global styling -->
 <style>
-  .border {
+  .story {
     border: 1px solid #ff0000;
     display: block;
-    text-align: center;
     margin: 20px;
     padding: 10px;
   }
-  .highlight {
+  .story--fit-content {
+    width: fit-content;
+  }
+  .story__highlight {
     border: 1px solid #ff0000;
     text-align: center;
     color: #fff;
   }
-
-  .highlight a {
+  .story__highlight a {
     color: #b4b4b4;
   }
   .box-container {
@@ -32,6 +33,6 @@
   }
 </style>
 
-<link rel="stylesheet" type="text/css" href="/ccdesigns-ui/ccdesigns-ui.css" />
-<script type="module" src="/ccdesigns-ui/ccdesigns-ui.esm.js"></script>
-<script nomodule="" src="/ccdesigns-ui/ccdesigns-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="%STORYBOOK_ENV%ccdesigns-ui/ccdesigns-ui.css" />
+<script type="module" src="%STORYBOOK_ENV%ccdesigns-ui/ccdesigns-ui.esm.js"></script>
+<script nomodule="" src="%STORYBOOK_ENV%ccdesigns-ui/ccdesigns-ui.js"></script>

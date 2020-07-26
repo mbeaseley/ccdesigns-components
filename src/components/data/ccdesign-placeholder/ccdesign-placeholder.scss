@@ -177,8 +177,12 @@ ccdesign-placeholder {
         width: auto;
       }
 
-      &-small {
+      &-min-small {
         min-width: 75px;
+      }
+
+      &-small {
+        width: 75px;
       }
 
       &-medium {

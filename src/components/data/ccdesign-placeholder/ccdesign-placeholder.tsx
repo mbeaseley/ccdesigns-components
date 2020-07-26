@@ -1,5 +1,4 @@
-import { Component, h } from '@stencil/core';
-import { AnyHTMLElement, Prop } from '@stencil/core/internal';
+import { Component, h, Prop } from '@stencil/core';
 import {
   PlaceholderAlignment,
   PlaceholderPosition,
@@ -20,7 +19,7 @@ export class CcdesignPlaceholder {
   /**
    * render
    */
-  render(): AnyHTMLElement {
+  render(): JSX.Element {
     const classList = {
       placeholder: true,
       [`placeholder--${this.position}`]: true,

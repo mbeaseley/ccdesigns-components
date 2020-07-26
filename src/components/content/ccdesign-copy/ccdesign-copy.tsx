@@ -10,9 +10,7 @@ export class CcdesignCopy {
   /**
    * render
    */
-  render() {
-    return (
-      <div class="copy" innerHTML={this.copy} />
-    );
+  render(): JSX.Element {
+    return <div class='copy' innerHTML={this.copy} />;
   }
 }

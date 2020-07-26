@@ -23,13 +23,12 @@ export class CcdesignFooter {
   /**
    * render
    */
-  render() {
+  render(): JSX.Element {
     if (this.data) {
       return (
         <div
           class={`footer footer--${this.dataContent.backgroundColor}`}
-          innerHTML={`${this.dataContent.text}`}
-        ></div>
+        >{`${this.dataContent.text}`}</div>
       );
     }
   }

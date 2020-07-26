@@ -19,16 +19,18 @@ export class CcdesignCarouselNew {
    * Converts carousel Data into JSX Elements
    * @param carouseData - Formatted carousel data
    */
-  getData(carouseData: any): Element[] {
-    let returnItems: Element[] = [];
+  getData(carouseData: any): JSX.Element[] {
+    let returnItems: JSX.Element[] = [];
 
     const items: CarouselItem[] = carouseData;
 
     returnItems = items.map((item: CarouselItem) => (
+      // @ts-ignore
       <ccdesign-lazy-image
         img-src={item.image}
         classNames='slide-right'
         alt={item.alt}
+        // @ts-ignore
       ></ccdesign-lazy-image>
     ));
 
@@ -64,7 +66,7 @@ export class CcdesignCarouselNew {
    * Trigger for carousel swapping
    * @param items - HTML elements
    */
-  timeTrigger(items: NodeListOf<Element>) {
+  timeTrigger(items: NodeListOf<Element>): void {
     this.items = items;
 
     setInterval(() => {
@@ -81,7 +83,7 @@ export class CcdesignCarouselNew {
    * on component first load
    * @param items - HTML elements
    */
-  componentLoadImages(items: NodeListOf<Element>): any {
+  componentLoadImages(items: NodeListOf<Element>): void {
     this.items = items;
     this.items.forEach((data: HTMLElement, i: number) => {
       if (i === 0) {
@@ -107,7 +109,7 @@ export class CcdesignCarouselNew {
   /**
    * render
    */
-  render() {
+  render(): JSX.Element {
     return <div class='carousel'>{this.data ? this.dataElement : null}</div>;
   }
 }

@@ -3,7 +3,7 @@ export default {
 };
 
 export const Default = () => `
-  <div class="border">
+  <div class="story">
     <ccdesign-icon name="chevron-left" color="grey" size="xs"></ccdesign-icon>
   </div>
 `;

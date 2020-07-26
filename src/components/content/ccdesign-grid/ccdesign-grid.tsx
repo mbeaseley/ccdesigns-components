@@ -1,5 +1,4 @@
 import { Component, Prop, h } from '@stencil/core';
-import { AnyHTMLElement } from '@stencil/core/internal';
 
 @Component({
   tag: 'ccdesign-grid',
@@ -11,7 +10,7 @@ export class CcdesignGrid {
   /**
    * render
    */
-  render(): AnyHTMLElement {
+  render(): JSX.Element {
     const header = (
       <div class='grid__header'>
         <h1>{this.heading}</h1>

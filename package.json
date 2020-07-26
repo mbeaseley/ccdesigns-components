@@ -24,9 +24,9 @@
     "stencil:test:watch": "stencil test --spec --e2e --watchAll --runInBand",
     "npm:clear": "rm -rf $PWD/node_modules && rm $PWD/package-lock.json && npm cache verify && npm install",
     "story": "npm-run-all --parallel stencil:start:prod storybook",
-    "storybook": "start-storybook -p 9001 -c .storybook -s www",
-    "storybook:build": "build-storybook",
-    "storybook:deploy": "storybook-to-ghpages"
+    "storybook": "STORYBOOK_ENV=/ start-storybook -p 9001 -c .storybook -s www",
+    "storybook:build": "STORYBOOK_ENV=/ccdesigns-components/ build-storybook",
+    "storybook:deploy": "npm run storybook:build && storybook-to-ghpages -e storybook-static"
   },
   "dependencies": {},
   "devDependencies": {
@@ -34,6 +34,8 @@
     "@babel/preset-typescript": "^7.10.4",
     "@stencil/core": "^1.17.0",
     "@stencil/sass": "^1.3.2",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
     "@storybook/html": "^5.3.19",
     "@storybook/storybook-deployer": "^2.8.6",
     "@types/jest": "^26.0.7",
