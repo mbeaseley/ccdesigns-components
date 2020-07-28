@@ -36,6 +36,7 @@ export class CcdesignButton {
     const classList = {
       btn: true,
       [`btn--${this.color}`]: true,
+      [`btn--icon`]: this.icon,
       [`btn--${this.type}`]: this.type === 'text',
     };
 

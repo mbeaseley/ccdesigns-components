@@ -1,8 +1,9 @@
 import { withKnobs, number, text } from '@storybook/addon-knobs';
+import { withA11y } from '@storybook/addon-a11y';
 
 export default {
   title: 'Content | Carousel',
-  decorators: [withKnobs],
+  decorators: [withKnobs, withA11y],
 };
 
 const carouselStyles = `

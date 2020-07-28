@@ -11,24 +11,29 @@ export class CcdesignIcon {
   @Prop() color = 'white';
   @Prop({ mutable: true })
   @Prop({ mutable: true })
-  url: string = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
+  svg: string = '';
 
   @Element() iconEl: HTMLElement;
 
   /**
    * gets and sets icon svg to element
    */
-  getSVG(): Promise<void> {
+  getSVG(name?: string): Promise<void> {
+    const url: string = `https://ccdesigns.blob.core.windows.net/icons/${name || this.name}.svg`;
+
     if (!this.name) {
       return Promise.resolve(undefined);
     }
 
-    return fetch(this.url)
+    return fetch(url)
       .then((res) => res.text())
       .then((svg) => {
-        if (!svg.includes('<svg')) {
-          svg = '';
+        this.svg = !svg.includes('<svg') ? '' : svg;
+        //  Fetches backup image
+        if (!this.svg) {
+          return this.getSVG('ban');
         }
+
         const result = this.iconEl.querySelector('div');
         const iconExist = !!result.querySelector('svg');
 
@@ -36,9 +41,8 @@ export class CcdesignIcon {
           result.querySelector('svg').remove();
         }
 
-        result.insertAdjacentHTML('afterbegin', svg);
-      })
-      .catch(() => {});
+        result.insertAdjacentHTML('afterbegin', this.svg);
+      });
   }
 
   /**
@@ -53,7 +57,9 @@ export class CcdesignIcon {
    */
   @Watch('name')
   componentWillUpdate(): Promise<void> {
-    return this.getSVG();
+    if (!this.svg) {
+      return this.getSVG();
+    }
   }
 
   /**

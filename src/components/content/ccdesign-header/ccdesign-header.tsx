@@ -126,7 +126,7 @@ export class CcdesignHeader {
         ) : (
           data.map((item: NavDataItem) => (
             <li class={`navbar__item`}>
-              <a id={item.id} href={item.url} class={`navbar__link`}>
+              <a id={'desktop' + item.id} href={item.url} class={`navbar__link`}>
                 {item.name}
               </a>
             </li>

@@ -47,7 +47,7 @@ mobile-nav {
         position: absolute;
         z-index: 1;
         left: 47vw;
-      } 
+      }
     }
 
     &__mobile {
@@ -76,27 +76,27 @@ mobile-nav {
         opacity: 0.5;
       }
 
-      &__sub-header {
+      &-sub-header {
         min-height: 30px;
         padding: 12px 4px 10px 0;
         background-color: $cc-black;
 
         img {
           margin-left: 12px;
-        } 
+        }
 
         ccdesign-button {
           float: right;
         }
       }
 
-      &__list {
+      &-list {
         list-style: none;
         padding: 0;
         margin: 0;
       }
 
-      &__item {
+      &-item {
         display: block;
         border-bottom: 2px solid $cc-grey2;
 
@@ -110,7 +110,7 @@ mobile-nav {
         }
       }
 
-      &__link {
+      &-link {
         cursor: pointer;
         color: $cc-grey1;
         padding: 1px 0;

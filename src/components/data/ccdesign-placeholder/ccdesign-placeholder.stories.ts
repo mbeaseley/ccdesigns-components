@@ -1,18 +1,19 @@
 import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withA11y } from '@storybook/addon-a11y';
 
 export default {
   title: 'Data | Placeholder',
-  decorators: [withKnobs],
+  decorators: [withKnobs, withA11y],
 };
 
-const placeholderStyle = `
-  <style>
-    .story__highlight {
-      height: 100%;
-      width: 100%;
-    }
-  </style>
-`;
+// const placeholderStyle = `
+//   <style>
+//     .story__highlight {
+//       height: 100%;
+//       width: 100%;
+//     }
+//   </style>
+// `;
 
 export const Default = () => {
   const selectOption = {
@@ -50,7 +51,6 @@ export const Default = () => {
   const content = text('Content', 'ENTER CONTENT ME');
 
   return `
-    ${placeholderStyle}
     <div class='story'>
       <p>This is a placeholder component, used in combination with other components, namely social-container.</p>
       <p>Does include global styling for base HTML tags.</p>

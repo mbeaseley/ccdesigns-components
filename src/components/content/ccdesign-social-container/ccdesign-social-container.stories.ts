@@ -1,8 +1,9 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
+import { withA11y } from '@storybook/addon-a11y';
 
 export default {
   title: 'Content | Social container',
-  decorators: [withKnobs],
+  decorators: [withKnobs, withA11y],
 };
 
 export const Default = () => {

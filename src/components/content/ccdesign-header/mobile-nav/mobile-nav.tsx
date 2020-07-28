@@ -157,8 +157,8 @@ export class MobileNav {
 
       const navItems: NavDataItem[] = this.data;
       returnItems = navItems.map((item: NavDataItem) => (
-        <li id={item.id} class={'navbar__mobile__item'}>
-          <a id={item.id} class={'navbar__mobile__link'} href={item.url}>
+        <li id={'mobile' + item.id} class={'navbar__mobile-item'}>
+          <a id={item.id} class={'navbar__mobile-link'} href={item.url}>
             <div>{item.name}</div>
           </a>
         </li>
@@ -167,11 +167,11 @@ export class MobileNav {
       return returnItems;
     };
 
-    const getNav = () => <ul class={'navbar__mobile__list'}>{getNavItems()}</ul>;
+    const getNav = () => <ul class={'navbar__mobile-list'}>{getNavItems()}</ul>;
 
     const navbar = (
       <nav class={`navbar__mobile ${!this.isNavOpen ? 'hide-left' : 'hide-right'}`}>
-        <div class='navbar__mobile__sub-header'>{closeNav}</div>
+        <div class='navbar__mobile-sub-header'>{closeNav}</div>
         {[getNav()]}
       </nav>
     );
