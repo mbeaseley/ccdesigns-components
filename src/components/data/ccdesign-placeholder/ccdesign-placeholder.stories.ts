@@ -6,14 +6,17 @@ export default {
   decorators: [withKnobs, withA11y],
 };
 
-// const placeholderStyle = `
-//   <style>
-//     .story__highlight {
-//       height: 100%;
-//       width: 100%;
-//     }
-//   </style>
-// `;
+const placeholderStyle = `
+  <style>
+    .story__placeholder {
+      position: relative;
+      height: 400px;
+    }
+    .placeholder--middle-center {
+      transform: translate(0, 0) !important;
+    }
+  </style>
+`;
 
 export const Default = () => {
   const selectOption = {
@@ -25,12 +28,12 @@ export const Default = () => {
     ['Top Left']: 'top-left',
     ['Top Right']: 'top-right',
     ['Top Center']: 'top-center',
-    ['Middle Left']: 'Middle-left',
-    ['Middle Right']: 'Middle-right',
-    ['Middle Center']: 'Middle-center',
-    ['Bottom Left']: 'Bottom-left',
-    ['Bottom Right']: 'Bottom-right',
-    ['Bottom Center']: 'Bottom-center',
+    ['Middle Left']: 'middle-left',
+    ['Middle Right']: 'middle-right',
+    ['Middle Center']: 'middle-center',
+    ['Bottom Left']: 'bottom-left',
+    ['Bottom Right']: 'bottom-right',
+    ['Bottom Center']: 'bottom-center',
   };
   const alignment = select('Position Alignment', alignmentOption, alignmentOption['Top Left']);
   const widthOption = {
@@ -51,13 +54,16 @@ export const Default = () => {
   const content = text('Content', 'ENTER CONTENT ME');
 
   return `
+    ${placeholderStyle}
     <div class='story'>
       <p>This is a placeholder component, used in combination with other components, namely social-container.</p>
       <p>Does include global styling for base HTML tags.</p>
     </div>
-    <ccdesign-placeholder position='${position}' alignment='${alignment}' width='${width}' height='${height}'>
-      <div class='story__highlight'>${content}</div>
-    </ccdesign-placeholder>
+    <div class='story story__placeholder'>
+      <ccdesign-placeholder position='${position}' alignment='${alignment}' width='${width}' height='${height}'>
+        <div class='story__highlight'>${content}</div>
+      </ccdesign-placeholder>
+    </div>
   `;
 };
 // Placeholder parameters

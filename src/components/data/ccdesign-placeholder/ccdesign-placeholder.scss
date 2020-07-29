@@ -155,17 +155,17 @@ ccdesign-placeholder {
           }
         }
         &--bottom-left {
-          @include yAbsolutePositioning('top');
+          @include yAbsolutePositioning('bottom');
           @include xAbsolutePositioning('left');
         }
 
         &--bottom-right {
-          @include yAbsolutePositioning('top');
+          @include yAbsolutePositioning('bottom');
           @include xAbsolutePositioning('right');
         }
 
         &--bottom-center {
-          @include yAbsolutePositioning('top');
+          @include yAbsolutePositioning('bottom');
           @include xAbsolutePositioning('center');
         }
       }
