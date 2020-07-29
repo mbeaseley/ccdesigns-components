@@ -21,7 +21,7 @@ export class CcdesignIcon {
    * gets and sets icon svg to element
    */
   getSVG(name?: string): Promise<void> {
-    const fallbackUrl = '/assets/fallback.svg';
+    const fallbackUrl = `/assets/${name}.svg`;
     const url: string = name
       ? fallbackUrl
       : `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
