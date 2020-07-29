@@ -1,0 +1,26 @@
+{
+  "entries": [
+    "./components/content/ccdesign-carousel/ccdesign-carousel.js",
+    "./components/content/ccdesign-carousel-new/ccdesign-carousel-new.js",
+    "./components/content/ccdesign-copy/ccdesign-copy.js",
+    "./components/content/ccdesign-footer/ccdesign-footer.js",
+    "./components/content/ccdesign-grid/ccdesign-grid.js",
+    "./components/content/ccdesign-header/ccdesign-header.js",
+    "./components/content/ccdesign-header/mobile-nav/mobile-nav.js",
+    "./components/content/ccdesign-image-card/ccdesign-image-card.js",
+    "./components/content/ccdesign-social-container/ccdesign-social-container.js",
+    "./components/data/ccdesign-placeholder/ccdesign-placeholder.js",
+    "./components/template/ccdesign-cv-template/ccdesign-cv-template.js",
+    "./components/ui/ccdesign-button/ccdesign-button.js",
+    "./components/ui/ccdesign-icon/ccdesign-icon.js",
+    "./components/ui/ccdesign-lazy-image/ccdesign-lazy-image.js",
+    "./components/ui/ccdesign-separator/ccdesign-separator.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.17.2",
+    "typescriptVersion": "3.9.7"
+  },
+  "collections": [],
+  "bundles": []
+}

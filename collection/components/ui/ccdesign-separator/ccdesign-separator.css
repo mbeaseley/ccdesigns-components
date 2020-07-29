@@ -1,0 +1,7 @@
+ccdesign-separator {
+  display: block;
+  position: relative;
+}
+ccdesign-separator hr {
+  border-top: 1px solid #b4b4b4;
+}

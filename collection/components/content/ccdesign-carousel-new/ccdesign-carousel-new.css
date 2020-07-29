@@ -1,0 +1,57 @@
+ccdesign-carousel-new .carousel .slide-left, ccdesign-carousel-new .carousel .slide-middle, ccdesign-carousel-new .carousel .slide-right {
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  transition: 1s;
+}
+
+ccdesign-carousel-new .carousel {
+  position: relative;
+  display: block;
+  margin: auto;
+  height: 97vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #b4b4b4;
+}
+@media (max-width: 768px) {
+  ccdesign-carousel-new .carousel {
+    height: 35vh;
+  }
+}
+ccdesign-carousel-new .carousel .slide-right {
+  left: 100%;
+  z-index: 2;
+}
+ccdesign-carousel-new .carousel .slide-middle {
+  left: 0;
+  z-index: 4;
+}
+ccdesign-carousel-new .carousel .slide-left {
+  left: -100%;
+  z-index: 2;
+}
+ccdesign-carousel-new .carousel > ccdesign-lazy-image {
+  position: absolute;
+  display: flex;
+}
+ccdesign-carousel-new .carousel > ccdesign-lazy-image img {
+  position: relative;
+  display: block;
+  height: 100vh;
+  min-width: 50vw;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  ccdesign-carousel-new .carousel > ccdesign-lazy-image img {
+    top: -9vh;
+    width: 100vw;
+    min-height: 35vh;
+    height: unset;
+    object-fit: unset;
+  }
+}

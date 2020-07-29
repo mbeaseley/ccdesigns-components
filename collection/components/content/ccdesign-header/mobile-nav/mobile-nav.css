@@ -1,0 +1,104 @@
+mobile-nav .hide-left {
+  left: -280px;
+  transition-duration: 0.5s;
+}
+mobile-nav .hide-left.navbar__mobile::before {
+  display: none;
+}
+mobile-nav .hide-right {
+  left: 0;
+  transition-duration: 0.5s;
+}
+mobile-nav .hide-right.navbar__mobile::before {
+  display: block;
+}
+mobile-nav .visible {
+  visibility: hidden;
+}
+mobile-nav .navbar__header {
+  padding: 12px 4px 12px 0;
+  background-color: #000;
+  min-height: 30px;
+  text-align: center;
+}
+mobile-nav .navbar__header ccdesign-lazy-image > img {
+  width: 30px;
+  height: 30px;
+}
+mobile-nav .navbar__header ccdesign-button {
+  float: left;
+}
+mobile-nav .navbar__header img {
+  position: absolute;
+  z-index: 1;
+  left: 47vw;
+}
+mobile-nav .navbar__mobile {
+  position: fixed;
+  top: 0;
+  z-index: 6;
+  width: 280px;
+  height: 100vh;
+  background-color: #1b1b1b;
+}
+mobile-nav .navbar__mobile--interaction {
+  position: absolute;
+  height: 100vh;
+  width: 30px;
+  z-index: 5;
+}
+mobile-nav .navbar__mobile::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 280px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
+}
+mobile-nav .navbar__mobile-sub-header {
+  min-height: 30px;
+  padding: 12px 4px 10px 0;
+  background-color: #000;
+}
+mobile-nav .navbar__mobile-sub-header img {
+  margin-left: 12px;
+}
+mobile-nav .navbar__mobile-sub-header ccdesign-button {
+  float: right;
+}
+mobile-nav .navbar__mobile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+mobile-nav .navbar__mobile-item {
+  display: block;
+  border-bottom: 2px solid #424242;
+}
+mobile-nav .navbar__mobile-item.active {
+  background-color: #000;
+}
+mobile-nav .navbar__mobile-item:focus, mobile-nav .navbar__mobile-item:focus-within {
+  outline: none;
+}
+mobile-nav .navbar__mobile-link {
+  cursor: pointer;
+  color: #b4b4b4;
+  padding: 1px 0;
+  text-decoration: none;
+}
+mobile-nav .navbar__mobile-link.active {
+  color: #80e3ff;
+}
+mobile-nav .navbar__mobile-link:focus, mobile-nav .navbar__mobile-link:focus-within {
+  outline: none;
+}
+mobile-nav .navbar__mobile-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+mobile-nav .navbar__mobile-link > div {
+  padding: 17px 40px 17px 17px;
+}

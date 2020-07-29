@@ -1,0 +1,1 @@
+function r(r,t){let e=r.replace(t,'"$1":');return e=e.replace(/'/g,'"'),JSON.parse(e)}export{r}

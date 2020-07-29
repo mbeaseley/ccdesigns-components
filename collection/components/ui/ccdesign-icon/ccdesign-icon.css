@@ -1,0 +1,103 @@
+.icon--white {
+  color: #fff;
+}
+
+.icon--light-grey {
+  color: #b4b4b4;
+}
+
+.icon--grey {
+  color: #424242;
+}
+
+.icon--dark-grey {
+  color: #252525;
+}
+
+.icon--black {
+  color: #000;
+}
+
+.icon--blue {
+  color: #007bff;
+}
+
+ccdesign-icon .icon {
+  fill: currentColor;
+}
+ccdesign-icon .icon--xxs svg {
+  width: 25px;
+  height: 25px;
+}
+ccdesign-icon .icon--xs svg {
+  width: 30px;
+  height: 30px;
+}
+ccdesign-icon .icon--sm svg {
+  width: 40px;
+  height: 40px;
+}
+ccdesign-icon .icon--md svg {
+  width: 48px;
+  height: 48px;
+}
+@media (min-width: 1200px) {
+  ccdesign-icon .icon--md svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (min-width: 992px) {
+  ccdesign-icon .icon--md svg {
+    width: 52px;
+    height: 52px;
+  }
+}
+ccdesign-icon .icon--lg svg {
+  width: 60px;
+  height: 60px;
+}
+@media (min-width: 1200px) {
+  ccdesign-icon .icon--lg svg {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media (min-width: 992px) {
+  ccdesign-icon .icon--lg svg {
+    width: 68px;
+    height: 68px;
+  }
+}
+ccdesign-icon .icon--xl svg {
+  width: 80px;
+  height: 80px;
+}
+@media (min-width: 1200px) {
+  ccdesign-icon .icon--xl svg {
+    width: 112px;
+    height: 112px;
+  }
+}
+@media (min-width: 992px) {
+  ccdesign-icon .icon--xl svg {
+    width: 96px;
+    height: 96px;
+  }
+}
+ccdesign-icon .icon--xxl {
+  width: 100px;
+  height: 100px;
+}
+@media (min-width: 1200px) {
+  ccdesign-icon .icon--xxl {
+    width: 144px;
+    height: 144px;
+  }
+}
+@media (min-width: 992px) {
+  ccdesign-icon .icon--xxl {
+    width: 112px;
+    height: 112px;
+  }
+}

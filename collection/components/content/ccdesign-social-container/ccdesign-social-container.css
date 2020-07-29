@@ -1,0 +1,55 @@
+ccdesign-social-container {
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  ccdesign-social-container {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-height: 500px) {
+  ccdesign-social-container {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  ccdesign-social-container:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+ccdesign-social-container .circle {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 400px) {
+  ccdesign-social-container .circle {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media screen and (max-height: 500px) {
+  ccdesign-social-container .circle {
+    width: 60px;
+    height: 60px;
+  }
+}
+ccdesign-social-container .circle--outercircle {
+  background-color: rgba(55, 210, 253, 0.8);
+}
+ccdesign-social-container .circle--innercircle {
+  height: 70%;
+  width: 70%;
+  background-color: #80e3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ccdesign-social-container .circle--innercircle ccdesign-button a {
+  display: grid;
+}

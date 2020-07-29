@@ -1,0 +1,15 @@
+ccdesign-grid .grid {
+  margin-bottom: 30px;
+}
+ccdesign-grid .grid__header {
+  margin-bottom: 20px;
+}
+ccdesign-grid .grid__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr 1fr;
+  grid-gap: 20px 20px;
+}
+ccdesign-grid .grid__container > * {
+  align-self: end;
+}

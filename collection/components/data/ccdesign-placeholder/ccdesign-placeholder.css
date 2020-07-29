@@ -1,0 +1,125 @@
+ccdesign-placeholder .placeholder {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  z-index: 5;
+}
+ccdesign-placeholder .placeholder--relative {
+  position: relative;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--top-left {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--top-right {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--top-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--middle-left {
+  justify-content: center;
+  align-items: flex-start;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--middle-right {
+  justify-content: center;
+  align-items: flex-end;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--middle-center {
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}
+ccdesign-placeholder .placeholder--relative.placeholder--bottom-left {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--bottom-right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+ccdesign-placeholder .placeholder--relative.placeholder--bottom-center {
+  justify-content: flex-end;
+  align-items: center;
+}
+ccdesign-placeholder .placeholder--absolute {
+  position: absolute;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--top-left {
+  top: 0vh;
+  left: 0vw;
+  align-items: flex-start;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--top-right {
+  top: 0vh;
+  right: 0vw;
+  align-items: flex-end;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--top-center {
+  top: 0vh;
+  left: 50vw;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--middle-left {
+  top: 50vh;
+  left: 0vw;
+  align-items: flex-start;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--middle-right {
+  top: 50vh;
+  right: 0vw;
+  align-items: flex-end;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--middle-center {
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 768px) {
+  ccdesign-placeholder .placeholder--absolute.placeholder--middle-center {
+    flex-direction: row;
+    top: 35vh;
+  }
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--bottom-left {
+  bottom: 0vh;
+  left: 0vw;
+  align-items: flex-start;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--bottom-right {
+  bottom: 0vh;
+  right: 0vw;
+  align-items: flex-end;
+}
+ccdesign-placeholder .placeholder--absolute.placeholder--bottom-center {
+  bottom: 0vh;
+  left: 50vw;
+}
+ccdesign-placeholder .placeholder--width-auto {
+  width: auto;
+}
+ccdesign-placeholder .placeholder--width-min-small {
+  min-width: 75px;
+}
+ccdesign-placeholder .placeholder--width-small {
+  width: 75px;
+}
+ccdesign-placeholder .placeholder--width-medium {
+  width: 500px;
+}
+ccdesign-placeholder .placeholder--width-large {
+  width: 700px;
+}
+ccdesign-placeholder .placeholder--height-auto {
+  height: auto;
+}
+ccdesign-placeholder .placeholder--height-small {
+  height: 100px;
+}
+ccdesign-placeholder .placeholder--height-medium {
+  height: 500px;
+}
+ccdesign-placeholder .placeholder--height-large {
+  height: 700px;
+}

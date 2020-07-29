@@ -1,0 +1,45 @@
+@media (min-width: 768px) {
+  ccdesign-header .header {
+    position: fixed;
+    width: 50vw;
+    z-index: 1;
+  }
+  ccdesign-header .header .navbar {
+    position: relative;
+    padding: 12px 4px 5px 0;
+    margin-left: 100px;
+    box-shadow: none;
+  }
+  ccdesign-header .header .navbar__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ccdesign-header .header .navbar__list ccdesign-lazy-image > img {
+    width: 30px;
+    height: 30px;
+  }
+  ccdesign-header .header .navbar__list ccdesign-button {
+    position: absolute;
+    right: 0;
+  }
+  ccdesign-header .header .navbar__list img {
+    margin-right: 16px;
+  }
+  ccdesign-header .header .navbar__item {
+    display: inline-block;
+  }
+  ccdesign-header .header .navbar__link {
+    color: #b4b4b4;
+    padding: 1px 7px;
+    text-decoration: none;
+  }
+  ccdesign-header .header .navbar__link.active {
+    color: #80e3ff;
+  }
+  ccdesign-header .header .navbar__link:hover {
+    color: #fff;
+  }
+}

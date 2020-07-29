@@ -1,0 +1,108 @@
+body {
+  background-color: #000;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  ccdesign-cv-template ccdesign-header .navbar {
+    margin-left: 20px !important;
+  }
+}
+ccdesign-cv-template .page {
+  overflow: hidden;
+  background-color: #000;
+}
+ccdesign-cv-template .page__body {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100vw;
+  height: 97vh;
+}
+ccdesign-cv-template .page__body > app-home,
+ccdesign-cv-template .page__body app-portfolio,
+ccdesign-cv-template .page__body app-contact,
+ccdesign-cv-template .page__body app-fyp-project,
+ccdesign-cv-template .page__body app-website-project,
+ccdesign-cv-template .page__body app-webcomponent-project,
+ccdesign-cv-template .page__body app-talktalk-azure,
+ccdesign-cv-template .page__body app-talktalk-component,
+ccdesign-cv-template .page__body app-talktalk-sales {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100vw;
+  height: 97vh;
+}
+ccdesign-cv-template .page__body--left::-webkit-scrollbar {
+  display: none;
+}
+ccdesign-cv-template .page__body--left {
+  padding-bottom: 10px;
+  margin-top: 55px;
+  flex: 1 1 50vw;
+  order: 1;
+  overflow: auto;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 768px) {
+  ccdesign-cv-template .page__body--left {
+    margin-top: 0;
+  }
+}
+ccdesign-cv-template .page__body--left > * {
+  text-align: left;
+  margin-left: 100px;
+  margin-right: 60px;
+}
+@media (max-width: 992px) {
+  ccdesign-cv-template .page__body--left > * {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 400px) {
+  ccdesign-cv-template .page__body--left > * {
+    margin-left: 20px;
+    margin-right: 35px;
+  }
+}
+ccdesign-cv-template .page__body--right {
+  height: 97vh;
+  flex: 2 2 50vw;
+  order: 2;
+  min-width: 387px;
+}
+@media screen and (max-width: 768px) {
+  ccdesign-cv-template .page__body {
+    position: relative;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 92vh;
+  }
+  ccdesign-cv-template .page__body > app-home,
+ccdesign-cv-template .page__body app-portfolio,
+ccdesign-cv-template .page__body app-contact,
+ccdesign-cv-template .page__body app-fyp-project,
+ccdesign-cv-template .page__body app-website-project,
+ccdesign-cv-template .page__body app-webcomponent-project,
+ccdesign-cv-template .page__body app-talktalk-azure,
+ccdesign-cv-template .page__body app-talktalk-component,
+ccdesign-cv-template .page__body app-talktalk-sales {
+    position: relative;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 92vh;
+  }
+  ccdesign-cv-template .page__body--left {
+    order: 2;
+    flex: 1 1 140vw;
+  }
+  ccdesign-cv-template .page__body--right {
+    order: 1;
+    min-height: 35vh;
+    max-height: 35vh;
+    margin-bottom: 45px;
+  }
+}

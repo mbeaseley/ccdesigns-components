@@ -1,0 +1,32 @@
+ccdesign-image-card .image-card {
+  text-decoration: none;
+}
+ccdesign-image-card .image-card__image {
+  width: 100%;
+}
+ccdesign-image-card .image-card__image:hover, ccdesign-image-card .image-card__image:focus {
+  background: #181852;
+}
+ccdesign-image-card .image-card__image img {
+  width: 100%;
+}
+ccdesign-image-card .image-card__image img:hover, ccdesign-image-card .image-card__image img:focus {
+  opacity: 0.1;
+}
+ccdesign-image-card .image-card__description {
+  border: 1px solid #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1200px) {
+  ccdesign-image-card .image-card__description {
+    align-items: center;
+    height: 50px;
+  }
+}
+ccdesign-image-card .image-card__description p {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
