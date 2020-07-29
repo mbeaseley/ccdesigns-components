@@ -18,7 +18,7 @@ describe('ccdesign-header', () => {
     });
 
     expect(root).toEqualHtml(
-      '<ccdesign-header data="[ { id: &quot;home&quot;, name: &quot;Home&quot;, url: &quot;/&quot; } ]"><header class="header"><nav aria-label="Main Navigation" class="navbar"><ul class="navbar__list"><li><a href="http://ccdesign.me.uk/"><ccdesign-lazy-image alt="CCDesigns" img-src="assets/favicon.svg"></ccdesign-lazy-image></a></li><li class="navbar__item"><a class="active navbar__link" href="/" id="home">Home</a></li></ul></nav></header></ccdesign-header>',
+      '<ccdesign-header data="[ { id: &quot;home&quot;, name: &quot;Home&quot;, url: &quot;/&quot; } ]"><header class="header"><nav aria-label="Main Navigation" class="navbar"><ul class="navbar__list"><li><a href="http://ccdesign.me.uk/"><ccdesign-lazy-image alt="CCDesigns" img-src="assets/favicon.svg"></ccdesign-lazy-image></a></li><li class="navbar__item"><a class="navbar__link" href="/" id="desktophome">Home</a></li></ul></nav></header></ccdesign-header>',
     );
   });
 });

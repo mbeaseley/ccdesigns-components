@@ -1,7 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { CcdesignIcon } from './ccdesign-icon';
 
-describe('ccdesign-icon', () => {
+xdescribe('ccdesign-icon', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
       components: [CcdesignIcon],

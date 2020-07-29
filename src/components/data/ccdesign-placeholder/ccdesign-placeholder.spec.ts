@@ -9,7 +9,7 @@ describe('ccdesign-placeholder', () => {
     });
 
     expect(root).toEqualHtml(
-      '<ccdesign-placeholder><div>Hello World!</div></ccdesign-placeholder>',
+      '<ccdesign-placeholder><div class="placeholder placeholder--height-auto placeholder--relative placeholder--top-left placeholder--width-auto"><div>Hello World!</div></div></ccdesign-placeholder>',
     );
   });
 });

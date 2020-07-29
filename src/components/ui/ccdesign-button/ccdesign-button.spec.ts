@@ -20,7 +20,7 @@ describe('ccdesign-button', () => {
     });
 
     expect(root).toEqualHtml(
-      '<ccdesign-button color="grey" icon="chervon-right"><button class="btn btn--grey"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></button></ccdesign-button>',
+      '<ccdesign-button color="grey" icon="chervon-right"><button class="btn btn--grey btn--icon"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></button></ccdesign-button>',
     );
   });
 
@@ -32,7 +32,7 @@ describe('ccdesign-button', () => {
     });
 
     expect(root).toEqualHtml(
-      '<ccdesign-button color="grey" icon="chervon-right" url="https://www.something.com"><a class="btn btn--grey" href="https://www.something.com"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></a></ccdesign-button>',
+      '<ccdesign-button color="grey" icon="chervon-right" url="https://www.something.com"><a class="btn btn--grey btn--icon" href="https://www.something.com"><ccdesign-icon color="grey" name="chervon-right" size="xs"></ccdesign-icon><span class="text--grey">content</span></a></ccdesign-button>',
     );
   });
 });

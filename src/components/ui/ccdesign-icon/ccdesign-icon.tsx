@@ -1,5 +1,7 @@
 import { Component, Element, Prop, Watch, h } from '@stencil/core';
 import { AnyHTMLElement } from '@stencil/core/internal';
+// const fallback = require('../../../assets/fallback.svg');
+// import * as fallback from '../../../assets/fallback.svg';
 
 @Component({
   tag: 'ccdesign-icon',
@@ -19,7 +21,10 @@ export class CcdesignIcon {
    * gets and sets icon svg to element
    */
   getSVG(name?: string): Promise<void> {
-    const url: string = `https://ccdesigns.blob.core.windows.net/icons/${name || this.name}.svg`;
+    const fallbackUrl = '/assets/fallback.svg';
+    const url: string = name
+      ? fallbackUrl
+      : `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
 
     if (!this.name) {
       return Promise.resolve(undefined);
@@ -31,7 +36,7 @@ export class CcdesignIcon {
         this.svg = !svg.includes('<svg') ? '' : svg;
         //  Fetches backup image
         if (!this.svg) {
-          return this.getSVG('ban');
+          return this.getSVG('fallback');
         }
 
         const result = this.iconEl.querySelector('div');
