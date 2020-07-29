@@ -11,16 +11,16 @@ export class CcdesignSocialContainer {
   /**
    * render
    */
-  render() {
+  render(): JSX.Element {
     return (
-      <div class="circle circle--outercircle">
-        <div class="circle circle--innercircle">
+      <div class='circle circle--outercircle'>
+        <div class='circle circle--innercircle'>
           <ccdesign-button
             icon={this.icon}
-            color="blue"
+            color='blue'
             url={this.url}
-            alt={this.icon}>
-          </ccdesign-button>
+            alt={this.icon}
+          ></ccdesign-button>
         </div>
       </div>
     );

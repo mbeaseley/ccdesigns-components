@@ -1,4 +1,7 @@
 import { Component, Element, Prop, Watch, h } from '@stencil/core';
+import { AnyHTMLElement } from '@stencil/core/internal';
+// const fallback = require('../../../assets/fallback.svg');
+// import * as fallback from '../../../assets/fallback.svg';
 
 @Component({
   tag: 'ccdesign-icon',
@@ -8,22 +11,34 @@ export class CcdesignIcon {
   @Prop() name: string;
   @Prop() size = 'xs';
   @Prop() color = 'white';
-  @Prop({ mutable: true }) url: string;
+  @Prop({ mutable: true })
+  @Prop({ mutable: true })
+  svg: string = '';
 
   @Element() iconEl: HTMLElement;
 
   /**
    * gets and sets icon svg to element
    */
-  getSVG() {
-    this.url = `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
-    fetch(this.url)
-      .then(res => res.text())
-      .then(svg => {
-        if (!svg.includes('<svg')) {
-          svg = '';
-          console.warn(`${this.name} Icon doesn't exist in blob`);
+  getSVG(name?: string): Promise<void> {
+    const fallbackUrl = `/assets/${name}.svg`;
+    const url: string = name
+      ? fallbackUrl
+      : `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
+
+    if (!this.name) {
+      return Promise.resolve(undefined);
+    }
+
+    return fetch(url)
+      .then((res) => res.text())
+      .then((svg) => {
+        this.svg = !svg.includes('<svg') ? '' : svg;
+        //  Fetches backup image
+        if (!this.svg) {
+          return this.getSVG('fallback');
         }
+
         const result = this.iconEl.querySelector('div');
         const iconExist = !!result.querySelector('svg');
 
@@ -31,29 +46,31 @@ export class CcdesignIcon {
           result.querySelector('svg').remove();
         }
 
-        result.insertAdjacentHTML('afterbegin', svg);
+        result.insertAdjacentHTML('afterbegin', this.svg);
       });
   }
 
   /**
    * component did fully load
    */
-  componentDidLoad() {
-    this.getSVG();
+  componentDidLoad(): Promise<void> {
+    return this.getSVG();
   }
 
   /**
    * watches to see if icon name changes so it can update dom
    */
   @Watch('name')
-  componentWillUpdate() {
-    this.getSVG();
+  componentWillUpdate(): Promise<void> {
+    if (!this.svg) {
+      return this.getSVG();
+    }
   }
 
   /**
    * render
    */
-  render() {
+  render(): AnyHTMLElement {
     let inputColor: string;
     const backgroundColors = ['white', 'light-grey', 'grey', 'dark-grey', 'black', 'blue'];
     if (backgroundColors.indexOf(this.color) > -1) {
@@ -68,12 +85,12 @@ export class CcdesignIcon {
     if (sizes.indexOf(this.size) > -1) {
       inputSize = `icon--${this.size}`;
     } else {
-      console.error(`${this.size} is not a defined size for an icon. It has been set to default size of xs`);
+      console.error(
+        `${this.size} is not a defined size for an icon. It has been set to default size of xs`,
+      );
       inputSize = 'icon--xs';
     }
 
-    return (
-      <div class={`icon ${inputSize} ${inputColor}`}></div>
-    );
+    return <div class={`icon ${inputSize} ${inputColor}`}></div>;
   }
 }

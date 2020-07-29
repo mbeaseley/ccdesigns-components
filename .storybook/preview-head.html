@@ -1,3 +1,55 @@
-<script type="module" src="build/ccdesigns-ui.esm.js"></script>
-<script nomodule src="build/ccdesigns-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="build/ccdesigns-ui.css">
+<!-- Global styling -->
+<style>
+  .story {
+    border: 1px solid #ff0000;
+    display: block;
+    margin: 20px;
+    padding: 10px;
+  }
+  .story--fit-content,
+  .story h3 {
+    position: relative;
+    width: fit-content;
+  }
+  .story--underline::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #b4b4b4;
+  }
+  .story__highlight {
+    border: 1px solid #ff0000;
+    text-align: center;
+    color: #fff;
+  }
+  .story__highlight a {
+    color: #b4b4b4;
+  }
+  .box-container {
+    display: block;
+    background-color: #ff0000;
+    text-align: center;
+    padding: 20px;
+  }
+  .body-container {
+    display: block;
+    padding: 10px;
+    max-width: 900px;
+  }
+  .margin {
+    margin-top: 20px;
+  }
+</style>
+
+<link rel="stylesheet" type="text/css" href="%STORYBOOK_ENV%ccdesigns-ui/ccdesigns-ui.css" />
+<script
+  type="module"
+  src="http://localhost:3333/%STORYBOOK_ENV%ccdesigns-ui/ccdesigns-ui.esm.js"
+></script>
+<script
+  nomodule=""
+  src="http://localhost:3333/%STORYBOOK_ENV%ccdesigns-ui/ccdesigns-ui.js"
+></script>

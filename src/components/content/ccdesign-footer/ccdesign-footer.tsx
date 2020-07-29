@@ -15,15 +15,21 @@ export class CcdesignFooter {
    * component will fully load
    */
   componentWillLoad() {
-    this.dataContent = regexFormatter(this.data, /(\bid|\btext|\bbackgroundColor+?):/g);
+    if (this.data) {
+      this.dataContent = regexFormatter(this.data, /(\bid|\btext|\bbackgroundColor+?):/g);
+    }
   }
 
   /**
    * render
    */
-  render() {
-    return (
-      <div class={`footer footer--${this.dataContent.backgroundColor}`} innerHTML={`${this.dataContent.text}`}></div>
-    );
+  render(): JSX.Element {
+    if (this.data) {
+      return (
+        <div
+          class={`footer footer--${this.dataContent.backgroundColor}`}
+        >{`${this.dataContent.text}`}</div>
+      );
+    }
   }
 }

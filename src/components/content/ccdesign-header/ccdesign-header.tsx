@@ -1,7 +1,7 @@
 import { Component, Element, JSX, Listen, Prop, State, h } from '@stencil/core';
 
 import { regexFormatter } from '../../../utils/helpers/regexFormatter';
-import environment from '../../../services/environment/index';
+import environment from '../../../services/environment';
 import { NavDataItem } from '../../../utils/modal/nav-data-item';
 
 @Component({
@@ -21,18 +21,28 @@ export class CcdesignHeader {
 
   headerContent: NavDataItem[];
 
+  constructor() {
+    try {
+      this.env = this.determineEnvironment().toString();
+    } catch (e) {
+      this.env = environment.getEndpoint().dataEndpoint.url;
+    }
+  }
+
   /**
    * Formats nav data
    */
-  formatContent() {
-    this.formattedData = regexFormatter(this.data, /([a-z]+?):/g);
+  formatContent(): void {
+    if (this.data) {
+      this.formattedData = regexFormatter(this.data, /([a-z]+?):/g);
+    }
   }
 
   /**
    * Listens on doms window for viewport size
    */
   @Listen('resize', { target: 'window' })
-  handleLoad() {
+  handleLoad(): void {
     if (this.isClient) {
       this.isMobileLayout = window.innerWidth < 768 ? true : false;
     }
@@ -41,7 +51,7 @@ export class CcdesignHeader {
   /**
    * sets user back to root page
    */
-  backRootPage() {
+  backRootPage(): void {
     window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
@@ -49,7 +59,7 @@ export class CcdesignHeader {
   /**
    * component will fully load
    */
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.formatContent();
     this.handleLoad();
   }
@@ -57,11 +67,21 @@ export class CcdesignHeader {
   /**
    * component did fully load
    */
-  componentDidLoad() {
+  componentDidLoad(): void {
     let urlPathName = window.location.pathname;
     urlPathName = urlPathName.replace('/', '');
-    if (urlPathName === '') { urlPathName = 'home'; }
-    const UrlArray = ['portfolio/fyp-project', 'portfolio/website-project', 'portfolio/webcomponent-project', 'portfolio/talktalk-azure', 'portfolio/talktalk-component', 'portfolio/talktalk-sales'];
+    if (urlPathName === '') {
+      urlPathName = 'home';
+    }
+    // Url paths for ccdesign.me.uk
+    const UrlArray = [
+      'portfolio/fyp-project',
+      'portfolio/website-project',
+      'portfolio/webcomponent-project',
+      'portfolio/talktalk-azure',
+      'portfolio/talktalk-component',
+      'portfolio/talktalk-sales',
+    ];
     if (UrlArray.indexOf(urlPathName) > -1) {
       this.isRootPage = true;
       return;
@@ -76,18 +96,10 @@ export class CcdesignHeader {
     }
   }
 
-  constructor() {
-    try {
-      this.env = this.determineEnvironment().toString();
-    } catch (e) {
-      this.env = 'http://ccdesign.me.uk/';
-    }
-  }
-
   /**
    * Checks for environment, dev or prod
    */
-  determineEnvironment() {
+  determineEnvironment(): string {
     return environment.getEndpoint().dataEndpoint.url;
   }
 
@@ -100,28 +112,26 @@ export class CcdesignHeader {
       <ul class={`navbar__list`}>
         <li>
           <a href={this.env}>
-            <ccdesign-lazy-image img-src="assets/favicon.svg" alt="CCDesigns"></ccdesign-lazy-image>
+            <ccdesign-lazy-image img-src='assets/favicon.svg' alt='CCDesigns'></ccdesign-lazy-image>
           </a>
         </li>
-        {this.isRootPage
-          ? (<ccdesign-button
-            icon="chevron-left"
-            type="text"
-            color="light-grey"
+        {this.isRootPage ? (
+          <ccdesign-button
+            icon='chevron-left'
+            type='text'
+            color='light-grey'
             onClick={() => this.backRootPage()}
-            alt="chevron-left">
-          </ccdesign-button>)
-          : data.map((item: NavDataItem) => (
+            alt='chevron-left'
+          ></ccdesign-button>
+        ) : (
+          data.map((item: NavDataItem) => (
             <li class={`navbar__item`}>
-              <a
-                id={item.id}
-                href={item.url}
-                class={`navbar__link`}
-              >
+              <a id={'desktop' + item.id} href={item.url} class={`navbar__link`}>
                 {item.name}
               </a>
             </li>
-          ))}
+          ))
+        )}
       </ul>
     );
   }
@@ -129,14 +139,16 @@ export class CcdesignHeader {
   /**
    * render
    */
-  render() {
-    const mobileNav = (<mobile-nav aria-label="Main Navigation" data={this.formattedData} />);
-    const desktopNav = (<nav class="navbar" aria-label="Main Navigation">{this.getNav(this.formattedData)}</nav>);
+  render(): JSX.Element {
+    const mobileNav = this.formattedData ? (
+      <mobile-nav aria-label='Main Navigation' data={this.formattedData} />
+    ) : null;
+    const desktopNav = this.formattedData ? (
+      <nav class='navbar' aria-label='Main Navigation'>
+        {this.getNav(this.formattedData)}
+      </nav>
+    ) : null;
 
-    return (
-      <header class="header">
-        {this.isMobileLayout ? mobileNav : desktopNav}
-      </header>
-    );
+    return <header class='header'>{this.isMobileLayout ? mobileNav : desktopNav}</header>;
   }
 }

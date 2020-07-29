@@ -33,5 +33,6 @@ export default create({
 
   brandTitle: 'CCDesign',
   brandUrl: 'http://ccdesign.me.uk/',
-  brandImage: 'https://images.ctfassets.net/43i5e5k8e66i/5hVDQiAmAuPUZu98Et1119/ae85e0daccddd48cfce16beab9217bd6/logo.svg',
+  brandImage:
+    'https://images.ctfassets.net/43i5e5k8e66i/5hVDQiAmAuPUZu98Et1119/ae85e0daccddd48cfce16beab9217bd6/logo.svg',
 });

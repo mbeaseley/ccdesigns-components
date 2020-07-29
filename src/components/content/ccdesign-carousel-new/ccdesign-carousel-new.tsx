@@ -4,7 +4,7 @@ import { CarouselItem } from '../../../utils/types/carousel-item';
 
 @Component({
   tag: 'ccdesign-carousel-new',
-  styleUrl: 'ccdesign-carousel-new.scss'
+  styleUrl: 'ccdesign-carousel-new.scss',
 })
 export class CcdesignCarouselNew {
   @Prop() data: string;
@@ -25,11 +25,13 @@ export class CcdesignCarouselNew {
     const items: CarouselItem[] = carouseData;
 
     returnItems = items.map((item: CarouselItem) => (
+      // @ts-ignore
       <ccdesign-lazy-image
         img-src={item.image}
-        classNames="slide-right"
-        alt={item.alt}>
-      </ccdesign-lazy-image>
+        classNames='slide-right'
+        alt={item.alt}
+        // @ts-ignore
+      ></ccdesign-lazy-image>
     ));
 
     return returnItems;
@@ -39,8 +41,10 @@ export class CcdesignCarouselNew {
    * component will fully load
    */
   componentWillLoad(): void {
-    const formattedData = regexFormatter(this.data, /(\bid|\bimage|\balt+?):/g);
-    this.dataElement = this.getData(formattedData);
+    if (this.data) {
+      const formattedData = regexFormatter(this.data, /(\bid|\bimage|\balt+?):/g);
+      this.dataElement = this.getData(formattedData);
+    }
   }
 
   /**
@@ -62,11 +66,11 @@ export class CcdesignCarouselNew {
    * Trigger for carousel swapping
    * @param items - HTML elements
    */
-  timeTrigger(items: NodeListOf<Element>) {
+  timeTrigger(items: NodeListOf<Element>): void {
     this.items = items;
 
     setInterval(() => {
-      (this.imageSelected >= items.length) ? this.imageSelected = 0 : null;
+      this.imageSelected >= items.length ? (this.imageSelected = 0) : null;
       // Loops through each image at set timeInterval to swap classNames
       this.items.forEach((data: HTMLElement, i: number) => {
         return this.sortClasses(data, i);
@@ -79,7 +83,7 @@ export class CcdesignCarouselNew {
    * on component first load
    * @param items - HTML elements
    */
-  componentLoadImages(items: NodeListOf<Element>): any {
+  componentLoadImages(items: NodeListOf<Element>): void {
     this.items = items;
     this.items.forEach((data: HTMLElement, i: number) => {
       if (i === 0) {
@@ -94,20 +98,18 @@ export class CcdesignCarouselNew {
    * Component fully loaded
    */
   componentDidLoad(): void {
-    this.items = this.el.querySelectorAll('ccdesign-lazy-image img');
+    if (this.data) {
+      this.items = this.el.querySelectorAll('ccdesign-lazy-image img');
 
-    this.componentLoadImages(this.items);
-    this.timeTrigger(this.items);
+      this.componentLoadImages(this.items);
+      this.timeTrigger(this.items);
+    }
   }
 
   /**
    * render
    */
-  render() {
-    return (
-      <div class="carousel">
-        {this.dataElement}
-      </div>
-    );
+  render(): JSX.Element {
+    return <div class='carousel'>{this.data ? this.dataElement : null}</div>;
   }
 }

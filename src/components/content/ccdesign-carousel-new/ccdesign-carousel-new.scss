@@ -43,11 +43,13 @@ ccdesign-carousel-new {
 
     & > ccdesign-lazy-image {
       position: absolute;
+      display: flex;
 
       img {
         position: relative;
         display: block;
         height: 100vh;
+        min-width: 50vw;
         object-fit: cover;
 
         // move image up on mobile devices

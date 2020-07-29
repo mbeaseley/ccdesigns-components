@@ -2,7 +2,7 @@ import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'ccdesign-grid',
-  styleUrl: 'ccdesign-grid.scss'
+  styleUrl: 'ccdesign-grid.scss',
 })
 export class CcdesignGrid {
   @Prop() heading: string;
@@ -10,18 +10,18 @@ export class CcdesignGrid {
   /**
    * render
    */
-  render() {
+  render(): JSX.Element {
     const header = (
-      <div class="grid__header">
-        <h1>{ this.heading }</h1>
+      <div class='grid__header'>
+        <h1>{this.heading}</h1>
       </div>
     );
 
     return (
-      <div class="grid">
-        { this.heading ? header : '' }
-        <div class="grid__container">
-          <slot name="children" />
+      <div class='grid'>
+        {this.heading ? header : ''}
+        <div class='grid__container'>
+          <slot name='children' />
         </div>
       </div>
     );
