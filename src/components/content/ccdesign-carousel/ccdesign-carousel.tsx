@@ -8,14 +8,14 @@ import { CarouselItem } from '../../../utils/types/carousel-item';
   styleUrl: 'ccdesign-carousel.scss',
 })
 export class CcdesignCarousel {
-  @Prop() data: string;
+  @Prop() readonly data: string;
   @Prop({ mutable: true }) dataElement: JSX.Element;
-  @Prop() timeInterval = 3000;
+  @Prop() readonly timeInterval = 3000;
   @Prop({ mutable: true }) imageSelected = 1;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLCcdesignCarouselElement;
 
-  timeTrigger(items: NodeListOf<Element>) {
+  private timeTrigger(items: NodeListOf<Element>) {
     setInterval(() => {
       this.imageSelected >= items.length ? (this.imageSelected = 0) : null;
       [].forEach.call(items, (data: HTMLElement, index: number) => {
@@ -31,7 +31,7 @@ export class CcdesignCarousel {
     }, this.timeInterval);
   }
 
-  componentLoadImages(items: NodeListOf<Element>) {
+  private componentLoadImages(items: NodeListOf<Element>) {
     [].forEach.call(items, (data: HTMLElement, index: number) => {
       if (index === 0) {
         data.classList.replace('slide-out-right', 'slide-in-left');
@@ -41,7 +41,7 @@ export class CcdesignCarousel {
     });
   }
 
-  getData(carouseData: any): JSX.Element[] {
+  private getData(carouseData: any): JSX.Element[] {
     let returnItems: JSX.Element[] = [];
 
     const items: CarouselItem[] = carouseData;

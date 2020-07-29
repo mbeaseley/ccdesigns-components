@@ -9,17 +9,15 @@ import { NavDataItem } from '../../../utils/modal/nav-data-item';
   styleUrl: 'ccdesign-header.scss',
 })
 export class CcdesignHeader {
-  @Prop() data: string;
+  @Prop() readonly data: string;
   @Prop({ mutable: true }) formattedData: any;
-  @Prop({ context: 'isClient' }) private isClient: boolean;
+  @Prop({ context: 'isClient' }) readonly isClient: boolean;
   @State() initialized = false;
   @State() isMobileLayout: boolean;
   @State() isRootPage = false;
   @State() env: string;
 
-  @Element() el: HTMLElement;
-
-  headerContent: NavDataItem[];
+  @Element() el: HTMLCcdesignHeaderElement;
 
   constructor() {
     try {
@@ -32,8 +30,8 @@ export class CcdesignHeader {
   /**
    * Formats nav data
    */
-  formatContent(): void {
-    if (this.data) {
+  private formatContent(): void {
+    if (this.data !== undefined) {
       this.formattedData = regexFormatter(this.data, /([a-z]+?):/g);
     }
   }
@@ -51,7 +49,7 @@ export class CcdesignHeader {
   /**
    * sets user back to root page
    */
-  backRootPage(): void {
+  private backRootPage(): void {
     window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
@@ -99,7 +97,7 @@ export class CcdesignHeader {
   /**
    * Checks for environment, dev or prod
    */
-  determineEnvironment(): string {
+  private determineEnvironment(): string {
     return environment.getEndpoint().dataEndpoint.url;
   }
 
@@ -107,7 +105,7 @@ export class CcdesignHeader {
    * Formats mobile nav bar
    * @param data - nav data items
    */
-  getNav(data: NavDataItem[]): JSX.Element {
+  private getNav(data: NavDataItem[]): JSX.Element {
     return (
       <ul class={`navbar__list`}>
         <li>
@@ -120,6 +118,7 @@ export class CcdesignHeader {
             icon='chevron-left'
             type='text'
             color='light-grey'
+            // eslint-disable-next-line react/jsx-no-bind
             onClick={() => this.backRootPage()}
             alt='chevron-left'
           ></ccdesign-button>

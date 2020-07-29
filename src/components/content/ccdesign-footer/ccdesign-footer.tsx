@@ -8,7 +8,7 @@ import { FooterItem } from '../../../utils/modal/footer-item';
   styleUrl: 'ccdesign-footer.scss',
 })
 export class CcdesignFooter {
-  @Prop() data: string;
+  @Prop() readonly data: string;
   @Prop({ mutable: true }) dataContent: FooterItem;
 
   /**

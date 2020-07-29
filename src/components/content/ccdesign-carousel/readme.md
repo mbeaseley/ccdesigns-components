@@ -12,7 +12,7 @@
 | `data`          | `data`           |             | `string`  | `undefined` |
 | `dataElement`   | --               |             | `Element` | `undefined` |
 | `imageSelected` | `image-selected` |             | `number`  | `1`         |
-| `timeInterval`  | `time-interval`  |             | `number`  | `3000`      |
+| `timeInterval`  | `time-interval`  |             | `3000`    | `3000`      |
 
 
 ----------------------------------------------

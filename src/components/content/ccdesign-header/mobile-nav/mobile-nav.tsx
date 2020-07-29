@@ -10,31 +10,31 @@ import { AnyHTMLElement } from '@stencil/core/internal';
   styleUrl: 'mobile-nav.scss',
 })
 export class MobileNav {
-  @Prop() data: NavDataItem[];
+  @Prop() readonly data: NavDataItem[];
   @State() isNavOpen = false;
   @State() isRootPage = false;
   @State() env: string;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLMobileNavElement;
 
   /**
    * sets nav to open
    */
-  openNav(): void {
+  private openNav(): void {
     this.isNavOpen = true;
   }
 
   /**
    * sets nav to close
    */
-  closeNav(): void {
+  private closeNav(): void {
     this.isNavOpen = false;
   }
 
   /**
    * sets user back to root page
    */
-  backRootPage(): void {
+  private backRootPage(): void {
     window.location.href = this.env + 'portfolio';
     this.isRootPage = false;
   }
@@ -78,14 +78,14 @@ export class MobileNav {
   /**
    * Checks for environment, dev or prod
    */
-  determineEnvironment(): string {
+  private determineEnvironment(): string {
     return environment.getEndpoint().dataEndpoint.url;
   }
 
   /**
    * Binds querySelector contents to swipe action
    */
-  handleGuestures(): void {
+  private handleGuestures(): void {
     const elRight = this.el.querySelector('.navbar__mobile--interaction');
     elRight.addEventListener('swiped-right', () => {
       this.openNav();
@@ -149,7 +149,7 @@ export class MobileNav {
     );
 
     const getNavItems = (): JSX.Element[] => {
-      if (!this.data) {
+      if (this.data === undefined) {
         return;
       }
 
@@ -164,6 +164,7 @@ export class MobileNav {
         </li>
       ));
 
+      // eslint-disable-next-line @stencil/render-returns-host
       return returnItems;
     };
 
@@ -178,6 +179,7 @@ export class MobileNav {
 
     const navbarInteraction = <div class='navbar__mobile--interaction'></div>;
 
+    // eslint-disable-next-line @stencil/render-returns-host
     return [navHeader, navbar, navbarInteraction];
   }
 }

@@ -11,10 +11,10 @@ import {
   styleUrl: 'ccdesign-placeholder.scss',
 })
 export class CcdesignPlaceholder {
-  @Prop() position: PlaceholderPosition = PlaceholderPosition.relative;
-  @Prop() alignment: PlaceholderAlignment = PlaceholderAlignment.topLeft;
-  @Prop() width: PlaceholderWidth = PlaceholderWidth.auto;
-  @Prop() height: PlaceholderHeight = PlaceholderHeight.auto;
+  @Prop() readonly position: PlaceholderPosition = PlaceholderPosition.relative;
+  @Prop() readonly alignment: PlaceholderAlignment = PlaceholderAlignment.topLeft;
+  @Prop() readonly width: PlaceholderWidth = PlaceholderWidth.auto;
+  @Prop() readonly height: PlaceholderHeight = PlaceholderHeight.auto;
 
   /**
    * render

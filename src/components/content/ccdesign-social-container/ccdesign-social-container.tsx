@@ -5,8 +5,8 @@ import { Component, Prop, h } from '@stencil/core';
   styleUrl: 'ccdesign-social-container.scss',
 })
 export class CcdesignSocialContainer {
-  @Prop() url: string;
-  @Prop() icon: string;
+  @Prop() readonly url: string;
+  @Prop() readonly icon: string;
 
   /**
    * render

@@ -5,20 +5,20 @@ import { Component, Element, Prop, h } from '@stencil/core';
   styleUrl: 'ccdesign-button.scss',
 })
 export class CcdesignButton {
-  @Prop() url: string;
-  @Prop() icon: string;
-  @Prop() color: string;
-  @Prop() type: string;
-  @Prop() eventName: string;
-  @Prop() alt: string;
+  @Prop() readonly url: string;
+  @Prop() readonly icon: string;
+  @Prop() readonly color: string;
+  @Prop() readonly type: string;
+  @Prop() readonly eventName: string;
+  @Prop() readonly alt: string;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLCcdesignButtonElement;
 
   /**
    * component did fully load
    */
   componentDidLoad(): void {
-    if (this.color) {
+    if (this.color !== undefined) {
       const result = this.el.querySelector('span');
       result.innerHTML ? result.setAttribute('class', `text--${this.color}`) : null;
     }
@@ -28,7 +28,7 @@ export class CcdesignButton {
    * render
    */
   render(): JSX.Element {
-    const TagType = this.url ? 'a' : 'button';
+    const TagType = Boolean(this.url) ? 'a' : 'button';
 
     const attribute =
       TagType === 'button' ? { type: this.type } : { href: this.url, alt: this.alt };
@@ -40,9 +40,10 @@ export class CcdesignButton {
       [`btn--${this.type}`]: this.type === 'text',
     };
 
-    const icon = this.icon ? (
-      <ccdesign-icon name={this.icon} color={this.color} size='xs'></ccdesign-icon>
-    ) : null;
+    const icon =
+      this.icon !== undefined ? (
+        <ccdesign-icon name={this.icon} color={this.color} size='xs'></ccdesign-icon>
+      ) : null;
 
     return (
       // @ts-ignore
