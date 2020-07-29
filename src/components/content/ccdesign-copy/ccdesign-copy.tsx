@@ -5,7 +5,7 @@ import { Component, Prop, h } from '@stencil/core';
   styleUrl: 'ccdesign-copy.scss',
 })
 export class CcdesignCopy {
-  @Prop() copy: string;
+  @Prop() readonly copy: string;
 
   /**
    * render

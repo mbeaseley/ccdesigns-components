@@ -5,8 +5,8 @@ import { Component, Prop, h } from '@stencil/core';
   styleUrl: 'ccdesign-cv-template.scss',
 })
 export class CcdesignCvTemplate {
-  @Prop() header: string;
-  @Prop() footer: string;
+  @Prop() readonly header: string;
+  @Prop() readonly footer: string;
 
   /**
    * render

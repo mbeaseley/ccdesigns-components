@@ -5,7 +5,7 @@ import { Component, Prop, h } from '@stencil/core';
   styleUrl: 'ccdesign-grid.scss',
 })
 export class CcdesignGrid {
-  @Prop() heading: string;
+  @Prop() readonly heading: string;
 
   /**
    * render

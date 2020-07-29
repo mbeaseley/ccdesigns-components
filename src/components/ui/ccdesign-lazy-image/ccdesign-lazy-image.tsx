@@ -6,14 +6,14 @@ import { AnyHTMLElement } from '@stencil/core/internal';
   styleUrl: 'ccdesign-lazy-image.scss',
 })
 export class CcdesignLazyImage {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLCcdesignLazyImageElement;
 
-  @Prop() imgSrc: string;
-  @Prop() alt: string;
-  @Prop() classNames: string;
+  @Prop() readonly imgSrc: string;
+  @Prop() readonly alt: string;
+  @Prop() readonly classNames: string;
 
   private observer: IntersectionObserver;
-  img: HTMLImageElement;
+  private img: HTMLImageElement;
 
   /**
    * component did render

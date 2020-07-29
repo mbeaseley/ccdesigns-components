@@ -7,19 +7,19 @@ import { CarouselItem } from '../../../utils/types/carousel-item';
   styleUrl: 'ccdesign-carousel-new.scss',
 })
 export class CcdesignCarouselNew {
-  @Prop() data: string;
+  @Prop() readonly data: string;
   @Prop({ mutable: true }) dataElement: any;
-  @Prop() timeInterval = 3000;
+  @Prop() readonly timeInterval = 3000;
   @Prop({ mutable: true }) imageSelected = 1;
 
-  @Element() el: HTMLElement;
-  items: NodeListOf<Element>;
+  @Element() el: HTMLCcdesignCarouselNewElement;
+  private items: NodeListOf<Element>;
 
   /**
    * Converts carousel Data into JSX Elements
    * @param carouseData - Formatted carousel data
    */
-  getData(carouseData: any): JSX.Element[] {
+  private getData(carouseData: any): JSX.Element[] {
     let returnItems: JSX.Element[] = [];
 
     const items: CarouselItem[] = carouseData;
@@ -52,7 +52,7 @@ export class CcdesignCarouselNew {
    * @param data - HTML Element
    * @param i - index
    */
-  sortClasses(data: HTMLElement, i?: number): any {
+  private sortClasses(data: HTMLElement, i?: number): any {
     if (data.className === 'slide-middle blurry-out') {
       return data.classList.replace('slide-middle', 'slide-right');
     } else if (i === this.imageSelected) {
@@ -66,7 +66,7 @@ export class CcdesignCarouselNew {
    * Trigger for carousel swapping
    * @param items - HTML elements
    */
-  timeTrigger(items: NodeListOf<Element>): void {
+  private timeTrigger(items: NodeListOf<Element>): void {
     this.items = items;
 
     setInterval(() => {
@@ -83,7 +83,7 @@ export class CcdesignCarouselNew {
    * on component first load
    * @param items - HTML elements
    */
-  componentLoadImages(items: NodeListOf<Element>): void {
+  private componentLoadImages(items: NodeListOf<Element>): void {
     this.items = items;
     this.items.forEach((data: HTMLElement, i: number) => {
       if (i === 0) {

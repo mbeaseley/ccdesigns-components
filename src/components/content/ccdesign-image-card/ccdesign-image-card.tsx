@@ -6,10 +6,10 @@ import { AnyHTMLElement } from '@stencil/core/internal';
   styleUrl: 'ccdesign-image-card.scss',
 })
 export class CcdesignImageCard {
-  @Prop() url: string;
-  @Prop() imageUrl: string;
-  @Prop() imageAlt: string;
-  @Prop() description: string;
+  @Prop() readonly url: string;
+  @Prop() readonly imageUrl: string;
+  @Prop() readonly imageAlt: string;
+  @Prop() readonly description: string;
 
   /**
    * render

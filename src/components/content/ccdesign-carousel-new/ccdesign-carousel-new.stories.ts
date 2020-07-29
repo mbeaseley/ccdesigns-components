@@ -8,13 +8,9 @@ export default {
 
 const carouselStyles = `
   <style>
-    .story {
-      width: 50vw;
-    }
-
     .story .carousel,
     .story img {
-      height: 80vh !important;
+      min-height: 600px !important;
     }
   </style>
 `;

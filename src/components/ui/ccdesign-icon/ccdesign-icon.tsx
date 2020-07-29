@@ -8,25 +8,23 @@ import { AnyHTMLElement } from '@stencil/core/internal';
   styleUrl: 'ccdesign-icon.scss',
 })
 export class CcdesignIcon {
-  @Prop() name: string;
-  @Prop() size = 'xs';
-  @Prop() color = 'white';
-  @Prop({ mutable: true })
-  @Prop({ mutable: true })
-  svg: string = '';
+  @Prop() readonly name: string;
+  @Prop() readonly size: string = 'xs';
+  @Prop() readonly color: string = 'white';
+  @Prop({ mutable: true }) svg: string = '';
 
-  @Element() iconEl: HTMLElement;
+  @Element() iconEl: HTMLCcdesignIconElement;
 
   /**
    * gets and sets icon svg to element
    */
-  getSVG(name?: string): Promise<void> {
+  private getSVG(name?: string): Promise<void> {
     const fallbackUrl = `/assets/${name}.svg`;
-    const url: string = name
+    const url: string = Boolean(name)
       ? fallbackUrl
       : `https://ccdesigns.blob.core.windows.net/icons/${this.name}.svg`;
 
-    if (!this.name) {
+    if (this.name === undefined) {
       return Promise.resolve(undefined);
     }
 
@@ -35,12 +33,12 @@ export class CcdesignIcon {
       .then((svg) => {
         this.svg = !svg.includes('<svg') ? '' : svg;
         //  Fetches backup image
-        if (!this.svg) {
+        if (this.svg === '') {
           return this.getSVG('fallback');
         }
 
         const result = this.iconEl.querySelector('div');
-        const iconExist = !!result.querySelector('svg');
+        const iconExist = Boolean(result.querySelector('svg'));
 
         if (iconExist) {
           result.querySelector('svg').remove();
@@ -62,7 +60,7 @@ export class CcdesignIcon {
    */
   @Watch('name')
   componentWillUpdate(): Promise<void> {
-    if (!this.svg) {
+    if (this.svg === '' || this.svg === undefined) {
       return this.getSVG();
     }
   }
