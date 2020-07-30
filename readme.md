@@ -8,7 +8,7 @@ This is a web component library that is used on <a href="http://ccdesign.me.uk">
 
 Stencil is a compiler for building fast web apps using Web Components.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
@@ -26,31 +26,26 @@ To start building a new web component using Stencil, clone this repo to a new di
 
 ```bash
 git clone https://github.com/mbeaseley/ccdesigns-components.git
-cd my-component
+cd ccdesigns-components
 ```
 
 and run:
 
 ```bash
-yarn
-yarn dev
-```
-
-To build the component for development, run:
-
-```bash
-yarn build
+npm i
+npm run stencil:start
 ```
 
 To build the component for production, run:
+
 ```bash
-yarn build.prod
+npm run stencil:build
 ```
 
-To run the unit tests for the components, run:
+To run the unit and e2e tests for the components, run:
 
 ```bash
-yarn test
+npm run stencil:test
 ```
 
 ## Naming Components
@@ -60,14 +55,17 @@ When creating new component tags, we recommend _not_ using `stencil` in the comp
 Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
 
 ## Making a Stencil Component
+
 The easiest way of creating a stencil component is using this cli as documentation here: https://www.npmjs.com/package/st-cc
 
-To install: 
+To install:
+
 ```bash
-yarn global add st-cc
+npm i -g st-cc
 ```
 
 To add a new component
+
 ```bash
 st-cc cc-newcomponent
 ```
@@ -76,22 +74,27 @@ st-cc cc-newcomponent
 
 Component are presented in Storybook. For each new component, a storybook file is required.
 
-For testing: 
+For testing:
+
 ```bash
-yarn storybook
+npm run story
 ```
 
 For pre-production test:
-Do a build: 
+Do a build:
+
 ```bash
-yarn build-storybook
+yarn storybook:build
 ```
-To run: 
+
+To run:
+
 ```bash
 npx http-server .out
 ```
 
 To deploy to production:
+
 ```bash
-yarn deploy-storybook
+npm run storybook:deploy
 ```
