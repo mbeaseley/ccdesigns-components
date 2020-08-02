@@ -4,18 +4,18 @@ body {
 }
 
 ccdesign-cv-template {
-  @media(max-width: $screen-md) {
+  @media (max-width: $screen-md) {
     ccdesign-header {
       .navbar {
         margin-left: 20px !important;
       }
     }
   }
-  
+
   .page {
     overflow: hidden;
     background-color: $cc-black;
-    
+
     &__body {
       display: -webkit-flex;
       display: flex;
@@ -24,16 +24,7 @@ ccdesign-cv-template {
       width: 100vw;
       height: 97vh;
 
-      // TODO: change this when angular problem solved
-      > app-home,
-      app-portfolio,
-      app-contact,
-      app-fyp-project,
-      app-website-project,
-      app-webcomponent-project,
-      app-talktalk-azure,
-      app-talktalk-component,
-      app-talktalk-sales {
+      > * {
         display: -webkit-flex;
         display: flex;
         -webkit-flex-direction: row;
@@ -45,7 +36,7 @@ ccdesign-cv-template {
       &--left::-webkit-scrollbar {
         display: none;
       }
-  
+
       &--left {
         padding-bottom: 10px;
         margin-top: 55px;
@@ -53,7 +44,7 @@ ccdesign-cv-template {
         order: 1;
         overflow: auto;
         overflow-x: hidden;
-  
+
         @media screen and (max-width: $screen-xs-max) {
           margin-top: 0;
         }
@@ -63,7 +54,7 @@ ccdesign-cv-template {
           margin-left: 100px;
           margin-right: 60px;
 
-          @media (max-width: $screen-sm-max ) {
+          @media (max-width: $screen-sm-max) {
             margin-left: 20px;
           }
 
@@ -79,28 +70,20 @@ ccdesign-cv-template {
         order: 2;
         min-width: 387px;
       }
-  
+
       @media screen and (max-width: $screen-xs-max) {
         position: relative;
         -webkit-flex-direction: column;
         flex-direction: column;
         height: 92vh;
 
-        > app-home,
-        app-portfolio,
-        app-contact,
-        app-fyp-project,
-        app-website-project,
-        app-webcomponent-project,
-        app-talktalk-azure,
-        app-talktalk-component,
-        app-talktalk-sales {
+        > * {
           position: relative;
           -webkit-flex-direction: column;
           flex-direction: column;
           height: 92vh;
         }
-  
+
         &--left {
           order: 2;
           flex: 1 1 140vw;
