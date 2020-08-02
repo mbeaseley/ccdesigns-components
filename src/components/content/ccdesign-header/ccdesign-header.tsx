@@ -85,7 +85,7 @@ export class CcdesignHeader {
       return;
     }
     try {
-      const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#${urlPathName}`);
+      const elResult: NodeListOf<Element> = this.el.querySelectorAll(`#desktop${urlPathName}`);
       elResult.forEach((elementResult: Element) => {
         elementResult.classList.add('active');
       });
