@@ -24,7 +24,7 @@ ccdesign-cv-template {
       width: 100vw;
       height: 97vh;
 
-      > * {
+      > app-page {
         display: -webkit-flex;
         display: flex;
         -webkit-flex-direction: row;
@@ -77,7 +77,7 @@ ccdesign-cv-template {
         flex-direction: column;
         height: 92vh;
 
-        > * {
+        > app-page {
           position: relative;
           -webkit-flex-direction: column;
           flex-direction: column;
