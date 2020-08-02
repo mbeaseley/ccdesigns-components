@@ -84,7 +84,7 @@ For pre-production test:
 Do a build:
 
 ```bash
-yarn storybook:build
+npm run storybook:build
 ```
 
 To run:
