@@ -9,6 +9,8 @@ $cc-black: #000;
 //colors
 $cc-light-blue: #80e3ff;
 $cc-dark-blue: #181852;
+$cc-lime: #00ff00;
+$cc-red: #ff0000;
 
 //social Container
 $cc-inner-circle: rgba(128, 227, 255, 1);
@@ -16,7 +18,7 @@ $cc-outer-circle: rgba(55, 210, 253, 0.8);
 $cc-icons-blue: #007bff;
 $cc-icons-blue-action: #0056b3;
 
-//back button: 
+//back button:
 $cc-grey-color: rgba(255, 255, 255, 0.5);
 $cc-grey-border: rgba(255, 255, 255, 0.1);
 
@@ -24,8 +26,9 @@ $cc-grey-border: rgba(255, 255, 255, 0.1);
 $colors-list: (
   'white': $cc-white,
   'light-grey': $cc-grey1,
-  'grey': $cc-grey2, 
+  'grey': $cc-grey2,
   'dark-grey': $cc-grey3,
   'black': $cc-black,
   'blue': $cc-icons-blue,
-) !default; 
+  'green': $cc-lime,
+) !default;

@@ -1,0 +1,36 @@
+ccdesign-input {
+  position: relative;
+
+  & > .input {
+    position: relative;
+
+    input,
+    textarea {
+      position: absolute;
+      width: 90.6%;
+      padding: 10px 36px 10px 16px;
+      border: none;
+      background-color: $cc-grey4;
+      color: $cc-white;
+    }
+
+    & > textarea {
+      height: 150px;
+    }
+
+    .error {
+      position: relative;
+      width: 90.3%;
+      border: 1px solid $cc-red;
+    }
+
+    ccdesign-copy small {
+      color: $cc-red;
+    }
+
+    ccdesign-icon {
+      position: absolute;
+      margin: 6px auto 0 94.5%;
+    }
+  }
+}

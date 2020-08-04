@@ -13,7 +13,9 @@ h2 {
   color: $cc-grey1;
   margin: 0;
 
-  @media (max-width: $screen-xs-min) { font-size: 39px; }
+  @media (max-width: $screen-xs-min) {
+    font-size: 39px;
+  }
 }
 
 h2,
@@ -32,7 +34,15 @@ p {
   margin-top: 0;
   margin-bottom: 12px;
 
-  @media (max-width: $screen-xs-min) { font-size: 14px; }
+  @media (max-width: $screen-xs-min) {
+    font-size: 14px;
+  }
+}
+
+small {
+  @extend %base;
+  color: $cc-white;
+  font-size: 12px;
 }
 
 a {
@@ -44,4 +54,14 @@ li {
   @extend %base;
   font-size: 16px;
   color: $cc-white;
+}
+
+input,
+textarea {
+  @extend %base;
+  font-size: 16px;
+
+  @media (max-width: $screen-xs-min) {
+    font-size: 14px;
+  }
 }

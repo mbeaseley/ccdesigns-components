@@ -1,7 +1,5 @@
 import { Component, Element, Prop, Watch, h } from '@stencil/core';
 import { AnyHTMLElement } from '@stencil/core/internal';
-// const fallback = require('../../../assets/fallback.svg');
-// import * as fallback from '../../../assets/fallback.svg';
 
 @Component({
   tag: 'ccdesign-icon',
@@ -70,7 +68,7 @@ export class CcdesignIcon {
    */
   render(): AnyHTMLElement {
     let inputColor: string;
-    const backgroundColors = ['white', 'light-grey', 'grey', 'dark-grey', 'black', 'blue'];
+    const backgroundColors = ['white', 'light-grey', 'grey', 'dark-grey', 'black', 'blue', 'green'];
     if (backgroundColors.indexOf(this.color) > -1) {
       inputColor = `icon--${this.color}`;
     } else {
