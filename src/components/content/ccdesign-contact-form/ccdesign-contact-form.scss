@@ -1,0 +1,30 @@
+ccdesign-contact-form {
+  .contact-form {
+    & > h1 {
+      font-size: 46px;
+      margin-bottom: 16px;
+    }
+
+    & > p {
+      margin-bottom: 24px;
+    }
+
+    ccdesign-input > .input {
+      margin-bottom: 12px;
+
+      > *:not(ccdesign-icon) {
+        position: relative;
+      }
+
+      > ccdesign-icon {
+        top: 6px;
+        right: 6px;
+        margin: 0;
+      }
+    }
+
+    ccdesign-button > * {
+      margin: 0 0 12px auto;
+    }
+  }
+}

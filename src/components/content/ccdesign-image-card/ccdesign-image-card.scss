@@ -1,7 +1,7 @@
 ccdesign-image-card {
   .image-card {
     text-decoration: none;
-    
+
     &__image {
       width: 100%;
       &:hover,
@@ -22,6 +22,7 @@ ccdesign-image-card {
       padding: 15px;
       display: flex;
       justify-content: center;
+      min-height: 38px;
 
       @media (max-width: $screen-md-max) {
         align-items: center;
@@ -29,6 +30,8 @@ ccdesign-image-card {
       }
 
       p {
+        display: flex;
+        align-items: center;
         text-align: center;
         color: $cc-white;
         margin: 0;

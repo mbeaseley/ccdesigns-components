@@ -28,6 +28,25 @@ ccdesign-button {
     }
 
     &.btn {
+      &--primary {
+        background-color: transparent;
+        padding: 8px 12px;
+        border: 2px solid;
+
+        @each $type, $color in $colors-list {
+          &.btn--#{$type} {
+            border-color: $color;
+
+            &:hover {
+              background-color: $color;
+              & > .text--#{$type} {
+                color: $cc-black;
+              }
+            }
+          }
+        }
+      }
+
       &--text {
         background-color: transparent;
         border-color: transparent;

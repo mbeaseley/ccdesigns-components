@@ -28,8 +28,12 @@ export class CcdesignInput {
   }
 
   @Method()
-  async inputValue(): Promise<string> {
-    return this.value;
+  async inputValue(): Promise<any> {
+    if (!this.value) {
+      return { error: 'required' };
+    }
+
+    return { placeholder: this.placeholder, value: this.value };
   }
 
   private handleChange(event: FocusEvent): void {

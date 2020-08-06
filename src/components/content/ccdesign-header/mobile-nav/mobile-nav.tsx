@@ -107,7 +107,8 @@ export class MobileNav {
     const openNav = !this.isRootPage ? (
       <ccdesign-button
         icon='bars'
-        type='text'
+        buttonStyle='text'
+        buttonType='button'
         color='light-grey'
         onClick={() => this.openNav()}
         class={`${this.isNavOpen ? 'visible' : ''}`}
@@ -121,7 +122,8 @@ export class MobileNav {
 
     const closeNav = (
       <ccdesign-button
-        type='text'
+        buttonStyle='text'
+        buttonType='button'
         icon='times'
         color='light-grey'
         onClick={() => this.closeNav()}
@@ -132,7 +134,8 @@ export class MobileNav {
     const backNav = this.isRootPage ? (
       <ccdesign-button
         icon='chevron-left'
-        type='text'
+        buttonStyle='text'
+        buttonType='button'
         color='light-grey'
         onClick={() => this.backRootPage()}
         alt='chevron-left'

@@ -8,8 +8,9 @@ export class CcdesignButton {
   @Prop() readonly url: string;
   @Prop() readonly icon: string;
   @Prop() readonly color: string;
-  @Prop() readonly type: string;
-  @Prop() readonly eventName: string;
+  @Prop() readonly buttonStyle: string;
+  @Prop() readonly buttonType: string = 'button';
+  @Prop() readonly eventName: Function;
   @Prop() readonly alt: string;
 
   @Element() el: HTMLCcdesignButtonElement;
@@ -31,13 +32,15 @@ export class CcdesignButton {
     const TagType = Boolean(this.url) ? 'a' : 'button';
 
     const attribute =
-      TagType === 'button' ? { type: this.type } : { href: this.url, alt: this.alt };
+      TagType === 'button'
+        ? { onclick: this.eventName, type: this.buttonType }
+        : { href: this.url, alt: this.alt };
 
     const classList = {
       btn: true,
       [`btn--${this.color}`]: true,
       [`btn--icon`]: this.icon,
-      [`btn--${this.type}`]: this.type === 'text',
+      [`btn--${this.buttonStyle}`]: this.buttonStyle,
     };
 
     const icon =

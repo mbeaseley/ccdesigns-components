@@ -116,10 +116,11 @@ export class CcdesignHeader {
         {this.isRootPage ? (
           <ccdesign-button
             icon='chevron-left'
-            type='text'
+            buttonStyle='text'
+            buttonType='button'
             color='light-grey'
             // eslint-disable-next-line react/jsx-no-bind
-            onClick={() => this.backRootPage()}
+            eventName={() => this.backRootPage()}
             alt='chevron-left'
           ></ccdesign-button>
         ) : (
