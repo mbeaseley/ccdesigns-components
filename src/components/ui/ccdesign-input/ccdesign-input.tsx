@@ -15,10 +15,17 @@ export class CcdesignInput {
   @State() focus: boolean = false;
   @State() validate: boolean = true;
 
-  validator(): void {
+  @Method()
+  async validator(override?: boolean): Promise<void> {
+    if (override !== undefined) {
+      this.validate = override;
+      this.touched = true;
+      return Promise.resolve(undefined);
+    }
+
     try {
       if (!this.required) {
-        return;
+        return Promise.resolve(undefined);
       }
 
       this.validate = !!this.touched && !!this.value;
@@ -34,6 +41,14 @@ export class CcdesignInput {
     }
 
     return { placeholder: this.placeholder, value: this.value };
+  }
+
+  @Method()
+  async inputReset(): Promise<any> {
+    this.value = '';
+    this.touched = false;
+    this.validator();
+    console.log('hi');
   }
 
   private handleChange(event: FocusEvent): void {

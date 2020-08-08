@@ -28,3 +28,4 @@ UserInterfaceState.xcuserstate
 
 src/components.d.ts
 *.d.ts
+src/services/environment

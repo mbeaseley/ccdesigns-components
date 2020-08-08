@@ -31,7 +31,10 @@
     "storybook:build": "STORYBOOK_ENV=/ccdesigns-components/ build-storybook",
     "storybook:deploy": "npm run storybook:build && storybook-to-ghpages -e storybook-static"
   },
-  "dependencies": {},
+  "dependencies": {
+    "emailjs-com": "^2.6.3",
+    "sendmail": "^1.6.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-typescript": "^7.10.4",
