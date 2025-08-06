@@ -42,7 +42,7 @@
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-storysource": "^5.3.19",
     "@storybook/addon-viewport": "^5.3.19",
-    "@storybook/html": "^5.3.19",
+    "@storybook/html": "^9.1.1",
     "@storybook/storybook-deployer": "^2.8.6",
     "@types/jest": "^26.0.7",
     "@types/node": "^14.0.27",
